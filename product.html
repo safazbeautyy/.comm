@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SAFA'z</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:wght@200;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+     <!-- Spinner Start -->
+<div id="spinner"
+     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-warning" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<!-- TOP NAVBAR -->
+<div style="
+    width: 100%;
+    background: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+">
+
+    <!-- Hamburger Button -->
+    <div onclick="openSidebar()" style="
+        font-size: 32px;
+        cursor: pointer;
+        color: #ffca1a;
+        font-weight: bold;
+        transition: transform 0.3s;
+    " onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+        ☰
+    </div>
+
+    <!-- Logo + Text -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+  <h2 style="
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    margin: 0 auto; /* Center horizontally */
+    font-weight: 800;
+    color: #ffca1a;
+    background: linear-gradient(45deg, #ffd700, #ffcc33);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.35), 0 0 12px rgba(255,215,0,0.6);
+    letter-spacing: 1px;
+    padding-right: 50px; /* Corrected */
+    text-align: center; /* Center text within the element */
+">
+    SAFA'<span style="font-size:0.65em; vertical-align: middle;">Z</span>
+</h2>
+        <img src="logo.jpg" alt="Logo" style="height: 60px; width: auto; border-radius:12px; box-shadow:0 0 15px rgba(255,202,26,0.7);" />
+      
+    </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar" 
+     style="
+        height:100%;
+        width:260px;
+        position:fixed;
+        top:0;
+        left:-280px;
+        background: linear-gradient(180deg, #fffde7, #ffe880);
+        overflow-x:hidden;
+        transition:0.5s ease;
+        box-shadow:5px 0 25px rgba(0,0,0,0.2);
+        z-index:2000;
+        padding-top:80px;
+        border-right:2px solid #ffca1a;
+        border-radius:0 20px 20px 0;
+     ">
+
+    <!-- Close Button -->
+    <a href="javascript:void(0)" onclick="closeSidebar()" 
+       style="
+            position:absolute; 
+            top:20px; 
+            right:20px; 
+            font-size:36px; 
+            text-decoration:none; 
+            color:#ffca1a; 
+            font-weight:bold;
+            transition: transform 0.3s, color 0.3s;
+       "
+       onmouseover="this.style.transform='rotate(90deg)'; this.style.color='#ffd700';"
+       onmouseout="this.style.transform='rotate(0deg)'; this.style.color='#ffca1a';"
+    >
+        ×
+    </a>
+
+ <!-- ===== SIDEBAR LOGO ===== -->
+<div style="
+    text-align:center;
+    margin-bottom:50px;
+    position:relative;
+    z-index:2;
+">
+  <span style="
+    font-size:40px;
+    font-weight:900;
+    letter-spacing:6px;
+    background: linear-gradient(45deg, #ffca1a, #000, #ffd700, #000);
+    background-size:400% 400%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    display:inline-block;
+    animation:logoGradient 4s ease infinite;
+    text-shadow:
+        0 0 10px rgba(255,202,26,0.7),
+        0 0 20px rgba(0,0,0,0.5),
+        0 0 30px rgba(255,255,255,0.3);
+    transform: rotateX(3deg) rotateY(2deg);
+  ">
+    SAFA'z
+  </span>
+</div>
+
+<style>
+@keyframes logoGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+</style>
+
+<!-- ===== MENU TITLE ===== -->
+<div style="
+    text-align:center;
+    font-size:26px;
+    font-weight:900;
+    color:#ffca1a;
+    letter-spacing:2px;
+    margin-bottom:30px;
+    text-shadow:0 0 5px #000, 0 0 10px #ffca1a;
+    animation:menuGlow 2s ease-in-out infinite alternate;
+">MENU</div>
+ 
+   <!-- Menu Links -->
+<a href="index.html" style="
+    display:block;
+    padding:18px 30px;
+    text-decoration:none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:700;
+    font-size:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+" onmouseover="this.style.background='#ffca1a'; this.style.color='black'; this.style.fontWeight='900'; this.style.boxShadow='0 0 15px rgba(255,202,26,0.7)'" 
+   onmouseout="this.style.background='transparent'; this.style.color='black'; this.style.fontWeight='700'; this.style.boxShadow='none'">
+   Home
+</a>
+
+<a href="about.html" style="
+    display:block;
+    padding:18px 30px;
+    text-decoration:none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:700;
+    font-size:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+" onmouseover="this.style.background='#ffca1a'; this.style.color='black'; this.style.fontWeight='900'; this.style.boxShadow='0 0 15px rgba(255,202,26,0.7)'" 
+   onmouseout="this.style.background='transparent'; this.style.color='black'; this.style.fontWeight='700'; this.style.boxShadow='none'">
+   About
+</a>
+
+<a href="product.html" style="
+    display:block;
+    padding:18px 30px;
+    text-decoration:none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:700;
+    font-size:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+" onmouseover="this.style.background='#ffca1a'; this.style.color='black'; this.style.fontWeight='900'; this.style.boxShadow='0 0 15px rgba(255,202,26,0.7)'" 
+   onmouseout="this.style.background='transparent'; this.style.color='black'; this.style.fontWeight='700'; this.style.boxShadow='none'">
+   Products
+</a>
+
+<a href="feature.html" style="
+    display:block;
+    padding:18px 30px;
+    text-decoration:none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:700;
+    font-size:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+" onmouseover="this.style.background='#ffca1a'; this.style.color='black'; this.style.fontWeight='900'; this.style.boxShadow='0 0 15px rgba(255,202,26,0.7)'" 
+   onmouseout="this.style.background='transparent'; this.style.color='black'; this.style.fontWeight='700'; this.style.boxShadow='none'">
+   Features
+</a>
+
+<a href="contact.html" style="
+    display:block;
+    padding:18px 30px;
+    text-decoration:none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:700;
+    font-size:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+" onmouseover="this.style.background='#ffca1a'; this.style.color='black'; this.style.fontWeight='900'; this.style.boxShadow='0 0 15px rgba(255,202,26,0.7)'" 
+   onmouseout="this.style.background='transparent'; this.style.color='black'; this.style.fontWeight='700'; this.style.boxShadow='none'">
+   Contact
+</a>
+
+<!-- Button -->
+<div style="padding:25px;">
+    <a href="#" style="
+        display:block;
+        background:#ffca1a;
+        color:black;
+        text-align:center;
+        padding:14px;
+        font-weight:800;
+        font-family: 'Times New Roman', Times, serif;
+        text-decoration:none;
+        border-radius:12px;
+        box-shadow:0 5px 20px rgba(255,202,26,0.6);
+        transition: transform 0.3s, box-shadow 0.3s;
+    " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255,202,26,0.8)'; this.style.fontWeight='900'" 
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(255,202,26,0.6)'; this.style.fontWeight='800'">
+       Buy Now
+    </a>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const sidebar = document.getElementById("sidebar");
+    const menuItems = sidebar.querySelectorAll("a, div a"); // all links/buttons inside sidebar
+
+    // Prepare items: initially shifted left and invisible
+    menuItems.forEach(item => {
+        item.style.transform = "translateX(-50px)";
+        item.style.opacity = "0";
+    });
+
+    // Open sidebar with sequential animation
+    window.openSidebar = function() {
+        sidebar.style.left = "0";
+
+        menuItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.transition = "transform 0.5s ease-out, opacity 0.5s ease-out";
+                item.style.transform = "translateX(0)";
+                item.style.opacity = "1";
+            }, index * 170); // 150ms delay per item
+        });
+    }
+
+    // Close sidebar
+    window.closeSidebar = function() {
+        sidebar.style.left = "-280px";
+
+        // Reset items to start position for next open
+        menuItems.forEach(item => {
+            item.style.transition = "none";
+            item.style.transform = "translateX(-50px)";
+            item.style.opacity = "0";
+        });
+    }
+
+    // Close sidebar on click outside
+    document.addEventListener("click", function(event) {
+        if (sidebar.style.left === "0px") { 
+            const isClickInside = sidebar.contains(event.target);
+            const isHamburger = event.target.closest("[onclick='openSidebar()']");
+            if (!isClickInside && !isHamburger) {
+                closeSidebar();
+            }
+        }
+    });
+});
+</script>
+
+
+
+
+
+<!-- Moving Text Section Begin -->
+<section style="background: #1a1a1a; overflow: hidden; position: relative; border-top: 3px solid #ffd700; border-bottom: 3px solid #ffd700; padding: 12px 0;">
+    
+    <div style="position: relative; width: 100%; overflow: hidden; border-radius: 6px; border: 2px solid #ffd700; background: rgba(255,215,0,0.05); box-shadow: 0 0 15px rgba(255,215,0,0.4);">
+
+        <!-- Shiny overlay -->
+        <div style="
+            position: absolute;
+            top: 0; left: -50%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,0,0.8), rgba(255,255,255,0.3));
+            transform: skewX(-25deg);
+            animation: shine 6s linear infinite;
+            pointer-events: none;
+        "></div>
+
+        <!-- Scrolling Text -->
+        <div style="
+            display: inline-block;
+            white-space: nowrap;
+            animation: moveText 90s linear infinite;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            font-size: 18px;
+            color: #fff;
+            padding: 10px 20px;
+            text-shadow: 0 0 5px #ffd700, 0 0 10px #ffec70;
+        ">
+           🚚✨ Enjoy free delivery on all orders over 3,000 PKR.
+
+🕌🎊 The Eid Sale is live – grab your favorites with up to 30% off!
+
+💎🌟 Experience premium skincare with instant results, only at SAFA’Z.
+
+🌸💧 Treat yourself to luxury skincare for a brighter, healthier you.
+
+☀️💦✨ Let your skin brighten, hydrate, and shine – results you’ll see immediately.
+
+💛🛍️ Discover amazing prices that you’ll truly love.
+🌺🔥 Say goodbye to dull skin.
+🌿 Anti-aging & rejuvenating creams.
+        </div>
+
+    </div>
+</section>
+
+<style>
+@keyframes moveText {
+    0% { transform: translateX(2%); }   /* Start offscreen right */
+    100% { transform: translateX(-100%); } /* Move fully left */
+}
+
+@keyframes shine {
+    0% { left: -50%; }
+    100% { left: 100%; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    div[style*="white-space: nowrap;"] {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}
+
+</style>
+
+<!-- ================= PREMIUM SHOP SECTION ================= -->
+<div class="mainSection">
+  <h2 class="mainHeading">Our Categories</h2>
+
+  <div class="categoryRow">
+    <div class="categoryItem activeCat" onclick="showProducts('faceShiner',this)">Skin Care</div>
+    <div class="categoryItem" onclick="showProducts('handFeet',this)">Hand & Feet Care</div>
+    <div class="categoryItem" onclick="showProducts('serum',this)">Serum Collection</div>
+    <div class="categoryItem" onclick="showProducts('eye',this)">Eye Collection</div>
+  </div>
+
+  <div id="productsContainer" class="productsContainer"></div>
+</div>
+
+<!-- Floating Cart -->
+<div id="cartIcon" onclick="openCart()">🛒
+  <span id="cartCount">0</span>
+</div>
+
+<!-- CART POPUP -->
+<div id="cartPopup" class="cartPopup" onclick="outsideClose(event)">
+  <div class="cartBox">
+    <span class="closeCart" onclick="closeCart()">×</span>
+    <h3>Your Shopping Cart</h3>
+    <div id="cartItems"></div>
+    <h4 id="cartTotal">Your cart is empty</h4>
+   <button class="checkoutBtn" onclick="openCheckout()">Proceed To Checkout</button>
+  </div>
+</div>
+<!-- ================= CHECKOUT FORM POPUP ================= -->
+<div id="checkoutPopup" class="checkoutPopup">
+  <div class="checkoutBox">
+    <span class="closeCheckout" onclick="closeCheckout()">×</span>
+    <h2>Complete Your Order</h2>
+
+    <div id="orderSummary"></div>
+
+    <input type="text" id="custName" placeholder="Full Name">
+   <input type="tel" 
+       id="custPhone" 
+       placeholder="Enter Phone Number (03XXXXXXXXX)"
+       maxlength="13"
+       required>
+    <input type="text" id="custCity" placeholder="City">
+    <textarea id="custAddress" placeholder="Complete Address"></textarea>
+
+    <select id="paymentMethod">
+      <option value="">Select Payment Method</option>
+      <option value="Cash on Delivery">Cash on Delivery (COD)</option>
+      <option value="Online Payment">Online Payment</option>
+    </select>
+
+    <!-- Premium Complete Order Button -->
+<button class="completeOrderBtn" onclick="showModal()" 
+style="
+background: linear-gradient(135deg,#ffca1a,#ff9800);
+color:#000;
+border:none;
+padding:14px 18px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+border-radius:16px;
+margin-top:12px;
+box-shadow:0 10px 25px rgba(255,165,0,0.4);
+transition:0.3s ease;
+width:100%;
+max-width:320px;
+display:block;
+margin-left:auto;
+margin-right:auto;
+letter-spacing:0.5px;
+">
+✨ Complete Order
+</button>
+
+<!-- Premium Modal -->
+<div id="modal" 
+style="
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+backdrop-filter:blur(8px);
+justify-content:center;
+align-items:center;
+padding:15px;
+">
+
+<div id="modal-content"
+style="
+background:linear-gradient(145deg,#ffffff,#f9f9ff);
+width:100%;
+max-width:420px;
+border-radius:22px;
+padding:24px;
+box-shadow:0 25px 50px rgba(0,0,0,0.25);
+position:relative;
+font-family:Arial, sans-serif;
+animation:fadeSlide 0.35s ease;
+">
+<!-- Close Button -->
+<span onclick="document.getElementById('modal').style.display='none';" 
+style="
+position: absolute;
+top: 14px;
+right: 16px;
+background: #ffe0e0;
+color: #d60000;
+width: 34px;
+height: 34px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
+font-weight: bold;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+">×</span>
+
+<h3 style="
+margin-bottom:22px;
+font-size:21px;
+font-weight:800;
+text-align:center;
+color:#222;
+">
+💬CHOOSE ANY ONE OF THEM!
+</h3>
+
+<!-- Contact 1 -->
+<div style="
+display:flex;
+align-items:flex-start;
+background:linear-gradient(135deg,#fff7e0,#fff1c2);
+padding:16px;
+border-radius:18px;
+margin-bottom:18px;
+box-shadow:0 8px 18px rgba(0,0,0,0.08);
+border:1px solid #ffe6a3;
+">
+
+<img src="safa.jpg" alt="Safa Butt"
+style="
+width:85px;
+height:85px;
+border-radius:50%;
+object-fit:cover;
+margin-right:14px;
+border:3px solid #ffca1a;
+">
+
+<div style="flex:1;">
+<h4 style="margin:0;font-size:17px;font-weight:700;color:#222;">
+Safa Butt 
+<span style="
+background:#28a745;
+color:white;
+font-size:11px;
+padding:3px 8px;
+border-radius:20px;
+margin-left:6px;
+font-weight:600;
+">Available</span>
+</h4>
+
+<p style="margin:6px 0 6px;font-size:13px;color:#444;font-weight:600;">
+Customer Services Manager
+</p>
+
+<p style="margin:0 0 10px;font-size:13px;color:#666;line-height:1.4;">
+Friendly and responsive support expert, helping customers quickly complete their orders smoothly.
+</p>
+
+<button onclick="sendToWhatsApp('+923364454964')" 
+style="
+background:linear-gradient(135deg,#25D366,#1ebe5d);
+color:white;
+border:none;
+padding:9px 12px;
+font-size:13px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+width:100%;
+box-shadow:0 5px 12px rgba(37,211,102,0.4);
+">
+Place Order
+</button>
+</div>
+</div>
+
+<!-- Contact 2 -->
+<div style="
+display:flex;
+align-items:flex-start;
+background:linear-gradient(135deg,#e8f0ff,#d6e4ff);
+padding:16px;
+border-radius:18px;
+box-shadow:0 8px 18px rgba(0,0,0,0.08);
+border:1px solid #c6d8ff;
+">
+
+<img src="feroz.jpg" alt="Feroz Ejaz Butt"
+style="
+width:85px;
+height:85px;
+border-radius:50%;
+object-fit:cover;
+margin-right:14px;
+border:3px solid #4a90ff;
+">
+
+<div style="flex:1;">
+<h4 style="margin:0;font-size:17px;font-weight:700;color:#222;">
+Feroz Ejaz Butt 
+<span style="
+background:#ff9800;
+color:white;
+font-size:11px;
+padding:3px 8px;
+border-radius:20px;
+margin-left:6px;
+font-weight:600;
+">Online</span>
+</h4>
+
+<p style="margin:6px 0 6px;font-size:13px;color:#444;font-weight:600;">
+Customer Services Specialist
+</p>
+
+<p style="margin:0 0 10px;font-size:13px;color:#666;line-height:1.4;">
+Order handling specialist ensuring fast responses and smooth checkout assistance.
+</p>
+
+<button onclick="sendToWhatsApp('+923493000195')" 
+style="
+background:linear-gradient(135deg,#25D366,#1ebe5d);
+color:white;
+border:none;
+padding:9px 12px;
+font-size:13px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+width:100%;
+box-shadow:0 5px 12px rgba(37,211,102,0.4);
+">
+Place Order
+</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+// Function to show the contact options modal
+function showModal() {
+    document.getElementById('modal').style.display = 'flex';
+}
+
+// Function to close the contact options modal
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+// Function to send a message via WhatsApp
+function sendToWhatsApp(phone) {
+    const message = "Your order message here.";
+    const whatsappURL = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+    window.open(whatsappURL, "_blank");
+    closeModal();
+}
+
+// Better mobile click detection
+document.getElementById("modal").addEventListener("click", function(event) {
+    if (event.target === this) {
+        closeModal();
+    }
+});
+
+// Animation
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes fadeSlide {
+from {opacity:0; transform:translateY(20px);}
+to {opacity:1; transform:translateY(0);}
+}`;
+document.head.appendChild(style);
+</script>
+  </div>
+</div>
+<!-- THANK YOU POPUP -->
+<div id="thankYouPopup" class="thankYouPopup">
+  <div class="thankYouBox">
+    <h2>Order Placed Successfully!</h2>
+    <p id="thankYouMessage"></p>
+  <button
+    style="
+        background: linear-gradient(to right, #FFD700, #FF8C00); /* Gradient background */
+        color: white;            /* White text */
+        border: none;            /* No border */
+        padding: 12px 24px;      /* Padding for the button */
+        font-size: 18px;         /* Font size */
+        font-weight: bold;       /* Bold text */
+        cursor: pointer;         /* Pointer cursor */
+        border-radius: 25px;     /* More rounded edges */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+    "
+    onclick="document.getElementById('thankYouPopup').style.display='none'; document.body.style.overflow='auto';">
+    OK
+</button>
+  </div>
+</div>
+<!-- IMAGE MODAL -->
+<div id="imageModal" class="imageModal" onclick="closeModal()">
+  <img id="modalImage">
+</div>
+
+<style>
+body{
+  font-family:'Times New Roman',serif;
+  margin:0;
+  background:#fff;
+}
+.mainSection{
+  padding:30px 15px;
+  text-align:center;
+}
+.mainHeading{
+  font-size:2.3rem;
+  font-weight:700;
+}
+.categoryRow{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin-top:20px;
+}
+.categoryItem{
+  padding:10px 18px;
+  border-radius:30px;
+  border:2px solid #ffca1a;
+  cursor:pointer;
+  font-weight:700;
+  transition:0.3s;
+     font-size: 0.9rem;
+}
+.categoryItem:hover,
+.activeCat{
+  background:#ffca1a;
+    
+}
+/* Container for all products */
+.productsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
+    gap: 2px; /* Space between items */
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+   
+}
+
+/* Each product card */
+.productCard {
+    width: 100%; /* Full width of the grid column */
+    border: 1px solid #ffca1a;
+    border-radius: 15px;
+    padding: 5px;
+    background: #fffdf6;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+      overflow: hidden;
+}
+
+/* Hover effect for cards */
+.productCard:hover {
+    transform: translateY(-5px);
+}
+
+/* Product image - same size, no cropping */
+.productCard img {
+    width: 130%;
+    height: 200px; /* fixed height for uniformity */
+    object-fit: contain; /* keep full image visible without cutting */
+    border-radius: 0px;
+    display: block;
+    cursor: pointer;
+    background-color: #fffdf6; /* optional: fill empty space */
+    margin: -5px 0 5px -5px; /* visually skip the card border */
+    
+}
+
+/* Optional: very small screens */
+@media (max-width: 360px) {
+    .productsContainer {
+        grid-template-columns: 1fr 1fr; /* maintain 2 columns */
+    }
+}
+    .productCard .name {
+    font-size: 0.9rem;}
+.productCard:hover{
+  transform:translateY(-6px);
+}
+
+
+/* FORCE 2 COLUMNS EVEN ON SMALL MOBILE SCREENS */
+@media (max-width: 480px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.originalPrice{
+  text-decoration:line-through;
+  color:#888;
+  font-size:0.9rem;
+}
+.price{
+  color:#d62828;
+  font-weight:700;
+}
+.qtyBox{
+  margin-top:8px;
+}
+.qtyBox input{
+  width:60px;
+  padding:5px;
+  text-align:center;
+}
+.btn{
+  margin-top:6px;
+  padding:6px 10px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:700;
+}
+.addBtn{
+  background:#ffca1a;
+}
+.buyBtn{
+  background:#000;
+  color:#fff;
+}
+.btn:hover{
+  opacity:0.85;
+}
+
+/* CART */
+#cartIcon{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#ffca1a;
+  padding:15px;
+  border-radius:50%;
+  font-size:22px;
+  cursor:pointer;
+  z-index:999;
+}
+#cartCount{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:#000;
+  color:#fff;
+  font-size:12px;
+  padding:3px 6px;
+  border-radius:50%;
+}
+.cartPopup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  justify-content:center;
+  align-items:center;
+  animation:fadeIn 0.3s ease;
+}
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+.cartBox{
+  background:#fff;
+  width:95%;
+  max-width:420px;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.25);
+  position:relative;
+  animation:slideUp 0.3s ease;
+}
+@keyframes slideUp{
+  from{transform:translateY(30px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
+}
+.closeCart{
+  position:absolute;
+  right:15px;
+  top:10px;
+  font-size:24px;
+  cursor:pointer;
+}
+.checkoutBtn{
+  width:100%;
+  padding:12px;
+  background:#000;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  margin-top:12px;
+}
+
+/* IMAGE MODAL */
+.imageModal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
+}
+.imageModal img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:12px;
+}
+.deleteBtn{
+  float:right;
+  cursor:pointer;
+  font-size:26px;          /* Bigger size */
+  color:#e63946;
+  background:#ffe5e5;
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  transition:all 0.3s ease;
+}
+
+.deleteBtn:hover{
+  background:#e63946;
+  color:#fff;
+  transform:scale(1.15) rotate(-8deg);
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+.cartItemRow{
+  margin-bottom:12px;
+  padding-bottom:8px;
+  border-bottom:1px solid #eee;
+  text-align:left;
+}.checkoutPopup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+  font-family:'Times New Roman',serif;
+}
+
+.checkoutBox{
+   width: 90%; /* Allow for responsive width */
+    max-width: 420px; /* Limit max width on larger screens */
+    background: linear-gradient(135deg, #fff8dc, #ffecb3);
+    padding: 20px; /* Reduced padding for mobile */
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.3s ease;
+    max-height: auto; /* Maintain maximum height */
+    overflow-y: auto; /* Enable scrolling */
+}
+
+@keyframes fadeInUp{
+  from{transform:translateY(30px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
+}
+
+.checkoutBox h2{
+  text-align:center;
+  margin-bottom:15px;
+  font-weight:700;
+}
+
+.checkoutBox input,
+.checkoutBox textarea,
+.checkoutBox select{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-family:'Times New Roman',serif;
+    font-size: 1em; /* Use relative font size */
+}
+
+.checkoutBox textarea{
+  resize:none;
+  height:70px;
+}
+
+.completeOrderBtn{
+  width:100%;
+  padding:12px;
+  background:#000;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.completeOrderBtn:hover{
+  background:#ffca1a;
+  color:#000;
+}
+
+.closeCheckout{
+  float:right;
+  font-size:22px;
+  cursor:pointer;
+}
+
+#orderSummary{
+  background:#fff;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:10px;
+  font-size:14px;
+  .checkoutPopup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  overflow-y:auto;
+  padding:15px;
+}
+
+.checkoutBox{
+  width:100%;
+  max-width:420px;
+  background:#fff8dc;
+  border-radius:20px;
+  max-height:95vh;
+  overflow-y:auto;
+  scroll-behavior:smooth;
+  padding:20px;
+}
+
+/* Sticky Header */
+.checkoutHeader{
+  position:sticky;
+  top:0;
+  background:#fff8dc;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:10px;
+  z-index:10;
+}
+
+/* Big Close Button */
+.bigCloseBtn{
+  font-size:22px;
+  background:black;
+  color:white;
+  border:none;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  cursor:pointer;
+}
+
+.bigCloseBtn:hover{
+  background:#ffca1a;
+  color:black;
+}
+}
+.thankYouPopup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  z-index:3000;
+  font-family:'Times New Roman',serif;
+}
+
+.thankYouBox{
+  background:linear-gradient(135deg,#fff8dc,#ffecb3);
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  width:90%;
+  max-width:400px;
+  animation:fadeIn 0.3s ease;
+}
+
+.thankYouBox h2{
+  margin-bottom:15px;
+}
+
+.thankYouBox p{
+  margin-bottom:20px;
+  font-size:16px;
+}
+
+.thankYouBox button{
+  padding:10px 25px;
+  border:none;
+  border-radius:8px;
+  background:black;
+  color:white;
+  cursor:pointer;
+}
+
+.thankYouBox button:hover{
+  background:#ffca1a;
+  color:black;
+}
+
+@keyframes fadeIn{
+  from{transform:scale(0.9);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+ .share-btn {
+        background-color: white; /* Grey color */
+        color: black;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+    .share-btn:hover { background-color:rgb(222, 168, 4); }
+    .share-icon { font-size: 1.2rem; }
+</style>
+
+<!-- Category Navigation -->
+<div id="categoryNav">
+    <div class="categoryItem activeCat" onclick="showProducts('faceShiner', this)">Face Shiner</div>
+    <div class="categoryItem" onclick="showProducts('handFeet', this)">Hand & Feet</div>
+    <div class="categoryItem" onclick="showProducts('serum', this)">Serum</div>
+    <div class="categoryItem" onclick="showProducts('eye', this)">Eye</div>
+</div>
+<div id="productsContainer"></div>
+
+<script>
+let cart=[];
+
+const products = {
+    faceShiner: [
+        {name: "<span style='font-size: 0.6rem;'>Safa'z 24k Gold Oxidizing Skin Polish Large Pack,(1000ml)peeling solution & (500grams) blonder powder", img: "s1.jpg", price: 2999, original: 3250},
+        {name: "<span style='font-size: 0.6rem;'>Safa'z Gold 24k Skin Polish Peeling solution(200ml) & Blonder Powder(200 grams)", img: "s2.jpg", price: 750, original: 850},
+        {name: "<span style='font-size: 0.6rem;'>Safa'z Hand & Foot Instant Whitening Cream (150grams)", img: "s3.jpg", price: 999, original: 1199, buyTwoPrice: 1899},
+        {name: "<span style='font-size: 0.6rem;'>Safa'z All in One Ready 2 White Saffaron Urgent Facial (300grams)", img: "s4.jpg", price: 1199, original: 1299, buyTwoPrice: 1999},
+        {name: "<span style='font-size: 0.6rem;'>Safa'z Natural Skin ShinerSoothing Aloevera(500ml)", img: "s5.jpg", price: 699, original: 799, buyTwoPrice: 1399}
+    ],
+    handFeet: [
+        {name: "<span style='font-size: 0.6rem;'>Hand Cream", img: "hand1.jpg", price: 640, original: 800}
+    ],
+    serum: [
+        {name: "<span style='font-size: 0.6rem;'>Glow Serum", img: "serum1.jpg", price: 1200, original: 1500}
+    ],
+    eye: [
+        {name: "<span style='font-size: 0.6rem;'>Highlighter", img: "eye1.jpg", price: 680, original: 850}
+    ]
+};
+
+// Show Products Function
+function showProducts(category, el) {
+    document.querySelectorAll('.categoryItem').forEach(c => c.classList.remove('activeCat'));
+    if (el) el.classList.add('activeCat');
+
+    const container = document.getElementById('productsContainer');
+    container.innerHTML = '';
+    
+    if (!products[category]) {
+        container.innerHTML = '<p>No products found for this category.</p>';
+        return;
+    }
+
+    products[category].forEach((p, i) => {
+        container.innerHTML += `
+        <div class="productCard">
+            <img src="${p.img}" onclick="openModal('${p.img}')">
+            <h4>${p.name}</h4>
+            <div>
+                <span class="originalPrice">PKR ${p.original}</span>
+                <span class="price"> PKR ${p.price}</span>
+            </div>
+
+            <div class="qtyBox">
+                <input type="number" min="1" value="1" onchange="updateLiveTotal(this, ${p.price})">
+                <div class="price">Total: PKR ${p.price}</div>
+
+                <button class="btn addBtn" onclick="addToCart('${category}', ${i}, this)">Add To Cart</button>
+                <button class="btn buyBtn" onclick="buyNow('${category}', ${i}, this)">Buy Now</button>
+                
+                <button class="btn share-btn" onclick="shareProduct('${category}', ${i}, '${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.img}')">
+                    <span class="share-icon">Share</span>📤 
+                </button>
+            </div>
+        </div>`;
+    });
+}
+
+// Share Product Function
+async function shareProduct(category, index, name, price, img) {
+    const cleanName = name.replace(/<[^>]*>?/gm, '');
+    const baseUrl = 'https://minii11.github.io/test/product.html';
+ 
+     const productUrl = `${baseUrl}?cat=${category}&idx=${index}&img=${encodeURIComponent(img)}`;
+    
+    const shareData = {
+        title: 'Safa\'z Product',
+        text: `Check out this amazing product: ${cleanName} for only PKR ${price}!\n\nImage: ${img}\nLink: ${productUrl}`,
+        url: productUrl
+    };
+
+    if (navigator.share) {
+        try {
+            await navigator.share(shareData);
+        } catch (err) {
+            console.log('Error sharing:', err);
+        }
+    } else {
+        try {
+            await navigator.clipboard.writeText(productUrl);
+            alert('Product link copied to clipboard!');
+        } catch (err) {
+            alert('Failed to copy text.');
+        }
+    }
+}
+
+// Helper Functions
+function updateLiveTotal(input, price) {
+    input.parentElement.querySelector('.price').innerText = "Total: PKR " + (input.value * price);
+}
+function addToCart(cat, idx, btn) { 
+    btn.innerText = "Added!"; 
+    setTimeout(() => btn.innerText = "Add To Cart", 1000); 
+}
+function buyNow(cat, idx, btn) { alert("Proceeding to checkout..."); }
+function openModal(img) { alert("Opening modal for " + img); }
+
+// Initialize First Category
+showProducts('faceShiner', document.querySelector('.categoryItem'));
+</script>
+
+<!-- Add this to your product.html page (at the bottom before </body>) -->
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('cat');
+    const index = urlParams.get('idx');
+
+    if (category && index) {
+        const productCards = document.querySelectorAll('.productCard');
+        if (productCards[index]) {
+            productCards[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Highlight the product
+            productCards[index].style.border = '3px solid #007bff';
+            productCards[index].style.boxShadow = '0 0 15px rgba(0,123,255,0.6)';
+            productCards[index].style.transform = 'scale(1.02)';
+            productCards[index].style.transition = 'all 0.3s ease';
+            
+            // Remove highlight after 5 seconds
+            setTimeout(() => {
+                productCards[index].style.border = '1px solid #eee';
+                productCards[index].style.boxShadow = '0 2px 5px rgba(0,0,0,0.05)';
+                productCards[index].style.transform = 'scale(1)';
+            }, 5000);
+        }
+    }
+});
+
+// Placeholder functions for your existing logic
+function updateLiveTotal(input, price) {
+    input.parentElement.querySelector('.price').innerText = "Total: PKR " + (input.value * price);
+}
+function addToCart(cat, idx, btn) { btn.innerText = "Added!"; setTimeout(()=>btn.innerText="Add To Cart", 1000); }
+function buyNow(cat, idx, btn) { alert("Proceeding to checkout..."); }
+function openModal(img) { alert("Opening modal for " + img); }
+
+// Initialize
+showProducts('faceShiner', document.querySelector('.categoryItem'));
+
+function updateLiveTotal(input,price){
+let total=input.value*price;
+input.nextElementSibling.innerText="Total: PKR "+total;
+}
+
+function addToCart(category,index,btn){
+let card=btn.closest('.productCard');
+let qty=parseInt(card.querySelector('input').value);
+let product=products[category][index];
+
+let existing=cart.find(i=>i.name===product.name);
+if(existing){
+existing.qty+=qty;
+}else{
+cart.push({...product,qty});
+}
+updateCart();
+}
+
+function buyNow(category,index,btn){
+addToCart(category,index,btn);
+openCart();
+}
+
+function updateCart(){
+document.getElementById('cartCount').innerText=
+cart.reduce((a,b)=>a+b.qty,0);
+
+let cartItems=document.getElementById('cartItems');
+cartItems.innerHTML='';
+let total=0;
+
+cart.forEach((item,index)=>{
+let itemTotal=item.qty*item.price;
+total+=itemTotal;
+
+cartItems.innerHTML+=`
+<div class="cartItemRow">
+<span class="deleteBtn" onclick="removeItem(${index})">🗑</span>
+<strong>${item.name}</strong><br>
+Qty: ${item.qty} × PKR ${item.price}<br>
+Total: PKR ${itemTotal}
+</div>`;
+});
+
+document.getElementById('cartTotal').innerText="Total: PKR "+total;
+}
+
+function removeItem(index){
+cart.splice(index,1);
+updateCart();
+}
+
+function openCart(){
+document.getElementById('cartPopup').style.display='flex';
+}
+
+function closeCart(){
+document.getElementById('cartPopup').style.display='none';
+}
+
+function outsideClose(e){
+if(e.target.id==="cartPopup"){closeCart();}
+}
+
+function openModal(img){
+document.getElementById('modalImage').src=img;
+document.getElementById('imageModal').style.display='flex';
+}
+
+function closeModal(){
+document.getElementById('imageModal').style.display='none';
+}
+
+window.onload=function(){
+showProducts('faceShiner',document.querySelector('.categoryItem'));
+};
+// OPEN CHECKOUT
+function openCheckout(){
+  if(cart.length===0){
+    alert("Your cart is empty!");
+    return;
+  }
+
+  let summaryHTML="";
+  let total=0;
+
+  cart.forEach(item=>{
+    let itemTotal=item.qty*item.price;
+    total+=itemTotal;
+    summaryHTML+=`
+    <div>
+      ${item.name}<br>
+      Qty: ${item.qty} × PKR ${item.price}<br>
+      Item Total: PKR ${itemTotal}
+      <hr>
+    </div>`;
+  });
+
+  summaryHTML+=`<strong>Grand Total: PKR ${total}</strong>`;
+
+  document.getElementById("orderSummary").innerHTML=summaryHTML;
+  document.getElementById("checkoutPopup").style.display="flex";
+}
+
+// Show thank you message after 2 seconds
+    setTimeout(() => {
+        let customerName = document.getElementById("custName").value.trim();
+        showThankYou(customerName); // Call the function to show the thank you message
+    }, 2000); // 2000 milliseconds = 2 seconds
+
+
+// Close if user clicks outside the box
+document.getElementById("checkoutPopup").addEventListener("click", function(e){
+  if(e.target === this){
+    closeCheckout();
+  }
+});
+
+// Close with ESC key
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    closeCheckout();
+  }
+});
+// CLOSE CHECKOUT
+function closeCheckout(){
+  document.getElementById("checkoutPopup").style.display="none";
+}
+
+// GENERATE UNIQUE ORDER NUMBER
+function generateOrderNumber(){
+  return "SFA" + Date.now().toString().slice(-6);
+}
+
+
+// SEND TO WHATSAPP
+function sendToWhatsApp(){
+
+  let name=document.getElementById("custName").value.trim();
+  let phone=document.getElementById("custPhone").value.trim();
+  let city=document.getElementById("custCity").value.trim();
+  let address=document.getElementById("custAddress").value.trim();
+  let payment=document.getElementById("paymentMethod").value;
+
+  if(!name || !phone || !city || !address || !payment){
+    alert("Please fill all fields!");
+    return;
+  }
+
+
+  let orderNumber=generateOrderNumber();
+  
+  let total=0;
+  let itemsText="";
+
+  cart.forEach(item=>{
+    let itemTotal=item.qty*item.price;
+    total+=itemTotal;
+
+    itemsText+=`
+• ${item.name}
+  Qty: ${item.qty}
+  Price: PKR ${item.price}
+  Item Total: PKR ${itemTotal}
+`;
+  });
+
+  let message=`
+🛍️ *NEW ORDER RECEIVED*
+-------------------------
+Order No: ${orderNumber}
+
+Items:
+${itemsText}
+
+Total Amount: PKR ${total}
+
+Customer Details:
+Name: ${name}
+Phone: ${phone}
+City: ${city}
+Address: ${address}
+Payment Method: ${payment}
+
+Thank you for choosing SAFA'z 🌸
+`;
+
+// Show thank you message after 2 seconds
+    setTimeout(() => {
+        let customerName = document.getElementById("custName").value.trim();
+        showThankYou(customerName); // Call the function to show the thank you message
+    }, 2000); // 2000 milliseconds = 2 seconds
+function showThankYou() {
+    // Get the customer's name from the input field
+    const name = document.getElementById("custName").value.trim();
+
+    // Display the thank you message
+    document.getElementById("thankYouMessage").innerHTML =
+        "Thank you <strong>" + name + "</strong> for shopping with SAFA'z<br><br>Our team will process your order shortly.";
+
+    // Show the thank you popup
+    document.getElementById("thankYouPopup").style.display = "flex"; 
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
+}
+
+// Close Thank You Popup function
+function closeThankYou() {
+    const popup = document.getElementById("thankYouPopup");
+    if (!popup) return;
+
+    popup.style.display = "none";          // Hide the popup
+    document.body.style.overflow = "auto"; // Restore background scrolling
+
+    // Refresh the page
+    location.reload();
+}
+
+// Optional: Close popup if user clicks outside the box
+window.addEventListener("click", function(e) {
+    const popup = document.getElementById("thankYouPopup");
+    if (!popup) return;
+
+    // If the click is on the overlay (outside the inner box)
+    if (e.target === popup) {
+        closeThankYou();
+    }
+});
+
+// For Safa
+let safaPhone = "+923364454964"; // Update this number if needed
+let safaWhatsAppURL = "https://wa.me/" + safaPhone + "?text=" + encodeURIComponent(message);
+window.open(safaWhatsAppURL, "_blank");
+
+// For Feroz
+let ferozPhone = "+923493000195"; // Update this number if needed
+let ferozWhatsAppURL = "https://wa.me/" + ferozPhone + "?text=" + encodeURIComponent(message);
+window.open(ferozWhatsAppURL, "_blank");
+
+
+  
+// Close Thank You
+function closeThankYou(){
+  document.getElementById("thankYouPopup").style.display = "none";
+  document.body.style.overflow="auto";
+
+  // Clear cart after confirmation
+  cart = [];
+  updateCart();
+  closeCheckout();
+}
+  cart=[];
+  updateCart();
+  closeCheckout();
+}
+function buyNow(category,index,btn){
+  addToCart(category,index,btn);
+  openCheckout();
+}
+
+</script>
+
+
+
+    <!-- Product Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-primary mb-3"><span class="fw-light text-dark">Our Natural</span> Hair Products</h1>
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat, nibh erat tempus risus.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/product-1.png" alt="">
+                        <div class="mb-2">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(99)</small>
+                        </div>
+                        <a href="" class="h6 d-inline-block mb-2">Hair Shining Shampoo</a>
+                        <h5 class="text-primary mb-3">$99.99</h5>
+                        <a href="" class="btn btn-outline-primary px-3">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/product-2.png" alt="">
+                        <div class="mb-2">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(99)</small>
+                        </div>
+                        <a href="" class="h6 d-inline-block mb-2">Anti-dandruff Shampoo</a>
+                        <h5 class="text-primary mb-3">$99.99</h5>
+                        <a href="" class="btn btn-outline-primary px-3">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/product-1.png" alt="">
+                        <div class="mb-2">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(99)</small>
+                        </div>
+                        <a href="" class="h6 d-inline-block mb-2">Anti Hair Fall Shampoo</a>
+                        <h5 class="text-primary mb-3">$99.99</h5>
+                        <a href="" class="btn btn-outline-primary px-3">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/product-2.png" alt="">
+                        <div class="mb-2">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(99)</small>
+                        </div>
+                        <a href="" class="h6 d-inline-block mb-2">Hair Growing Shampoo</a>
+                        <h5 class="text-primary mb-3">$99.99</h5>
+                        <a href="" class="btn btn-outline-primary px-3">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/product-1.png" alt="">
+                        <div class="mb-2">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(99)</small>
+                        </div>
+                        <a href="" class="h6 d-inline-block mb-2">Hair Shining Shampoo</a>
+                        <h5 class="text-primary mb-3">$99.99</h5>
+                        <a href="" class="btn btn-outline-primary px-3">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/product-2.png" alt="">
+                        <div class="mb-2">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(99)</small>
+                        </div>
+                        <a href="" class="h6 d-inline-block mb-2">Anti-dandruff Shampoo</a>
+                        <h5 class="text-primary mb-3">$99.99</h5>
+                        <a href="" class="btn btn-outline-primary px-3">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/product-1.png" alt="">
+                        <div class="mb-2">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(99)</small>
+                        </div>
+                        <a href="" class="h6 d-inline-block mb-2">Anti Hair Fall Shampoo</a>
+                        <h5 class="text-primary mb-3">$99.99</h5>
+                        <a href="" class="btn btn-outline-primary px-3">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/product-2.png" alt="">
+                        <div class="mb-2">
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small class="fa fa-star text-primary"></small>
+                            <small>(99)</small>
+                        </div>
+                        <a href="" class="h6 d-inline-block mb-2">Hair Growing Shampoo</a>
+                        <h5 class="text-primary mb-3">$99.99</h5>
+                        <a href="" class="btn btn-outline-primary px-3">Add To Cart</a>
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    <a class="btn btn-primary py-2 px-4" href="">Load More Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product End -->
+
+
+    <!-- Newsletter Start -->
+    <div class="container-fluid newsletter bg-primary py-5 my-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-white mb-3"><span class="fw-light text-dark">Let's Subscribe</span> The Newsletter</h1>
+                <p class="text-white mb-4">Subscribe now to get 30% discount on any of our products</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="position-relative w-100 mt-3 mb-2">
+                        <input class="form-control w-100 py-4 ps-4 pe-5" type="text" placeholder="Enter Your Email"
+                            style="height: 48px;">
+                        <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
+                                class="fa fa-paper-plane text-white fs-4"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-white footer">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <h1 class="text-primary">Hairnic</h1>
+                    </a>
+                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non
+                        malesuada consequat, nibh erat tempus risus, vitae porttitor purus nisl vitae purus.</p>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="mb-4">Get In Touch</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="mb-4">Our Products</h5>
+                    <a class="btn btn-link" href="">Hair Shining Shampoo</a>
+                    <a class="btn btn-link" href="">Anti-dandruff Shampoo</a>
+                    <a class="btn btn-link" href="">Anti Hair Fall Shampoo</a>
+                    <a class="btn btn-link" href="">Hair Growing Shampoo</a>
+                    <a class="btn btn-link" href="">Anti smell Shampoo</a>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="mb-4">Popular Link</h5>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Career</a>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+
+                        <!--/*** The author’s attribution link must remain intact in the template. ***/-->
+                        <!--/*** If you wish to remove this credit link, please purchase the Pro Version . ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FAQs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
