@@ -1222,7 +1222,7 @@ function showProducts(category, el) {
                 <button class="btn buyBtn" onclick="buyNow('${category}', ${i}, this)">Buy Now</button>
                 
                 <button class="btn share-btn" onclick="shareProduct('${category}', ${i}, '${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.img}')">
-                    <span class="share-icon">Share</span>📤 
+                    <span class="share-icon">📤 </span>
                 </button>
             </div>
         </div>`;
@@ -1848,6 +1848,7 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
+
 
 
 
