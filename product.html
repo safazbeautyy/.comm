@@ -9,7 +9,7 @@
     <meta content="" name="description">
      <meta property="og:title" content="Safa'z Product">
     <meta property="og:description" content="Check out our topnotch products!">
-    <meta property="og:image" content="https://safazzzz.github.io/.comm/images/default.jpg">
+    <meta property="og:image" content="https://safazzzz.github.io/.comm/default.jpg">
     <meta property="og:url" content="https://safazzzz.github.io/.comm/product.html">
     <meta property="og:type" content="website">
 
@@ -1262,7 +1262,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const img = urlParams.get('img');
     
-    // Update OG image dynamically with the actual product image
+    // Update OG image dynamically (only works for browsers, not bots)
     if (img) {
         const ogImage = document.querySelector('meta[property="og:image"]');
         if (ogImage) ogImage.setAttribute('content', img);
@@ -1279,6 +1279,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+    
 // Helper Functions
 function updateLiveTotal(input, price) {
     input.parentElement.querySelector('.price').innerText = "Total: PKR " + (input.value * price);
@@ -1848,6 +1849,7 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
+
 
 
 
