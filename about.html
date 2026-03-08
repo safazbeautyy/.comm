@@ -595,27 +595,115 @@
         <h1 class="hero-title">About <span>SAFA'z</span></h1>
         <p class="hero-subtitle">Where Luxury Meets Radiance. Experience the Gold Standard of Skincare.</p>
     </div>
+<!-- Main Content -->
+<div class="container">
+    <div class="about-grid">
+        
+        <!-- LEFT SIDE: Image -->
+        <div class="about-image-wrapper">
+            <img src="Hairnic.jpg" alt="SAFA'z Founder" class="about-image">
+        </div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="about-grid">
-            
-            <!-- LEFT SIDE: Image -->
-            <div class="about-image-wrapper">
-                <!-- Replace 'main.jpg' with your actual image URL -->
-                <img src="Hairnic.jpg" alt="SAFA'z Founder" >
+        <!-- RIGHT SIDE: Text Content -->
+        <div class="about-content">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-text">
+                Welcome to <span class="highlight">SAFA'z Beauty</span>, where we believe that true beauty comes from within, enhanced by nature's finest ingredients. Founded with a passion for skincare, our journey began with a simple mission: to create products that are not only effective but also luxurious and safe for all skin types.
+            </p>
+            <p class="section-text">
+                We specialize in premium skincare solutions, including our signature <span class="highlight">24K Gold Skin Polish</span> and rapid glow serums. Every product is crafted to rejuvenate, hydrate, and reveal your natural radiance.
+            </p>
+
+            <!-- Delivery & Trust Badges -->
+            <div class="trust-badges">
+                <div class="badge">
+                    <i class="fas fa-shipping-fast"></i>
+                    <div>
+                        <h4>Fast Delivery</h4>
+                        <p>Across Pakistan</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-gift"></i>
+                    <div>
+                        <h4>Free Delivery</h4>
+                        <p>On Orders Over 3000 PKR</p>
+                    </div>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>Trusted By Many</h4>
+                        <p>10,000+ Happy Customers</p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <!-- RIGHT SIDE: Text Content -->
-            <div class="about-content">
-                <h2 class="section-title">Our Story</h2>
-                <p class="section-text">
-                    Welcome to <span class="highlight">SAFA'z Beauty</span>, where we believe that true beauty comes from within, enhanced by nature's finest ingredients. Founded with a passion for skincare, our journey began with a simple mission: to create products that are not only effective but also luxurious and safe for all skin types.
-                </p>
-                <p class="section-text">
-                    We specialize in premium skincare solutions, including our signature <span class="highlight">24K Gold Skin Polish</span> and rapid glow serums. Every product is crafted to rejuvenate, hydrate, and reveal your natural radiance.
-                </p>
+<style>
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .about-grid {
+        display: flex;
+        flex-direction: row; /* Keep image left, text right */
+        align-items: flex-start;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
 
+    .about-image-wrapper {
+        flex: 1;
+        max-width: 45%; /* Image takes 45% on mobile */
+    }
+
+    .about-image {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    .about-content {
+        flex: 1;
+        max-width: 50%; /* Text takes remaining 50% */
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .section-text {
+        font-size: 1rem;
+    }
+
+    .trust-badges {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Smaller screens (phones) */
+@media (max-width: 480px) {
+    .about-grid {
+        flex-direction: column; /* Stack vertically */
+        text-align: center;
+    }
+
+    .about-image-wrapper,
+    .about-content {
+        max-width: 100%;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-text {
+        font-size: 0.95rem;
+    }
+}
+</style>
                 <!-- Delivery & Trust Badges -->
                 <div class="trust-badges">
                     <div class="badge">
@@ -681,3 +769,4 @@
 
 </body>
 </html>
+
