@@ -599,10 +599,30 @@
 <div class="container">
     <div class="about-grid">
         
-        <!-- LEFT SIDE: Image -->
-        <div class="about-image-wrapper">
-            <img src="Hairnic.jpg" alt="SAFA'z Founder" class="about-image">
-        </div>
+       <!-- LEFT SIDE: Smooth Image Slideshow -->
+<div class="about-image-wrapper" style="position: relative; overflow: hidden; border-radius: 10px; flex:1;">
+    <img src="Hairnic.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:1; transition: opacity 1.5s ease;">
+    <img src="image2.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
+    <img src="image3.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
+    <img src="image4.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
+    <img src="image5.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
+    <img src="image6.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
+    <img src="image7.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
+    <img src="image8.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
+</div>
+
+<script>
+    const slides = document.querySelectorAll(".slide");
+    let current = 0;
+
+    function showNextSlide() {
+        slides[current].style.opacity = 0; // fade out current
+        current = (current + 1) % slides.length;
+        slides[current].style.opacity = 1; // fade in next
+    }
+
+    setInterval(showNextSlide, 4000); // Change every 4 seconds
+</script>
 
         <!-- RIGHT SIDE: Text Content -->
         <div class="about-content">
@@ -704,35 +724,7 @@
     }
 }
 </style>
-    <!-- LEFT SIDE: Image Slideshow -->
-<div class="about-image-wrapper">
-    <img src="image1.jpg" alt="SAFA'z Slideshow" class="about-image" id="slideshow-image">
-</div>
 
-<script>
-    // Array of 8 images
-    const images = [
-        "image1.jpg",
-        "image2.jpg",
-        "image3.jpg",
-        "image4.jpg",
-        "image5.jpg",
-        "image6.jpg",
-        "image7.jpg",
-        "image8.jpg"
-    ];
-
-    let currentIndex = 0;
-    const slideshowImage = document.getElementById("slideshow-image");
-
-    function changeImage() {
-        currentIndex = (currentIndex + 1) % images.length; // Loop back to first
-        slideshowImage.src = images[currentIndex];
-    }
-
-    // Change image every 3 seconds (3000ms)
-    setInterval(changeImage, 3000);
-</script>
                 <!-- Delivery & Trust Badges -->
                 <div class="trust-badges">
                     <div class="badge">
@@ -798,6 +790,7 @@
 
 </body>
 </html>
+
 
 
 
