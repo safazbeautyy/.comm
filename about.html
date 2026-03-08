@@ -175,7 +175,7 @@
                 0 0 5px #c0c0c0, 0 0 10px #c0c0c0,
                 0 0 5px #000000, 0 0 10px #000000;
             /* Animate the box-shadow to create movement */
-            animation: glitterMove 3s linear infinite;
+            animation: glitterMove 2s linear infinite;
             opacity: 0.8;
             pointer-events: none;
         }
@@ -599,29 +599,41 @@
 <div class="container">
     <div class="about-grid">
         
-       <!-- LEFT SIDE: Smooth Image Slideshow -->
-<div class="about-image-wrapper" style="position: relative; overflow: hidden; border-radius: 10px; flex:1;">
-    <img src="Hairnic.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:1; transition: opacity 1.5s ease;">
-    <img src="image2.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
-    <img src="image3.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
-    <img src="image4.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
-    <img src="image5.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
-    <img src="image6.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
-    <img src="image7.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
-    <img src="image8.jpg" class="about-image slide" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0; transition: opacity 1.5s ease;">
+ <!-- LEFT SIDE: Image -->
+<div class="about-image-wrapper">
+    <img src="Hairnic.jpg" alt="SAFA'z Founder" class="about-image" id="slideshow-image" style="transition: opacity 1.5s ease;">
 </div>
 
 <script>
-    const slides = document.querySelectorAll(".slide");
-    let current = 0;
+    // Keep original function logic — DO NOT CHANGE
+    const images = [
+        "Hairnic.jpg",
+        "image2.jpg",
+        "image3.jpg",
+        "image4.jpg",
+        "image5.jpg",
+        "image6.jpg",
+        "image7.jpg",
+        "image8.jpg"
+    ];
 
-    function showNextSlide() {
-        slides[current].style.opacity = 0; // fade out current
-        current = (current + 1) % slides.length;
-        slides[current].style.opacity = 1; // fade in next
+    let currentIndex = 0;
+    const slideshowImage = document.getElementById("slideshow-image");
+
+    function changeImage() {
+        // Fade out
+        slideshowImage.style.opacity = 0;
+
+        setTimeout(() => {
+            // Change image
+            currentIndex = (currentIndex + 1) % images.length;
+            slideshowImage.src = images[currentIndex];
+            // Fade in
+            slideshowImage.style.opacity = 1;
+        }, 500); // Half of transition duration
     }
 
-    setInterval(showNextSlide, 4000); // Change every 4 seconds
+    setInterval(changeImage, 4000); // Change every 4 seconds
 </script>
 
         <!-- RIGHT SIDE: Text Content -->
@@ -790,6 +802,7 @@
 
 </body>
 </html>
+
 
 
 
