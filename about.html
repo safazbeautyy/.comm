@@ -922,52 +922,48 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="container">
     <div class="about-grid">
         
-<!-- LEFT SIDE: Image -->
-<div class="about-image-wrapper" style="position: relative; margin-top:1px;width:50%;height:50%;overflow: hidden; border-radius: 20px;">
-    <img src="image1.jpg" alt="SAFA'z Founder" class="about-image" id="slideshow-image"
-         style="transition: opacity 1.2s ease, transform 1.2s ease; transform: translateX(0);">
+<!-- LEFT SIDE: Image Slideshow (Mobile Friendly) -->
+<div class="about-image-wrapper" 
+style="position:relative;margin-top:1px;width:100%;max-width:380px;height:260px;overflow:hidden;border-radius:20px;">
+
+<img src="image1.jpg" 
+id="slideshow-image"
+style="position:absolute;width:100%;height:100%;object-fit:cover;
+opacity:1;transition:opacity 1s ease;">
 </div>
 
 <script>
-    // Keep original function logic — DO NOT CHANGE
-    const images = [
-      
-        "image2.jpg",
-        "image3.jpg",
-        "image4.jpg",
-        "image5.jpg",
-        "image6.jpg",
-        "image7.jpg",
-        "image8.jpg"
-    ];
+const images = [
+"image1.jpg",
+"image2.jpg",
+"image3.jpg",
+"image4.jpg",
+"image5.jpg",
+"image6.jpg",
+"image7.jpg",
+"image8.jpg"
+];
 
-    let currentIndex = 0;
-    const slideshowImage = document.getElementById("slideshow-image");
+let currentIndex = 0;
+const slideshowImage = document.getElementById("slideshow-image");
 
-    function changeImage() {
-        // Fade out and slide left
-        slideshowImage.style.opacity = 0;
-        slideshowImage.style.transform = 'translateX(-20px)';
+function changeImage(){
 
-        setTimeout(() => {
-            // Change image
-            currentIndex = (currentIndex + 1) % images.length;
-            slideshowImage.src = images[currentIndex];
+slideshowImage.style.opacity = 0;
 
-            // Reset position and fade in smoothly
-            slideshowImage.style.transform = 'translateX(20px)';
-            slideshowImage.style.opacity = 1;
+setTimeout(()=>{
 
-            // Slide back to center
-            setTimeout(() => {
-                slideshowImage.style.transform = 'translateX(0)';
-            }, 50); // tiny delay for smooth transition
-        }, 500); // Half of transition duration
-    }
+currentIndex = (currentIndex + 1) % images.length;
+slideshowImage.src = images[currentIndex];
 
-    setInterval(changeImage, 2000); // Change every 4 seconds
+slideshowImage.style.opacity = 1;
+
+},500);
+
+}
+
+setInterval(changeImage,3000);
 </script>
-
         <!-- RIGHT SIDE: Text Content -->
         <div class="about-content">
             <h2 class="section-title">Our Story</h2>
@@ -1278,7 +1274,6 @@ document.addEventListener("keydown", function(event) {
 <script src="js/main.js"></script>
 </body>
 </html>
-
 
 
 
