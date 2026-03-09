@@ -487,26 +487,7 @@ document.addEventListener("DOMContentLoaded", () => {
             transform: scale(1.02);
         }
 
-        /* --- REAL MOVING GLITTER EFFECT --- */
-        .about-image-wrapper::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border-radius: 10px;
-            z-index: 1;
-            /* Create glitter particles using box-shadow */
-            box-shadow: 
-                0 0 5px #ffd700, 0 0 10px #ffd700,
-                0 0 5px #c0c0c0, 0 0 10px #c0c0c0,
-                0 0 5px #000000, 0 0 10px #000000;
-            /* Animate the box-shadow to create movement */
-            animation: glitterMove 2s linear infinite;
-            opacity: 0.8;
-            pointer-events: none;
-        }
+      /* --- REAL MOVING GLITTER EFFECT --- */.about-image-wrapper::after {content: '';position: absolute;top: -10px;left: -10px;right: -10px;bottom: -10px;border-radius: 10px;z-index: 1;box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700,0 0 5px #c0c0c0, 0 0 10px #c0c0c0,0 0 5px #000000, 0 0 10px #000000;animation: glitterMove 2s linear infinite;opacity: 0.8;pointer-events: none;}
 
         @keyframes glitterMove {
             0% {
@@ -897,7 +878,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .about-image-wrapper {
                 width: 100%;
                 max-width: 350px;
-                margin: 0 auto;
+                margin: 0 ;
             }
 
             .section-title {
@@ -922,48 +903,52 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="container">
     <div class="about-grid">
         
-<!-- LEFT SIDE: Image Slideshow (Mobile Friendly) -->
-<div class="about-image-wrapper" 
-style="position:relative;margin-top:1px;width:100%;max-width:380px;height:260px;overflow:hidden;border-radius:20px;">
-
-<img src="image1.jpg" 
-id="slideshow-image"
-style="position:absolute;width:100%;height:100%;object-fit:cover;
-opacity:1;transition:opacity 1s ease;">
+<!-- LEFT SIDE: Image -->
+<div class="about-image-wrapper" style="position: relative; margin-top:1px;width:50%;height:50%;overflow: hidden; border-radius: 20px;">
+    <img src="image1.jpg" alt="SAFA'z Founder" class="about-image" id="slideshow-image"
+         style="transition: opacity 1.2s ease, transform 1.2s ease; transform: translateX(0);">
 </div>
 
 <script>
-const images = [
-"image1.jpg",
-"image2.jpg",
-"image3.jpg",
-"image4.jpg",
-"image5.jpg",
-"image6.jpg",
-"image7.jpg",
-"image8.jpg"
-];
+    // Keep original function logic — DO NOT CHANGE
+    const images = [
+      
+        "image2.jpg",
+        "image3.jpg",
+        "image4.jpg",
+        "image5.jpg",
+        "image6.jpg",
+        "image7.jpg",
+        "image8.jpg"
+    ];
 
-let currentIndex = 0;
-const slideshowImage = document.getElementById("slideshow-image");
+    let currentIndex = 0;
+    const slideshowImage = document.getElementById("slideshow-image");
 
-function changeImage(){
+    function changeImage() {
+        // Fade out and slide left
+        slideshowImage.style.opacity = 0;
+        slideshowImage.style.transform = 'translateX(-20px)';
 
-slideshowImage.style.opacity = 0;
+        setTimeout(() => {
+            // Change image
+            currentIndex = (currentIndex + 1) % images.length;
+            slideshowImage.src = images[currentIndex];
 
-setTimeout(()=>{
+            // Reset position and fade in smoothly
+            slideshowImage.style.transform = 'translateX(20px)';
+            slideshowImage.style.opacity = 1;
 
-currentIndex = (currentIndex + 1) % images.length;
-slideshowImage.src = images[currentIndex];
+            // Slide back to center
+            setTimeout(() => {
+                slideshowImage.style.transform = 'translateX(0)';
+            }, 50); // tiny delay for smooth transition
+        }, 500); // Half of transition duration
+    }
 
-slideshowImage.style.opacity = 1;
-
-},500);
-
-}
-
-setInterval(changeImage,3000);
+    setInterval(changeImage, 2000); // Change every 4 seconds
 </script>
+
         <!-- RIGHT SIDE: Text Content -->
         <div class="about-content">
             <h2 class="section-title">Our Story</h2>
@@ -1274,6 +1259,8 @@ document.addEventListener("keydown", function(event) {
 <script src="js/main.js"></script>
 </body>
 </html>
+
+
 
 
 
