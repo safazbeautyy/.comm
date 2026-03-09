@@ -874,6 +874,60 @@ document.addEventListener("DOMContentLoaded", () => {
                 flex-direction: column;
             }
         }
+            
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- REAL MOVING GLITTER EFFECT --- */
+        .about-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 30px;
+            z-index: 1;
+            /* Create glitter particles using box-shadow */
+            box-shadow: 
+                0 0 5px #ffd700, 0 0 10px #ffd700,
+                0 0 5px #c0c0c0, 0 0 10px #c0c0c0,
+                0 0 5px #000000, 0 0 10px #000000;
+            /* Animate the box-shadow to create movement */
+            animation: glitterMove 3s linear infinite;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        @keyframes glitterMove {
+            0% {
+                box-shadow: 
+                    0 0 5px #ffd700, 0 0 10px #ffd700,
+                    0 0 5px #c0c0c0, 0 0 10px #c0c0c0,
+                    0 0 5px #000000, 0 0 10px #000000;
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 
+                    0 0 10px #ffd700, 0 0 20px #ffd700,
+                    0 0 10px #c0c0c0, 0 0 20px #c0c0c0,
+                    0 0 10px #000000, 0 0 20px #000000;
+                transform: scale(1.02);
+            }
+            100% {
+                box-shadow: 
+                    0 0 5px #ffd700, 0 0 10px #ffd700,
+                    0 0 5px #c0c0c0, 0 0 10px #c0c0c0,
+                    0 0 5px #000000, 0 0 10px #000000;
+                transform: scale(1);
+            }
+        }
+
+        /* --- RIGHT SIDE: TEXT --- */
+        .about-content {
+            flex: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -886,8 +940,17 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 <!-- Main Content -->
 
+ <!-- Main Content -->
+    <div class="container">
+        <div class="about-grid">
+            
+            <!-- LEFT SIDE: Image -->
+            <div class="about-image-wrapper">
+                <!-- Replace 'main.jpg' with your actual image URL -->
+                <img src="imageabout.jpg" alt="SAFA'z Founder" >
+            </div>
 
-    <img src="image1.jpg" alt="SAFA'z Founder" style="width: 100%; height: 40vh; object-fit: cover; border-radius: 10px;">
+    
 
 
 
@@ -1201,6 +1264,7 @@ document.addEventListener("keydown", function(event) {
 <script src="js/main.js"></script>
 </body>
 </html>
+
 
 
 
