@@ -696,7 +696,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // --- NOTIFICATION TIMING (30 sec → 1 min → 3 min → 5 min → repeat) ---
-    const notificationIntervals = [3000,9000,12000,10000,90000,80000,40000,30000,40000, 60000, 80000, 80000, 80000, 80000, 90000]; // 30s, 1m, 3m, 5m
+    const notificationIntervals = [8000,10000,20000,30000,400000,600000,800000,900000,80000,40000,30000,40000, 60000, 80000, 80000, 80000, 80000, 90000]; // 30s, 1m, 3m, 5m
     let intervalIndex = 0;
 
     function scheduleNextNotification() {
@@ -2196,6 +2196,7 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
+
 
 
 
