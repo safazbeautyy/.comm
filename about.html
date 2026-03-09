@@ -487,7 +487,26 @@ document.addEventListener("DOMContentLoaded", () => {
             transform: scale(1.02);
         }
 
-      /* --- REAL MOVING GLITTER EFFECT --- */.about-image-wrapper::after {content: '';position: absolute;top: -10px;left: -10px;right: -10px;bottom: -10px;border-radius: 10px;z-index: 1;box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700,0 0 5px #c0c0c0, 0 0 10px #c0c0c0,0 0 5px #000000, 0 0 10px #000000;animation: glitterMove 2s linear infinite;opacity: 0.8;pointer-events: none;}
+        /* --- REAL MOVING GLITTER EFFECT --- */
+        .about-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 10px;
+            z-index: 1;
+            /* Create glitter particles using box-shadow */
+            box-shadow: 
+                0 0 5px #ffd700, 0 0 10px #ffd700,
+                0 0 5px #c0c0c0, 0 0 10px #c0c0c0,
+                0 0 5px #000000, 0 0 10px #000000;
+            /* Animate the box-shadow to create movement */
+            animation: glitterMove 2s linear infinite;
+            opacity: 0.8;
+            pointer-events: none;
+        }
 
         @keyframes glitterMove {
             0% {
@@ -878,7 +897,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .about-image-wrapper {
                 width: 100%;
                 max-width: 350px;
-                margin: 0 ;
+                margin: 0 auto;
             }
 
             .section-title {
@@ -1259,8 +1278,6 @@ document.addEventListener("keydown", function(event) {
 <script src="js/main.js"></script>
 </body>
 </html>
-
-
 
 
 
