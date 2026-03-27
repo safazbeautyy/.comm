@@ -750,6 +750,25 @@ document.addEventListener("DOMContentLoaded", () => {
    <button class="checkoutBtn" onclick="openCheckout()">Proceed To Checkout</button>
   </div>
 </div>
+<style>
+  /* Checkout Popup Overlay */
+  #checkoutPopup {
+    display: none;               /* hidden by default */
+    position: fixed;             /* fixed on screen */
+  
+    overflow-y: auto;            /* scrollable if content is taller than screen */
+    -webkit-overflow-scrolling: touch; /* smooth scrolling on mobile */
+  }
+
+
+  /* Center the inner box while still scrollable */
+  #checkoutPopup .checkoutBox {
+
+    overflow-y: auto;            /* scrollable inside box */
+    max-height: 90vh;            /* fits inside viewport */
+    position: relative;           /* for close button positioning */
+  }
+</style>
 <!-- ================= CHECKOUT FORM POPUP ================= -->
 <div id="checkoutPopup" class="checkoutPopup">
   <div class="checkoutBox">
@@ -1911,19 +1930,25 @@ function sendToWhatsApp(){
   let total=0;
   let itemsText="";
 
-  cart.forEach(item=>{
-    let itemTotal=item.qty*item.price;
-    total+=itemTotal;
+cart.forEach(item => {
+  let itemTotal = item.qty * item.price;
+  total += itemTotal;
 
-    itemsText+=`
+  itemsText += `
 • ${item.name}
   Qty: ${item.qty}
   Price: PKR ${item.price}
   Item Total: PKR ${itemTotal}
 `;
-  });
+});
 
-  let message=`
+// ✅ calculate delivery
+let delivery = cart.length === 1 ? 250 : (cart.length > 1 ? 350 : 0);
+
+// ✅ grand total including delivery
+let grandTotal = total + delivery;
+
+let message = `
 🛍️ *NEW ORDER RECEIVED*
 -------------------------
 Order No: ${orderNumber}
@@ -1931,7 +1956,8 @@ Order No: ${orderNumber}
 Items:
 ${itemsText}
 
-Total Amount: PKR ${total}
+Delivery Charges: PKR ${delivery}
+Total Amount: PKR ${grandTotal}
 
 Customer Details:
 Name: ${name}
@@ -2270,7 +2296,6 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
-
 
 
 
