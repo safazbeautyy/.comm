@@ -729,7 +729,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="categoryItem activeCat" onclick="showProducts('faceShiner',this)">Skin Care</div>
     <div class="categoryItem" onclick="showProducts('handFeet',this)">Hand & Feet Care</div>
     <div class="categoryItem" onclick="showProducts('serum',this)">Serum Collection</div>
-    <div class="categoryItem" onclick="showProducts('eye',this)">Eye Collection</div>
+    <div class="categoryItem" onclick="showProducts('eye',this)">Eye Shadows, Foundations & Concealers</div>
   </div>
 
   <div id="productsContainer" class="productsContainer"></div>
@@ -1705,28 +1705,33 @@ addToCart(category,index,btn);
 openCart();
 }
 
-function updateCart(){
-document.getElementById('cartCount').innerText=
-cart.reduce((a,b)=>a+b.qty,0);
+function updateCart() {
+  document.getElementById('cartCount').innerText =
+    cart.reduce((a, b) => a + b.qty, 0);
 
-let cartItems=document.getElementById('cartItems');
-cartItems.innerHTML='';
-let total=0;
+  let cartItems = document.getElementById('cartItems');
+  cartItems.innerHTML = '';
+  let total = 0;
 
-cart.forEach((item,index)=>{
-let itemTotal=item.qty*item.price;
-total+=itemTotal;
+  cart.forEach((item, index) => {
+    let itemTotal = item.qty * item.price;
+    total += itemTotal;
 
-cartItems.innerHTML+=`
-<div class="cartItemRow">
-<span class="deleteBtn" onclick="removeItem(${index})">🗑</span>
-<strong>${item.name}</strong><br>
-Qty: ${item.qty} × PKR ${item.price}<br>
-Total: PKR ${itemTotal}
-</div>`;
-});
+    cartItems.innerHTML += `
+    <div class="cartItemRow">
+      <span class="deleteBtn" onclick="removeItem(${index})">🗑</span>
+      <strong>${item.name}</strong><br>
+      Qty: ${item.qty} × PKR ${item.price}<br>
+      Total: PKR ${itemTotal} 
+    </div>`;
+  });
 
-document.getElementById('cartTotal').innerText="Total: PKR "+total;
+  // ✅ delivery logic (based on number of products)
+  let delivery = cart.length === 1 ? 250 : (cart.length > 1 ? 350 : 0);
+
+  // ✅ final total display
+  document.getElementById('cartTotal').innerText =
+    "Total: PKR " + (total + delivery) + " (Applied DC)" ; 
 }
 
 function removeItem(index){
@@ -1764,26 +1769,30 @@ function openCheckout(){
     alert("Your cart is empty!");
     return;
   }
+let summaryHTML = "";
+let total = 0;
 
-  let summaryHTML="";
-  let total=0;
+cart.forEach(item => {
+  let itemTotal = item.qty * item.price;
+  total += itemTotal;
 
-  cart.forEach(item=>{
-    let itemTotal=item.qty*item.price;
-    total+=itemTotal;
-    summaryHTML+=`
+  summaryHTML += `
     <div>
       ${item.name}<br>
       Qty: ${item.qty} × PKR ${item.price}<br>
       Item Total: PKR ${itemTotal}
       <hr>
     </div>`;
-  });
+});
 
-  summaryHTML+=`<strong>Grand Total: PKR ${total}</strong>`;
+// ✅ correct delivery logic (based on number of products)
+let delivery = cart.length === 1 ? 250 : (cart.length > 1 ? 350 : 0);
 
-  document.getElementById("orderSummary").innerHTML=summaryHTML;
-  document.getElementById("checkoutPopup").style.display="flex";
+// ✅ final total (same format)
+summaryHTML += `<strong>Grand Total: PKR ${total + delivery} (Delivery Charges are applied !)</strong>`;
+
+document.getElementById("orderSummary").innerHTML = summaryHTML;
+document.getElementById("checkoutPopup").style.display = "flex";
 }
 
 // Show thank you message after 2 seconds
@@ -2196,7 +2205,6 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
-
 
 
 
