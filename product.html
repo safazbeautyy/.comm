@@ -714,7 +714,8 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="categoryItem activeCat" onclick="showProducts('faceShiner',this)">Skin Care</div>
     <div class="categoryItem" onclick="showProducts('handFeet',this)">Hand & Feet Care</div>
     <div class="categoryItem" onclick="showProducts('serum',this)">Serum Collection</div>
-    <div class="categoryItem" onclick="showProducts('eye',this)">Eye Shadows, Foundations & Concealers</div>
+    <div class="categoryItem" onclick="showProducts('eye',this)">Eye Shadows Foundations & Concealers</div>
+     <div class="categoryItem" onclick="showProducts('fou',this)">Foundations & Concealers</div>
   </div>
 
   <div id="productsContainer" class="productsContainer"></div>
@@ -1588,7 +1589,11 @@ const products = {
     pack6: 600,
     pack12: 800
 }
-]
+],
+   fou: [
+ {name: "<span style='font-size: 0.6rem;'>Founation & Concealer", img: "serum1.jpg", price: 1200, original: 1500}
+],
+
 };
 
 
@@ -2728,7 +2733,6 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
-
 
 
 
