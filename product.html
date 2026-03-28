@@ -984,6 +984,7 @@ Customer Services Manager
 Friendly and responsive support expert, helping customers quickly complete their orders smoothly.
 </p>
 
+
 <button onclick="sendToWhatsApp('+923364454964')" 
 style="
 background:linear-gradient(135deg,#25D366,#1ebe5d);
@@ -1569,6 +1570,7 @@ body{
 </div>
 <div id="productsContainer"></div>
 
+
 <script>
 let cart=[];
 
@@ -1586,13 +1588,33 @@ const products = {
     serum: [
         {name: "<span style='font-size: 0.6rem;'>Glow Serum", img: "serum1.jpg", price: 1200, original: 1500}
     ],
-    eye: [
-        {name: "<span style='font-size: 0.6rem;'>Highlighter", img: "eye1.jpg", price: 680, original: 850}
-    ]
+   eye: [
+{
+    name: "<span style='font-size:0.6rem;'>Highlighter Shades</span>",
+    img: "eye1.jpg",
+
+    shades: [
+        "Midnight Black","Pearl Ivory","Metallic Copper","Rose Pink",
+        "Emerald Green","Royal Blue","Silver","Ruby Red",
+        "Lime Green","Rich Gold","Champagne","Bronze"
+    ],
+
+    singlePrice: 100,
+    pack6: 600,
+    pack12: 800
+}
+]
 };
+
 
 // Show Products Function
 function showProducts(category, el) {
+
+    if (category === "eye") {
+        renderEyeProducts();
+        return;
+    }
+    
     document.querySelectorAll('.categoryItem').forEach(c => c.classList.remove('activeCat'));
     if (el) el.classList.add('activeCat');
 
@@ -1661,6 +1683,400 @@ function showProducts(category, el) {
     });
 }
 
+function renderEyeProducts() {
+    const container = document.getElementById('productsContainer');
+    container.innerHTML = '';
+
+    products.eye.forEach((p, i) => {
+        container.innerHTML += `
+        <div class="productCard">
+
+            <!-- IMAGE with inline style for click-to-enlarge -->
+            <img src="${p.img}" 
+                onclick="openEyeModal('${p.img}')" 
+                style="
+                    width:120px;
+                    max-width:100%;
+                    border-radius:10px;
+                    cursor:pointer;
+                    transition: transform 0.2s ease;
+                "
+                onmouseover="this.style.transform='scale(1.05)';"
+                onmouseout="this.style.transform='scale(1)';"
+            >
+
+            <h4>${p.name}</h4>
+
+            <!-- SHADE SELECTION -->
+            <div id="shadeBox${i}" style="
+                display:grid;
+                grid-template-columns:repeat(3,1fr);
+                gap:6px;
+                margin-top:8px;
+            ">
+                ${p.shades.map(shade => `
+                    <div onclick="toggleShade(this, ${i})"
+                    style="
+                        border:1px solid #ccc;
+                        padding:6px;
+                        font-size:0.65rem;
+                        text-align:center;
+                        cursor:pointer;
+                        border-radius:6px;
+                    ">
+                        ${shade}
+                    </div>
+                `).join('')}
+            </div>
+
+            <div style="margin-top:6px; font-size:0.7rem;">
+                Selected: <span id="count${i}">0</span>
+            </div>
+
+            <!-- PACK SELECT -->
+            <select onchange="updateEyeTotal(${i})" id="pack${i}" 
+                style="margin-top:8px; padding:6px; width:100%;">
+                <option value="">Choose Pack</option>
+                <option value="single">Single (100 each)</option>
+                <option value="6">Pack of 6 (600)</option>
+                <option value="12">Pack of 12 (800)</option>
+            </select>
+
+            <!-- TOTAL -->
+            <div id="total${i}" style="margin-top:6px; font-weight:bold;">
+                Total: PKR 0
+            </div>
+
+            <button class="btn addBtn" onclick="handleEyeCart(${i}, this)">
+                Add To Cart
+            </button>
+
+            <button class="btn buyBtn" onclick="handleEyeBuy(${i}, this)">
+                Buy Now
+            </button>
+
+        </div>`;
+    });
+
+    // Append modal container dynamically for eye1.jpg
+    if (!document.getElementById("eyeModal")) {
+        const modalDiv = document.createElement("div");
+        modalDiv.id = "eyeModal";
+        modalDiv.style.cssText = `
+            display:none;
+            position:fixed;
+            z-index:1000;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow:auto;
+            text-align:center;
+        `;
+        modalDiv.innerHTML = `
+            <span id="eyeModalClose" style="
+                position:absolute;
+                top:20px;
+                right:30px;
+                color:#fff;
+                font-size:40px;
+                font-weight:bold;
+                cursor:pointer;
+                user-select:none;">&times;</span>
+            <img id="eyeModalImg" style="
+                max-width:90%;
+                max-height:80%;
+                margin-top:5%;
+                border-radius:10px;
+                transition: transform 0.3s ease;">
+        `;
+        document.body.appendChild(modalDiv);
+
+        // JS for modal open/close
+        document.getElementById("eyeModalClose").addEventListener("click", () => {
+            modalDiv.style.display = "none";
+        });
+        modalDiv.addEventListener("click", (e) => {
+            if (e.target === modalDiv) modalDiv.style.display = "none";
+        });
+    }
+}
+
+// Function to open the modal with the clicked image
+function openEyeModal(imgSrc) {
+    const modal = document.getElementById("eyeModal");
+    const modalImg = document.getElementById("eyeModalImg");
+    modal.style.display = "block";
+    modalImg.src = imgSrc;
+}
+// ==========================
+// Toggle shade selection
+// ==========================
+function toggleShade(el, index) {
+    el.classList.toggle("activeShade");
+    el.style.background = el.classList.contains("activeShade") ? "#ffca1a" : "white";
+    updateEyeTotal(index);
+}
+
+// ==========================
+// Update total price for eye product
+// ==========================
+function updateEyeTotal(index) {
+    const selected = document.querySelectorAll(`#shadeBox${index} .activeShade`);
+    const count = selected.length;
+    document.getElementById(`count${index}`).innerText = count;
+
+    const packEl = document.getElementById(`pack${index}`);
+    const pack = packEl ? packEl.value : "single";
+
+    let total = 0;
+    if (count === 0) {
+        total = 0;
+    } else if (pack === "single") {
+        total = count * 100 ;
+    } else if (pack === "6") {
+        total = 600 ;
+    } else if (pack === "12") {
+        total = 800 ;
+    }
+
+    document.getElementById(`total${index}`).innerText = "Total: PKR " + total;
+}
+
+// ==========================
+// Add eye product to cart
+// ==========================
+function handleEyeCart(index, btn) {
+    const selected = document.querySelectorAll(`#shadeBox${index} .activeShade`);
+    const packEl = document.getElementById(`pack${index}`);
+    const pack = packEl ? packEl.value : null;
+
+    if (selected.length === 0) {
+        alert("Select shades first");
+        return;
+    }
+    if (!pack) {
+        alert("Select pack type");
+        return;
+    }
+
+    // Get product
+    const product = products.eye[index];
+
+    // Calculate price & delivery
+    let price = 0, delivery = 0;
+    if (pack === "single") {
+        price = selected.length * 100;
+        delivery = 0;
+    } else if (pack === "6") {
+        price = 600;
+        delivery = 0;
+    } else if (pack === "12") {
+        price = 800;
+        delivery = 0;
+    }
+    const total = price + delivery;
+
+    // Get shade names
+    const shadesArray = Array.from(selected).map(el => el.innerText.trim());
+    let shadesString = shadesArray.join(", ");
+
+    // Push into main cart
+    cart.push({
+        name: `Eye Shadow (${shadesString})`, // shows actual shades
+        price: total,
+        qty: 1,
+        shades: shadesString,
+        pack: pack
+    });
+
+    // Update cart display
+    updateCart();
+    updateCartUI();
+
+    // Button feedback
+    btn.innerText = "Added!";
+    setTimeout(() => btn.innerText = "Add To Cart", 1000);
+}
+// ==========================
+// Toggle shade selection
+// ==========================
+function toggleShade(el, index) {
+    const packEl = document.getElementById(`pack${index}`);
+    const pack = packEl ? packEl.value : "single";
+
+    if (pack !== "single") {
+        alert("Cannot select individual shades for this pack.");
+        return;
+    }
+
+    el.classList.toggle("activeShade");
+    el.style.background = el.classList.contains("activeShade") ? "#ffca1a" : "white";
+    updateEyeTotal(index);
+}
+
+// ==========================
+// Update total price for eye product
+// ==========================
+function updateEyeTotal(index) {
+    const selected = document.querySelectorAll(`#shadeBox${index} .activeShade`);
+    const count = selected.length;
+
+    document.getElementById(`count${index}`).innerText = count;
+
+    const packEl = document.getElementById(`pack${index}`);
+    const pack = packEl ? packEl.value : "single";
+
+    let total = 0;
+    if (!pack || (pack === "single" && count === 0)) {
+        total = 0;
+    } else if (pack === "single") {
+        total = count * 100 ;
+    } else if (pack === "6") {
+        total = 600;
+    } else if (pack === "12") {
+        total = 800;
+    }
+
+    document.getElementById(`total${index}`).innerText = "Total: PKR " + total;
+}
+
+// ==========================
+// Handle pack selection
+// ==========================
+function handlePackChange(index) {
+    const packEl = document.getElementById(`pack${index}`);
+    const pack = packEl.value;
+
+    const shadeEls = document.querySelectorAll(`#shadeBox${index} .shade`);
+    
+    if (pack === "6" || pack === "12") {
+        // Disable individual shades
+        shadeEls.forEach(el => {
+            el.classList.remove("activeShade");
+            el.style.background = "#eee";
+            el.style.pointerEvents = "none"; // prevent click
+        });
+    } else {
+        // Enable shades for single
+        shadeEls.forEach(el => {
+            el.style.background = "white";
+            el.style.pointerEvents = "auto";
+        });
+    }
+
+    updateEyeTotal(index);
+}
+
+// ==========================
+// Add eye product to cart
+// ==========================
+function handleEyeCart(index, btn) {
+    const selected = document.querySelectorAll(`#shadeBox${index} .activeShade`);
+    const packEl = document.getElementById(`pack${index}`);
+    const pack = packEl ? packEl.value : null;
+
+    if (!pack) {
+        alert("Select pack type");
+        return;
+    }
+
+    // Get product
+    const product = products.eye[index];
+
+    // Calculate price & delivery
+    let price = 0, delivery = 0;
+    let shadesString = "";
+
+    if (pack === "single") {
+        if (selected.length === 0) {
+            alert("Select shades first");
+            return;
+        }
+        price = selected.length * 100;
+        delivery = 0;
+        shadesString = Array.from(selected).map(el => el.innerText.trim()).join(", ");
+    } else if (pack === "6") {
+        price = 600;
+        delivery = 0;
+        shadesString = "Pack of 6 (preselected)";
+    } else if (pack === "12") {
+        price = 800;
+        delivery = 0;
+        shadesString = "Pack of 12 (preselected)";
+    }
+
+    const total = price + delivery;
+
+    // Push into main cart
+    cart.push({
+        name: `Eye Shadow (${shadesString})`,
+        price: total,
+        qty: 1,
+        shades: shadesString,
+        pack: pack
+    });
+
+    // Update cart display
+    updateCart();
+    updateCartUI();
+
+    // Button feedback
+    btn.innerText = "Added!";
+    setTimeout(() => btn.innerText = "Add To Cart", 1000);
+}
+
+
+// ==========================
+// Buy now for eye product
+// ==========================
+function handleEyeBuy(index, btn) {
+    handleEyeCart(index, btn); // first add to cart
+    setTimeout(() => {
+        openCart(); // open cart popup
+    }, 300);
+}
+// ==========================
+// Buy now for eye product
+// ==========================
+function handleEyeBuy(index, btn) {
+    handleEyeCart(index, btn); // first add to cart
+    setTimeout(() => {
+        openCart(); // open cart popup
+    }, 300);
+}
+function updateCartUI() {
+
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+    const cartCount = document.getElementById("cartCount");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, i) => {
+
+        total += item.price;
+
+        cartItems.innerHTML += `
+        <div class="cartItemRow">
+            <strong>${item.name}</strong><br>
+            <small>${item.shades || ""}</small><br>
+            PKR ${item.price}
+
+            <span class="deleteBtn" onclick="removeFromCart(${i})">×</span>
+        </div>`;
+    });
+
+    cartTotal.innerText = cart.length ? "Total: PKR " + total : "Your cart is empty";
+    cartCount.innerText = cart.length;
+}
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+}
 async function shareProduct(category, index, name, price, img) {
     const cleanName = name.replace(/<[^>]*>?/gm, '');
     const baseUrl = 'https://safazzzz.github.io/.comm/product.html';
@@ -1754,6 +2170,37 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+let total = 0;
+let itemsText = "";
+
+cart.forEach(item => {
+
+  let itemTotal = item.qty * item.price;
+  total += itemTotal;
+
+  // 🔥 IF EYE PRODUCT
+  if (item.isEye) {
+
+    itemsText += `
+• Shades: ${item.shade}
+  Pack: ${item.pack}
+  Qty: ${item.qty}
+  Price: PKR ${item.price}
+  Item Total: PKR ${itemTotal}
+`;
+
+  } else {
+
+    // NORMAL PRODUCTS
+    itemsText += `
+• ${item.name}
+  Qty: ${item.qty}
+  Price: PKR ${item.price}
+  Item Total: PKR ${itemTotal}
+`;
+  }
+});
 // Placeholder functions for your existing logic
 function updateLiveTotal(input, price) {
     input.parentElement.querySelector('.price').innerText = "Total: PKR " + (input.value * price);
@@ -1862,7 +2309,7 @@ cart.forEach(item => {
 
   summaryHTML += `
     <div>
-      ${item.name}<br>
+      ${item.shade}<br>
       Qty: ${item.qty} × PKR ${item.price}<br>
       Item Total: PKR ${itemTotal}
       <hr>
@@ -2296,7 +2743,6 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
-
 
 
 
