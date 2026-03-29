@@ -1556,44 +1556,88 @@ body{
 </div>
 <div id="productsContainer"></div>
 
-
 <script>
-let cart=[];
-
+let cart = [];
 const products = {
     faceShiner: [
-        {name: "<span style='font-size: 0.6rem;'>Safa'z 24k Gold Oxidizing Skin Polish Large Pack,(1000ml)peeling solution & (500grams) blonder powder", img: "s1.jpg", price: 2999, original: 3250},
-        {name: "<span style='font-size: 0.6rem;'>Safa'z Gold 24k Skin Polish Peeling solution(200ml) & Blonder Powder(200 grams)", img: "s2.jpg", price: 750, original: 850},
-        {name: "<span style='font-size: 0.6rem;'>Safa'z Hand & Foot Instant Whitening Cream (150grams)", img: "s3.jpg", price: 999, original: 1199, buyTwoPrice: 1899},
-        {name: "<span style='font-size: 0.6rem;'>Safa'z All in One Ready 2 White Saffaron Urgent Facial (300grams)", img: "s4.jpg", price: 1199, original: 1299, buyTwoPrice: 1999},
-        {name: "<span style='font-size: 0.6rem;'>Safa'z Natural Skin ShinerSoothing Aloevera(500ml)", img: "s5.jpg", price: 699, original: 799, buyTwoPrice: 1399}
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z 24k Gold Oxidizing Skin Polish Large Pack (1000ml Peeling Solution + 500g Blonder Powder)</span>",
+            img: "s1.jpg",
+            price: 2999,
+            original: 3250,
+            viewDesc: "✨ <b>PROFESSIONAL 24K GOLD SKIN POLISH KIT</b> ✨<br><br>Transform your skincare routine with Safa'z 24k Gold Oxidizing Skin Polish, a premium professional kit designed for deep exfoliation and skin rejuvenation. The 1000ml peeling solution gently removes dead skin cells, unclogs pores, and restores natural radiance, while the 500g blonder powder nourishes the skin, reduces dullness, and evens out skin tone. Infused with real 24k gold, this kit offers anti-aging benefits, improving elasticity, minimizing fine lines, and leaving your skin silky smooth. Perfect for achieving a radiant, youthful glow at home or in professional settings. 💎 Your skin will feel refreshed, luminous, and rejuvenated from the very first use. 💰 SAVE PKR 251"
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z Gold 24k Skin Polish Peeling Solution (200ml) & Blonder Powder (200g)</span>",
+            img: "s2.jpg",
+            price: 750,
+            original: 850,
+            viewDesc: "✨ <b>MINI 24K GOLD SKIN POLISH KIT</b> ✨<br><br>Experience the luxury of professional skincare in a compact kit. Safa'z Gold 24k Skin Polish gently exfoliates the skin, removing impurities and promoting a brighter, more even complexion. The 200ml peeling solution and 200g blonder powder are perfect for delicate areas or for quick touch-ups, helping to reduce dark spots, uneven pigmentation, and dullness. Enriched with real 24k gold, this kit also fights signs of aging, leaving skin supple, radiant, and youthful. Ideal for anyone seeking professional-level results without leaving home. 💎 Smooth, nourished, and glowing skin is just a treatment away. 💰 SAVE PKR 100"
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z Hand & Foot Instant Whitening Cream (150g)</span>",
+            img: "s3.jpg",
+            price: 999,
+            original: 1199,
+            viewDesc: "🖐️✨ <b>HAND & FOOT WHITENING CREAM</b> ✨<br><br>Reveal brighter, softer hands and feet with Safa'z Instant Whitening Cream. Specially formulated to target dark spots, uneven pigmentation, and dullness, this cream deeply hydrates and nourishes dry, rough skin, leaving it smooth and radiant. Its fast-absorbing, non-greasy formula ensures quick results, making it ideal for daily use. Enriched with natural extracts, it not only brightens but also promotes healthier, rejuvenated skin. 💎 Treat your hands and feet to the ultimate pampering experience and enjoy the confidence of glowing, flawless skin."
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z All-in-One Ready 2 White Saffron Urgent Facial (300g)</span>",
+            img: "s4.jpg",
+            price: 1199,
+            original: 1299,
+            viewDesc: "🌸✨ <b>SAFFRON URGENT FACIAL</b> ✨<br><br>Indulge in a luxurious facial experience with Safa'z All-in-One Ready 2 White Saffron Facial. This advanced formula deeply cleanses, brightens, and revitalizes your skin, reducing pigmentation, dullness, and uneven tone. Infused with saffron, known for its antioxidant and anti-inflammatory properties, it helps protect the skin from environmental stressors while enhancing radiance and glow. Perfect for urgent skin brightening needs or professional spa use, this facial delivers visible results, leaving your skin smooth, luminous, and youthful. 💎 Experience the power of saffron for radiant, healthy-looking skin."
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z Natural Skin Shiner Soothing Aloe Vera (500ml)</span>",
+            img: "s5.jpg",
+            price: 699,
+            original: 799,
+            viewDesc: "🌿✨ <b>ALOE VERA SKIN SHINER</b> ✨<br><br>Soothe, hydrate, and rejuvenate your skin naturally with Safa'z Aloe Vera Skin Shiner. Formulated with pure aloe vera extracts, this gentle formula calms irritated or sensitive skin while providing intense hydration. It enhances natural skin glow, improves elasticity, and leaves your skin feeling soft, smooth, and refreshed. Suitable for daily use on face and body, it’s perfect for maintaining a radiant and healthy complexion. 💎 Embrace natural care that revitalizes and nourishes from the first application."
+        }
     ],
     handFeet: [
-       {name: "<span style='font-size: 0.6rem;'>Safa'z Hand & Foot Instant Whitening Cream (150grams)", img: "s3.jpg", price: 999, original: 1199, buyTwoPrice: 1899}
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z Hand & Foot Instant Whitening Cream (150g)</span>",
+            img: "s3.jpg",
+            price: 999,
+            original: 1199,
+            viewDesc: "🖐️✨ <b>HAND & FOOT WHITENING CREAM</b> ✨<br><br>Transform your hands and feet with Safa'z Hand & Foot Instant Whitening Cream. This carefully crafted formula brightens dark spots, smoothens rough patches, and nourishes deeply for soft, radiant skin. Its lightweight, fast-absorbing texture ensures easy application and visible results. Perfect for daily pampering and maintaining youthful, healthy-looking skin. 💎 Feel confident with flawless, glowing hands and feet."
+        }
     ],
     serum: [
-        {name: "<span style='font-size: 0.6rem;'>Glow Serum", img: "serum1.jpg", price: 1200, original: 1500}
+        {
+            name: "<span style='font-size: 0.6rem;'>Glow Serum</span>",
+            img: "serum1.jpg",
+            price: 1200,
+            original: 1500,
+            viewDesc: "✨ <b>GLOW SERUM</b> ✨<br><br>Unlock radiant, luminous skin with Safa'z Glow Serum. This lightweight, fast-absorbing formula deeply hydrates while reducing dullness and dark spots, promoting a naturally healthy glow. Enriched with potent ingredients, it improves skin texture, enhances elasticity, and revitalizes tired, stressed skin. Perfect for daily use, it leaves your skin smooth, soft, and youthful. 💎 Elevate your skincare routine with a serum that delivers visible brightness and hydration in every drop."
+        }
     ],
-   eye: [
-{
-    name: "<span style='font-size:0.6rem;'>Eyeshadow Shades</span>",
-    img: "eye1.jpg",
-
-    shades: [
-        "Midnight Black","Pearl Ivory","Metallic Copper","Rose Pink",
-        "Emerald Green","Royal Blue","Silver","Ruby Red",
-        "Lime Green","Rich Gold","Champagne","Bronze"
+    eye: [
+        {
+            name: "<span style='font-size:0.6rem;'>Eyeshadow Shades</span>",
+            img: "eye1.jpg",
+            shades: [
+                "Midnight Black","Pearl Ivory","Metallic Copper","Rose Pink",
+                "Emerald Green","Royal Blue","Silver","Ruby Red",
+                "Lime Green","Rich Gold","Champagne","Bronze"
+            ],
+            singlePrice: 100,
+            pack6: 600,
+            pack12: 800,
+            viewDesc: "🎨✨ <b>EYESHADOW COLLECTION</b> ✨<br><br>Express your creativity with Safa'z Eyeshadow Collection. Featuring 12 vibrant, long-lasting shades, this collection allows you to create endless looks from subtle daytime elegance to bold, glamorous evening makeup. The smooth, blendable formula ensures even application and professional-quality results. Suitable for all skin tones, these shades enhance your eyes, highlight your natural beauty, and make every look stand out. 💎 Elevate your makeup game and let your eyes speak with color, confidence, and style."
+        }
     ],
-
-    singlePrice: 100,
-    pack6: 600,
-    pack12: 800
-}
-],
-   fou: [
- {name: "<span style='font-size: 0.6rem;'>Founation & Concealer", img: "serum1.jpg", price: 1200, original: 1500}
-],
-
+    fou: [
+        {
+            name: "<span style='font-size: 0.6rem;'>Foundation & Concealer</span>",
+            img: "serum1.jpg",
+            price: 1200,
+            original: 1500,
+            viewDesc: "✨ <b>FOUNDATION & CONCEALER</b> ✨<br><br>Achieve flawless, professional-quality skin with Safa'z Foundation & Concealer. This lightweight, non-cakey formula provides full coverage, evens out skin tone, and hides imperfections effortlessly. Ideal for daily use or professional makeup, it ensures smooth, natural-looking skin while enhancing radiance and texture. Long-lasting and blendable, it’s perfect for creating a polished, confident appearance every day. 💎 Reveal your true beauty with skin that looks naturally perfect and healthy."
+        }
+    ]
 };
 
 
@@ -1629,6 +1673,52 @@ function showProducts(category, el) {
             <div class="qtyBox">
                 <input type="number" min="1" value="1" onchange="updateLiveTotal(this, ${p.price})">
                 <div class="price">Total: PKR ${p.price}</div>
+      <button 
+    style="
+        background: linear-gradient(135deg, #f1c40f, #f39c12);
+        border: none;
+        width: 45px; 
+        height: 45px; 
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 8px 0;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.6), 0 0 15px rgba(241,196,15,0.6);
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    " 
+    onmouseover="
+        this.style.transform='translateY(-3px) scale(1.15)';
+        this.style.boxShadow='0 8px 20px rgba(0,0,0,0.7), 0 0 25px rgba(241,196,15,0.8)';
+    " 
+    onmouseout="
+        this.style.transform='translateY(0) scale(1)';
+        this.style.boxShadow='0 6px 15px rgba(0,0,0,0.6), 0 0 15px rgba(241,196,15,0.6)';
+    " 
+    onclick="showCategoryDesc('${category}', ${i})"
+    title="View Description">
+
+    <!-- Shiny Black Paper Icon SVG -->
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#111" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 2C5.44772 2 5 2.44772 5 3V21C5 21.5523 5.44772 22 6 22H18C18.5523 22 19 21.5523 19 21V8L13 2H6ZM13 3.5L18.5 9H13V3.5ZM7 4H12V10H18V20H7V4Z"/>
+    </svg>
+
+    <!-- Glow animation overlay -->
+    <span style="
+        position:absolute;
+        width:120%;
+        height:120%;
+        background: linear-gradient(120deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
+        top:-10%;
+        left:-10%;
+        transform: rotate(45deg);
+        pointer-events:none;
+        transition: all 0.5s ease-in-out;
+    " class="shine"></span>
+</button>
 
                 <button class="btn addBtn" onclick="addToCart('${category}', ${i}, this)">Add To Cart</button>
                 <button class="btn buyBtn" onclick="buyNow('${category}', ${i}, this)">Buy Now</button>
@@ -1673,6 +1763,52 @@ function showProducts(category, el) {
     });
 }
 
+// Category Description Modal
+function showCategoryDesc(category, index) {
+    const product = products[category][index];
+    const desc = product.viewDesc || "Product details coming soon!";
+    
+    // Create/Show Modal
+    let modal = document.getElementById('descModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'descModal';
+        modal.style.cssText = `
+            position:fixed;top:0;left:0;width:100%;height:100vh;
+            background:rgba(0,0,0,0.9);z-index:9999;display:flex;align-items:center;justify-content:center;
+            backdrop-filter:blur(5px);
+        `;
+        modal.innerHTML = `
+            <div style="
+                background:white;padding:25px;border-radius:15px;max-width:90%;max-height:80vh;overflow:auto;
+                position:relative;box-shadow:0 20px 50px rgba(0,0,0,0.5);max-width:450px;
+            ">
+                <span onclick="document.getElementById('descModal').style.display='none'" style="
+                    position:absolute;top:10px;right:15px;font-size:28px;color:#e74c3c;
+                    cursor:pointer;font-weight:bold;
+                ">&times;</span>
+                <div style="font-size:16px;line-height:1.6;color:#333;text-align:center;">
+                    ${desc}
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+    modal.style.display = 'flex';
+    document.getElementById('descModal').querySelector('div').innerHTML = `
+        <span onclick="document.getElementById('descModal').style.display='none'" style="
+            position:absolute;top:10px;right:15px;font-size:28px;color:#e74c3c;cursor:pointer;font-weight:bold;
+        ">&times;</span>
+        <div style="font-size:16px;line-height:1.6;color:#333;text-align:center;">${desc}</div>
+    `;
+}
+
+// Close modal on outside click
+document.addEventListener('click', function(e) {
+    if (e.target.id === 'descModal') {
+        e.target.style.display = 'none';
+    }
+});
 function renderEyeProducts() {
     const container = document.getElementById('productsContainer');
     container.innerHTML = '';
@@ -1736,6 +1872,7 @@ function renderEyeProducts() {
             <div id="total${i}" style="margin-top:6px; font-weight:bold;">
                 Total: PKR 0
             </div>
+
 
             <button class="btn addBtn" onclick="handleEyeCart(${i}, this)">
                 Add To Cart
@@ -2477,6 +2614,18 @@ function buyNow(category,index,btn){
   addToCart(category,index,btn);
   openCheckout();
 }
+// Optional: make the shine move on hover for extra luxury effect
+    const btns = document.querySelectorAll('button');
+    btns.forEach(btn => {
+        btn.addEventListener('mouseover', () => {
+            const shine = btn.querySelector('.shine');
+            shine.style.transform = 'rotate(45deg) translateX(30%)';
+        });
+        btn.addEventListener('mouseout', () => {
+            const shine = btn.querySelector('.shine');
+            shine.style.transform = 'rotate(45deg) translateX(0)';
+        });
+    });
 
 </script>
 
@@ -2733,7 +2882,6 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
-
 
 
 
