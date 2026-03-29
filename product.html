@@ -1673,45 +1673,45 @@ function showProducts(category, el) {
             <div class="qtyBox">
                 <input type="number" min="1" value="1" onchange="updateLiveTotal(this, ${p.price})">
                 <div class="price">Total: PKR ${p.price}</div>
-      <button 
+  <button 
     style="
         background: linear-gradient(135deg, #f1c40f, #f39c12);
         border: none;
-        width: 45px; 
-        height: 45px; 
+        width: 35px; 
+        height: 35px; 
         border-radius: 50%;
         cursor: pointer;
-        margin: 8px 0;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.6), 0 0 15px rgba(241,196,15,0.6);
-        transition: all 0.3s ease-in-out;
+        margin: 8px auto; /* centered */
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.6), 0 0 12px rgba(241,196,15,0.5);
+        transition: all 0.3s ease-in-out;
         position: relative;
         overflow: hidden;
     " 
     onmouseover="
-        this.style.transform='translateY(-3px) scale(1.15)';
-        this.style.boxShadow='0 8px 20px rgba(0,0,0,0.7), 0 0 25px rgba(241,196,15,0.8)';
+        this.style.transform='translateY(-2px) scale(1.1)';
+        this.style.boxShadow='0 6px 18px rgba(0,0,0,0.7), 0 0 20px rgba(241,196,15,0.7)';
     " 
     onmouseout="
         this.style.transform='translateY(0) scale(1)';
-        this.style.boxShadow='0 6px 15px rgba(0,0,0,0.6), 0 0 15px rgba(241,196,15,0.6)';
+        this.style.boxShadow='0 4px 12px rgba(0,0,0,0.6), 0 0 12px rgba(241,196,15,0.5)';
     " 
     onclick="showCategoryDesc('${category}', ${i})"
-    title="View Description">
-
-    <!-- Shiny Black Paper Icon SVG -->
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="#111" xmlns="http://www.w3.org/2000/svg">
+    title="View Description"
+>
+    <!-- Black Paper Icon -->
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="#111" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 2C5.44772 2 5 2.44772 5 3V21C5 21.5523 5.44772 22 6 22H18C18.5523 22 19 21.5523 19 21V8L13 2H6ZM13 3.5L18.5 9H13V3.5ZM7 4H12V10H18V20H7V4Z"/>
     </svg>
 
-    <!-- Glow animation overlay -->
+    <!-- Subtle shine overlay -->
     <span style="
         position:absolute;
         width:120%;
         height:120%;
-        background: linear-gradient(120deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
+        background: linear-gradient(120deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%);
         top:-10%;
         left:-10%;
         transform: rotate(45deg);
