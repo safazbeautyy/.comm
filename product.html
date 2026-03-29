@@ -2637,9 +2637,11 @@ function buyNow(category,index,btn){
   background: linear-gradient(145deg, #222, #000);
   border: 2px solid #ffd700;
   border-radius: 20px;
-  width: 90%;
+  width: 95vw;           /* Full viewport width */
   max-width: 500px;
+  min-width: 320px;      /* Minimum mobile width */
   padding: 25px;
+  margin: 0 auto;        /* Center horizontally */
   color: #fff;
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
   text-align: left;
@@ -2647,6 +2649,34 @@ function buyNow(category,index,btn){
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .policy-card {
+    width: 98vw;         /* Almost full screen on small phones */
+    padding: 20px 15px;  /* Less padding on sides */
+    border-radius: 15px; /* Smaller radius */
+    margin: 10px auto;   /* Small top/bottom margin */
+  }
+}
+
+@media (max-width: 360px) {
+  .policy-card {
+    width: 100vw;        /* Full screen on tiny phones */
+    border-radius: 0;    /* No radius on edges */
+    margin: 0;           /* No margin */
+    padding: 20px 10px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .policy-card {
+    width: 90vw;
+    padding: 15px;
+  }
 }
 
 .policy-card:hover {
