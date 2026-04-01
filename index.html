@@ -86,24 +86,38 @@
 
     <!-- Logo + Text -->
     <div style="display: flex; align-items: center; gap: 10px;">
- <span style="
+<div style="
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+">
+
+  <span style="
     font-size:40px;
     font-weight:900;
     letter-spacing:6px;
+
     background: linear-gradient(45deg, #ffca1a, #000, #ffd700, #000);
     background-size:400% 400%;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
+
     display:inline-block;
     animation:logoGradient 4s ease infinite;
+
     text-shadow:
         0 0 10px rgba(255,202,26,0.7),
         0 0 20px rgba(0,0,0,0.5),
         0 0 30px rgba(255,255,255,0.3);
+
     transform: rotateX(3deg) rotateY(2deg);
   ">
     SAFA'z
   </span>
+
+</div>
         <img src="logo.jpg" alt="Logo" style="height: 80px; width: auto; border-radius:12px;" />
       
     </div>
