@@ -715,7 +715,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="categoryItem" onclick="showProducts('handFeet',this)">Hand & Feet Care</div>
     <div class="categoryItem" onclick="showProducts('serum',this)">Serum Collection</div>
     <div class="categoryItem" onclick="showProducts('eye',this)">Eye Shadows</div>
-     <div class="categoryItem" onclick="showProducts('fou',this)">Foundation Sticks & Bridal Bases</div>
+     <div class="categoryItem" onclick="showProducts('foundation',this)">Foundation Sticks & Bridal Bases</div>
   </div>
 
   <div id="productsContainer" class="productsContainer"></div>
@@ -1650,24 +1650,43 @@ const products = {
             viewDesc: "🎨✨ <b>EYESHADOW COLLECTION</b> ✨<br><br>Express your creativity with Safa'z Eyeshadow Collection. Featuring 12 vibrant, long-lasting shades, this collection allows you to create endless looks from subtle daytime elegance to bold, glamorous evening makeup. The smooth, blendable formula ensures even application and professional-quality results. Suitable for all skin tones, these shades enhance your eyes, highlight your natural beauty, and make every look stand out. 💎 Elevate your makeup game and let your eyes speak with color, confidence, and style."
         }
     ],
-    fou: [
-        {
-            name: "<span style='font-size: 0.6rem;'>Professional Tv Paint stick</span>",
-            img: "base1.jpg",
-            price: 799,
-            original: 999,
-            viewDesc: "✨ <b>FOUNDATION & CONCEALER</b> ✨<br><br>Achieve flawless, professional-quality skin with Safa'z Foundation & Concealer. This lightweight, non-cakey formula provides full coverage, evens out skin tone, and hides imperfections effortlessly. Ideal for daily use or professional makeup, it ensures smooth, natural-looking skin while enhancing radiance and texture. Long-lasting and blendable, it’s perfect for creating a polished, confident appearance every day. 💎 Reveal your true beauty with skin that looks naturally perfect and healthy."
-        },
-        {
-            name: "<span style='font-size: 0.6rem;'>Professional Bridal Water Base</span>",
-            img: "base2.jpg",
-            price: 699,
-            original: 899,
-            viewDesc: "✨ <b>FOUNDATION & CONCEALER</b> ✨<br><br>Achieve flawless, professional-quality skin with Safa'z Foundation & Concealer. This lightweight, non-cakey formula provides full coverage, evens out skin tone, and hides imperfections effortlessly. Ideal for daily use or professional makeup, it ensures smooth, natural-looking skin while enhancing radiance and texture. Long-lasting and blendable, it’s perfect for creating a polished, confident appearance every day. 💎 Reveal your true beauty with skin that looks naturally perfect and healthy."
-        }
-  
-    
-    ]
+   foundation: [
+
+{
+    name: "<span style='font-size: 0.6rem;'>Professional Tv Paint stick</span>",
+    img: "base1.jpg",
+    price: 799,
+    original: 999,
+
+    shades: [
+        {name:"Ivory", color:"#f7e7ce"},
+        {name:"Fs45", color:"#f6d7c3"},
+        {name:"F1", color:"#fff8c9"},
+        {name:"Fs38", color:"#c6926c"}
+     
+    ],
+
+    viewDesc: "✨ <b>FOUNDATION & CONCEALER</b> ✨<br><br>Achieve flawless, professional-quality skin with Safa'z Foundation & Concealer. This lightweight, non-cakey formula provides full coverage, evens out skin tone, and hides imperfections effortlessly. Ideal for daily use or professional makeup, it ensures smooth, natural-looking skin while enhancing radiance and texture. Long-lasting and blendable, it’s perfect for creating a polished, confident appearance every day. 💎 Reveal your true beauty with skin that looks naturally perfect and healthy."
+},
+
+{
+    name: "<span style='font-size: 0.6rem;'>Professional Bridal Water Base</span>",
+    img: "base2.jpg",
+    price: 699,
+    original: 899,
+
+    shades: [
+           {name:"Ivory", color:"#f7e7ce"},
+        {name:"Fs45", color:"#f6d7c3"},
+        {name:"F1", color:"#fff8c9"},
+        {name:"Fs38", color:"#c6926c"}
+     
+    ],
+
+    viewDesc: "✨ <b>FOUNDATION & CONCEALER</b> ✨<br><br>Achieve flawless, professional-quality skin with Safa'z Foundation & Concealer. This lightweight, non-cakey formula provides full coverage, evens out skin tone, and hides imperfections effortlessly. Ideal for daily use or professional makeup, it ensures smooth, natural-looking skin while enhancing radiance and texture. Long-lasting and blendable, it’s perfect for creating a polished, confident appearance every day. 💎 Reveal your true beauty with skin that looks naturally perfect and healthy."
+}
+
+]
 };
 
 
@@ -1679,6 +1698,10 @@ function showProducts(category, el) {
         return;
     }
     
+    if (category === "foundation") {
+    renderFoundationProducts();
+    return;
+}
     document.querySelectorAll('.categoryItem').forEach(c => c.classList.remove('activeCat'));
     if (el) el.classList.add('activeCat');
 
@@ -1792,6 +1815,148 @@ function showProducts(category, el) {
         </div>`;
     });
 }
+function renderFoundationProducts() {
+
+const container = document.getElementById('productsContainer');
+container.innerHTML = '';
+
+products.foundation.forEach((p,i)=>{
+
+container.innerHTML += `
+
+<div class="productCard">
+
+<img src="${p.img}" onclick="openModal('${p.img}')">
+
+<h4>${p.name}</h4>
+
+<div>
+<span class="originalPrice">PKR ${p.original}</span>
+<span class="price">PKR ${p.price}</span>
+</div>
+
+
+<!-- SHADE SELECT -->
+<div id="foundationShade${i}" style="
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:6px;
+margin-top:10px;
+">
+
+${p.shades.map(shade=>`
+
+<div onclick="selectFoundationShade(this,${i},'${shade.name}')"
+style="
+border:1px solid #ccc;
+padding:8px;
+font-size:0.7rem;
+text-align:center;
+cursor:pointer;
+border-radius:6px;
+">
+
+${shade.name}
+
+</div>
+
+`).join('')}
+
+</div>
+
+<div style="margin-top:8px;font-size:0.7rem;">
+Selected Shade: <span id="selectedShade${i}">None</span>
+</div>
+
+
+<!-- QUANTITY -->
+<div class="qtyBox">
+<input type="number" min="1" value="1" id="foundationQty${i}">
+</div>
+
+
+<button class="btn addBtn"
+onclick="addFoundationToCart(${i},this)">
+Add To Cart
+</button>
+
+<button class="btn buyBtn"
+onclick="buyFoundationNow(${i},this)">
+Buy Now
+</button>
+
+</div>
+`;
+});
+}
+function selectFoundationShade(el,index,shade){
+
+document
+.querySelectorAll(`#foundationShade${index} div`)
+.forEach(d=>d.style.background="white");
+
+el.style.background="#ffca1a";
+
+document.getElementById(`selectedShade${index}`).innerText = shade;
+
+}
+function addFoundationToCart(index,btn){
+
+const product = products.foundation[index];
+
+const shade = document.getElementById(`selectedShade${index}`).innerText;
+
+const qty = document.getElementById(`foundationQty${index}`).value;
+
+if(shade==="None"){
+alert("Please select shade");
+return;
+}
+
+cart.push({
+
+name: `${shade.name} (${shade})`,
+price: product.price,
+qty: qty,
+shade: shade
+
+});
+
+updateCart();
+updateCartUI();
+
+btn.innerText="Added!";
+setTimeout(()=>btn.innerText="Add To Cart",1000);
+
+}
+function buyFoundationNow(index){
+
+const product = products.foundation[index];
+
+const shade = document.getElementById(`selectedShade${index}`).innerText;
+
+const qty = document.getElementById(`foundationQty${index}`).value;
+
+if(shade==="None"){
+alert("Please select shade");
+return;
+}
+
+cart.push({
+
+name: `${product.name} (${shade})`,
+price: product.price,
+qty: qty,
+shade: shade,
+
+});
+
+updateCart();
+updateCartUI();
+
+window.location.href = "checkout.html";
+
+}
 
 // Category Description Modal
 function showCategoryDesc(category, index) {
@@ -1839,6 +2004,174 @@ document.addEventListener('click', function(e) {
         e.target.style.display = 'none';
     }
 });
+function renderFoundationProducts() {
+
+    const container = document.getElementById('productsContainer');
+    container.innerHTML = '';
+
+    products.foundation.forEach((p, i) => {
+
+        container.innerHTML += `
+
+        <div class="productCard">
+
+            <img src="${p.img}" style="
+                width:120px;
+                border-radius:10px;
+                margin-bottom:8px;
+            ">
+
+            <h4>${p.name}</h4>
+
+            <div id="foundationShadeBox${i}" style="
+                display:grid;
+                grid-template-columns:repeat(2,1fr);
+                gap:8px;
+                margin-top:10px;
+            ">
+
+            ${p.shades.map(shade => `
+
+                <div onclick="toggleFoundationShade(this,${i})"
+                class="foundationShade"
+                data-color="${shade.color}"
+                style="
+                    display:flex;
+                    align-items:center;
+                    gap:6px;
+                    border:1px solid #ccc;
+                    padding:6px;
+                    border-radius:6px;
+                    cursor:pointer;
+                    font-size:0.7rem;
+                ">
+
+                    <div style="
+                        width:18px;
+                        height:18px;
+                        border-radius:50%;
+                        background:${shade.color};
+                        border:1px solid #aaa;
+                    "></div>
+
+                    ${shade.name}
+
+                </div>
+
+            `).join('')}
+
+            </div>
+
+            <div style="margin-top:8px;font-size:0.75rem;">
+                Selected: <span id="foundationCount${i}">0</span>
+            </div>
+
+            <div id="foundationTotal${i}" style="
+                margin-top:6px;
+                font-weight:bold;
+                font-size:0.8rem;
+            ">
+                Total: PKR 0
+            </div>
+
+            <button class="btn addBtn"
+            onclick="handleFoundationCart(${i},this)">
+            Add To Cart
+            </button>
+                 
+           
+
+        </div>
+
+        `;
+
+    });
+}
+function toggleFoundationShade(el,index){
+
+    el.classList.toggle("activeShade");
+
+    if(el.classList.contains("activeShade")){
+        el.style.background = "#ffca1a";
+    }else{
+        el.style.background = "white";
+    }
+
+    updateFoundationTotal(index);
+}
+function updateFoundationTotal(index){
+
+    const selected = document.querySelectorAll(`#foundationShadeBox${index} .activeShade`);
+
+    const count = selected.length;
+
+    document.getElementById(`foundationCount${index}`).innerText = count;
+
+    let delivery = 900;
+
+    if(count == 1){
+        delivery = 900;
+    }
+    else if(count ==2){
+        delivery = 1800;
+    }
+
+     else if(count ==3){
+        delivery = 3600;
+    }
+     else if(count ==4){
+        delivery = 5400;
+    }
+    document.getElementById(`foundationTotal${index}`).innerText =
+    "Total Price: PKR " + delivery;
+}
+function handleFoundationCart(index,btn){
+
+    const selected = document.querySelectorAll(`#foundationShadeBox${index} .activeShade`);
+
+    const count = selected.length;
+
+    if(count == 0){
+        alert("Select foundation shade");
+        return;
+    }
+
+    const shades = Array.from(selected).map(el => el.innerText.trim()).join(", ");
+
+    let price = 900;
+
+    if(count == 1){
+        price = 900;
+    }
+    else if(count == 2){
+        price = 1800;
+    }
+    else if(count == 3){
+        price = 3600;
+    }
+    else if(count == 4){
+        price = 5400;
+    }
+
+    cart.push({
+
+        name: "Foundation",
+        price: price,
+        qty: 1,
+        shades: shades
+
+    });
+
+    updateCartUI();
+
+    btn.innerText = "Added!";
+
+    setTimeout(()=>{
+        btn.innerText = "Add To Cart";
+    },1000);
+}
+
+ 
 function renderEyeProducts() {
     const container = document.getElementById('productsContainer');
     container.innerHTML = '';
@@ -2184,6 +2517,21 @@ function handleEyeCart(index, btn) {
     setTimeout(() => btn.innerText = "Add To Cart", 1000);
 }
 
+function handlefoundationBuy(index, btn) {
+    handlefoundationCart(index, btn); // first add to cart
+    setTimeout(() => {
+        openCart(); // open cart popup
+    }, 300);
+}
+// ==========================
+// Buy now for eye product
+// ==========================
+function handlefoundationBuy(index, btn) {
+    handleforundationCart(index, btn); // first add to cart
+    setTimeout(() => {
+        openCart(); // open cart popup
+    }, 300);
+}
 
 // ==========================
 // Buy now for eye product
