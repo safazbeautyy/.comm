@@ -86,23 +86,25 @@
 
     <!-- Logo + Text -->
     <div style="display: flex; align-items: center; gap: 10px;">
-  <h2 style="
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.2rem;
-    margin: 0 auto; /* Center horizontally */
-    font-weight: 800;
-    color: #ffca1a;
-    background: linear-gradient(45deg, #ffd700, #ffcc33);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.35), 0 0 12px rgba(255,215,0,0.6);
-    letter-spacing: 1px;
-    padding-right: 50px; /* Corrected */
-    text-align: center; /* Center text within the element */
-">
-    SAFA'<span style="font-size:0.65em; vertical-align: middle;">Z</span>
-</h2>
-        <img src="logo.jpg" alt="Logo" style="height: 60px; width: auto; border-radius:12px; box-shadow:0 0 15px rgba(255,202,26,0.7);" />
+ <span style="
+    font-size:40px;
+    font-weight:900;
+    letter-spacing:6px;
+    background: linear-gradient(45deg, #ffca1a, #000, #ffd700, #000);
+    background-size:400% 400%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    display:inline-block;
+    animation:logoGradient 4s ease infinite;
+    text-shadow:
+        0 0 10px rgba(255,202,26,0.7),
+        0 0 20px rgba(0,0,0,0.5),
+        0 0 30px rgba(255,255,255,0.3);
+    transform: rotateX(3deg) rotateY(2deg);
+  ">
+    SAFA'z
+  </span>
+        <img src="logo.jpg" alt="Logo" style="height: 80px; width: auto; border-radius:12px;" />
       
     </div>
 </div>
@@ -150,24 +152,49 @@
     position:relative;
     z-index:2;
 ">
-  <span style="
-    font-size:40px;
-    font-weight:900;
-    letter-spacing:6px;
-    background: linear-gradient(45deg, #ffca1a, #000, #ffd700, #000);
-    background-size:400% 400%;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    display:inline-block;
-    animation:logoGradient 4s ease infinite;
-    text-shadow:
-        0 0 10px rgba(255,202,26,0.7),
-        0 0 20px rgba(0,0,0,0.5),
-        0 0 30px rgba(255,255,255,0.3);
-    transform: rotateX(3deg) rotateY(2deg);
-  ">
-    SAFA'z
-  </span>
+<span style="
+  font-size: 54px;
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: inline-block;
+
+  /* BASE YELLOW + WHITE + BLACK SHINE */
+  background: linear-gradient(90deg,
+    #ffca1a 0%,
+    #ffffff 25%,
+    #ffca1a 50%,
+    #000000 75%,
+    #ffca1a 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* SHINE ANIMATION */
+  animation: shineMove 3s linear infinite;
+
+  /* BLACK OUTLINE */
+  -webkit-text-stroke: 1.8px #000;
+
+  /* PREMIUM GLOW */
+  text-shadow:
+    0 0 8px rgba(255,202,26,0.9),
+    0 0 16px rgba(255,202,26,0.7),
+    0 0 25px rgba(255,255,255,0.5),
+    0 2px 4px rgba(0,0,0,0.6);
+
+">
+  SAFA'z
+</span>
+
+<style>
+@keyframes shineMove {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+</style>
 </div>
 
 <style>
@@ -1487,7 +1514,6 @@ document.addEventListener("keydown", function(event) {
 <script src="js/main.js"></script>
 </body>
 </html>
-
 
 
 
