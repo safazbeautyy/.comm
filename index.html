@@ -715,66 +715,65 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     
 </style>
+<!-- Safa Images EXACT Image Size Slideshow - NO Cropping! -->
+<section style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 20px 10px; margin: 20px 0;">
+    <div style="display: flex; justify-content: center;">
+        <!-- Slideshow - EXACT Image Dimensions (Square 400x400) -->
+        <div class="safaslideshow" style="position: relative; width: 400px; height: 400px; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15); flex-shrink: 0;">
+            
+            <!-- Images - EXACT Container Size - NO Crop! -->
+            <div class="slide active" data-slide="1" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px; opacity: 1; transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;">
+                <img src="img1.jpg" style="width: 400px; height: 400px; object-fit: contain; object-position: center; display: block;">
+            </div>
+            
+            <div class="slide" data-slide="2" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px; opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;">
+                <img src="img2.jpg" style="width: 400px; height: 400px; object-fit: contain; object-position: center; display: block;">
+            </div>
+            
+            <div class="slide" data-slide="3" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px; opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;">
+                <img src="img3.jpg" style="width: 400px; height: 400px; object-fit: contain; object-position: center; display: block;">
+            </div>
+            
+            <div class="slide" data-slide="4" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px; opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;">
+                <img src="img4.jpg" style="width: 400px; height: 400px; object-fit: contain; object-position: center; display: block;">
+            </div>
+            
+            <div class="slide" data-slide="5" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px; opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;">
+                <img src="img5.jpg" style="width: 400px; height: 400px; object-fit: contain; object-position: center; display: block;">
+            </div>
+            
+            <div class="slide" data-slide="6" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px; opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;">
+                <img src="img6.jpg" style="width: 400px; height: 400px; object-fit: contain; object-position: center; display: block;">
+            </div>
+            
+            <div class="slide" data-slide="7" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px; opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;">
+                <img src="img7.jpg" style="width: 400px; height: 400px; object-fit: contain; object-position: center; display: block;">
+            </div>
+            
+            <div class="slide" data-slide="8" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px; opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;">
+                <img src="img8.jpg" style="width: 400px; height: 400px; object-fit: contain; object-position: center; display: block;">
+            </div>
+            
+            <div class="slide" data-slide="9" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px; opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;">
+                <img src="img9.jpg" style="width: 400px; height: 400px; object-fit: contain; object-position: center; display: block;">
+            </div>
+            
+            <div class="slide" data-slide="10" style="position: absolute; top: 0; left: 0; width: 400px; height: 400px; opacity: 0; transform: scale(0.95); transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;">
+                <img src="img10.jpg" style="width: 400px; height: 400px; object-fit: contain; object-position: center; display: block;">
+            </div>
 
-<!-- Safa Images Perfect Size Slideshow - Container Matches Image EXACTLY -->
-<section style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 20px 10px; margin: 20px 0; position: relative;">
-    <div class="container-fluid p-0">
-        <!-- Slideshow - Container SIZE = Image SIZE -->
-        <div class="safaslideshow" style="position: relative; width: 100%; max-width: 400px; margin: 0 auto; height: 400px; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15);">
-            
-            <!-- 10 Images - EXACT Container Size -->
-            <div class="slide active" data-slide="1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 1; transform: scale(1); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-                <img src="img1.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px;">
-            </div>
-            
-            <div class="slide" data-slide="2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: scale(1.02); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-                <img src="img2.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px;">
-            </div>
-            
-            <div class="slide" data-slide="3" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: scale(1.02); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-                <img src="img3.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px;">
-            </div>
-            
-            <div class="slide" data-slide="4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: scale(1.02); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-                <img src="img4.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px;">
-            </div>
-            
-            <div class="slide" data-slide="5" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: scale(1.02); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-                <img src="img5.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px;">
-            </div>
-            
-            <div class="slide" data-slide="6" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: scale(1.02); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-                <img src="img6.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px;">
-            </div>
-            
-            <div class="slide" data-slide="7" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: scale(1.02); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-                <img src="img7.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px;">
-            </div>
-            
-            <div class="slide" data-slide="8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: scale(1.02); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-                <img src="img8.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px;">
-            </div>
-            
-            <div class="slide" data-slide="9" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: scale(1.02); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-                <img src="img9.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px;">
-            </div>
-            
-            <div class="slide" data-slide="10" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transform: scale(1.02); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-                <img src="img10.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px;">
-            </div>
-
-            <!-- Perfect Dots -->
-            <div style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; padding: 8px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 25px;">
-                <span class="safadot active" data-slide="1" style="cursor: pointer; height: 12px; width: 12px; background: rgba(255,255,255,0.8); border-radius: 50%; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 2px 8px rgba(0,0,0,0.2);"></span>
-                <span class="safadot" data-slide="2" style="cursor: pointer; height: 12px; width: 12px; background: rgba(255,255,255,0.8); border-radius: 50%; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 2px 8px rgba(0,0,0,0.2);"></span>
-                <span class="safadot" data-slide="3" style="cursor: pointer; height: 12px; width: 12px; background: rgba(255,255,255,0.8); border-radius: 50%; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 2px 8px rgba(0,0,0,0.2);"></span>
-                <span class="safadot" data-slide="4" style="cursor: pointer; height: 12px; width: 12px; background: rgba(255,255,255,0.8); border-radius: 50%; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 2px 8px rgba(0,0,0,0.2);"></span>
-                <span class="safadot" data-slide="5" style="cursor: pointer; height: 12px; width: 12px; background: rgba(255,255,255,0.8); border-radius: 50%; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 2px 8px rgba(0,0,0,0.2);"></span>
-                <span class="safadot" data-slide="6" style="cursor: pointer; height: 12px; width: 12px; background: rgba(255,255,255,0.8); border-radius: 50%; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 2px 8px rgba(0,0,0,0.2);"></span>
-                <span class="safadot" data-slide="7" style="cursor: pointer; height: 12px; width: 12px; background: rgba(255,255,255,0.8); border-radius: 50%; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 2px 8px rgba(0,0,0,0.2);"></span>
-                <span class="safadot" data-slide="8" style="cursor: pointer; height: 12px; width: 12px; background: rgba(255,255,255,0.8); border-radius: 50%; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 2px 8px rgba(0,0,0,0.2);"></span>
-                <span class="safadot" data-slide="9" style="cursor: pointer; height: 12px; width: 12px; background: rgba(255,255,255,0.8); border-radius: 50%; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 2px 8px rgba(0,0,0,0.2);"></span>
-                <span class="safadot" data-slide="10" style="cursor: pointer; height: 12px; width: 12px; background: rgba(255,255,255,0.8); border-radius: 50%; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 2px 8px rgba(0,0,0,0.2);"></span>
+            <!-- Dots -->
+            <div style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; padding: 8px 16px; background: rgba(255,255,255,0.9); backdrop-filter: blur(20px); border-radius: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+                <span class="safadot active" data-slide="1" style="cursor: pointer; height: 10px; width: 10px; background: #FFD700; border-radius: 50%; transition: all 0.4s ease; box-shadow: 0 0 8px rgba(255,215,0,0.6);"></span>
+                <span class="safadot" data-slide="2" style="cursor: pointer; height: 10px; width: 10px; background: rgba(0,0,0,0.3); border-radius: 50%; transition: all 0.4s ease;"></span>
+                <span class="safadot" data-slide="3" style="cursor: pointer; height: 10px; width: 10px; background: rgba(0,0,0,0.3); border-radius: 50%; transition: all 0.4s ease;"></span>
+                <span class="safadot" data-slide="4" style="cursor: pointer; height: 10px; width: 10px; background: rgba(0,0,0,0.3); border-radius: 50%; transition: all 0.4s ease;"></span>
+                <span class="safadot" data-slide="5" style="cursor: pointer; height: 10px; width: 10px; background: rgba(0,0,0,0.3); border-radius: 50%; transition: all 0.4s ease;"></span>
+                <span class="safadot" data-slide="6" style="cursor: pointer; height: 10px; width: 10px; background: rgba(0,0,0,0.3); border-radius: 50%; transition: all 0.4s ease;"></span>
+                <span class="safadot" data-slide="7" style="cursor: pointer; height: 10px; width: 10px; background: rgba(0,0,0,0.3); border-radius: 50%; transition: all 0.4s ease;"></span>
+                <span class="safadot" data-slide="8" style="cursor: pointer; height: 10px; width: 10px; background: rgba(0,0,0,0.3); border-radius: 50%; transition: all 0.4s ease;"></span>
+                <span class="safadot" data-slide="9" style="cursor: pointer; height: 10px; width: 10px; background: rgba(0,0,0,0.3); border-radius: 50%; transition: all 0.4s ease;"></span>
+                <span class="safadot" data-slide="10" style="cursor: pointer; height: 10px; width: 10px; background: rgba(0,0,0,0.3); border-radius: 50%; transition: all 0.4s ease;"></span>
             </div>
         </div>
     </div>
@@ -786,115 +785,97 @@ document.addEventListener("DOMContentLoaded", () => {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.safadot');
     let currentSlide = 0;
-    let autoPlayInterval;
-    let isTransitioning = false;
-    let touchStartX = 0;
-    let touchEndX = 0;
+    let interval;
 
-    function showSlide(n) {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        
+    function goToSlide(n) {
         const nextSlide = (n + slides.length) % slides.length;
         
-        // Hide current
+        // Fade out current
         slides[currentSlide].style.opacity = '0';
-        slides[currentSlide].style.transform = 'scale(1.02)';
-        slides[currentSlide].style.zIndex = '1';
+        slides[currentSlide].style.transform = 'scale(0.95)';
         
-        // Show next
-        slides[nextSlide].style.zIndex = '2';
+        // Fade in next
         setTimeout(() => {
             slides[nextSlide].style.opacity = '1';
             slides[nextSlide].style.transform = 'scale(1)';
-        }, 50);
+        }, 100);
         
         currentSlide = nextSlide;
         
         // Update dots
-        dots.forEach((dot, index) => {
-            if (index === currentSlide) {
+        dots.forEach((dot, i) => {
+            if (i === currentSlide) {
                 dot.style.background = '#FFD700';
-                dot.style.transform = 'scale(1.4)';
-                dot.style.boxShadow = '0 0 12px rgba(255, 215, 0, 0.8)';
+                dot.style.transform = 'scale(1.3)';
+                dot.style.boxShadow = '0 0 10px rgba(255,215,0,0.8)';
             } else {
-                dot.style.background = 'rgba(255,255,255,0.6)';
+                dot.style.background = 'rgba(0,0,0,0.3)';
                 dot.style.transform = 'scale(1)';
-                dot.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+                dot.style.boxShadow = 'none';
             }
         });
-        
-        setTimeout(() => { isTransitioning = false; }, 800);
     }
 
-    // Dot navigation
+    // Dots
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            clearInterval(autoPlayInterval);
-            showSlide(index);
-            restartAutoPlay();
-        });
+        dot.onclick = () => {
+            clearInterval(interval);
+            goToSlide(index);
+            restartInterval();
+        };
     });
 
-    // Touch events
-    slideshow.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-        clearInterval(autoPlayInterval);
-    });
-    
+    // Touch swipe
+    let startX = 0;
+    slideshow.addEventListener('touchstart', e => startX = e.touches[0].clientX);
     slideshow.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 40) {
-            if (diff > 0) showSlide(currentSlide + 1);
-            else showSlide(currentSlide - 1);
-        }
-        restartAutoPlay();
+        let endX = e.changedTouches[0].clientX;
+        if (startX - endX > 50) goToSlide(currentSlide + 1);
+        if (endX - startX > 50) goToSlide(currentSlide - 1);
+        restartInterval();
     });
 
-    function restartAutoPlay() {
-        autoPlayInterval = setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 4500);
+    function restartInterval() {
+        clearInterval(interval);
+        interval = setInterval(() => goToSlide(currentSlide + 1), 4000);
     }
 
-    // Hover pause
-    slideshow.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-    slideshow.addEventListener('mouseleave', restartAutoPlay);
-
-    // Start autoplay
-    restartAutoPlay();
+    restartInterval();
 })();
 </script>
 
 <style>
-/* PERFECT Mobile Sizing - Container = Image Size */
-@media (max-width: 768px) {
-    .safaslideshow { 
-        height: 350px !important; 
-        max-width: 360px !important;
-        border-radius: 18px !important;
-    }
-}
-
+/* Mobile Perfect Sizing - Scales Down Cleanly */
 @media (max-width: 480px) {
-    .safaslideshow { 
-        height: 320px !important; 
-        max-width: 340px !important;
+    .safaslideshow {
+        width: 340px !important;
+        height: 340px !important;
         border-radius: 16px !important;
+    }
+    .safaslideshow .slide {
+        width: 340px !important;
+        height: 340px !important;
+    }
+    .safaslideshow .slide img {
+        width: 340px !important;
+        height: 340px !important;
     }
 }
 
 @media (max-width: 360px) {
-    .safaslideshow { 
-        height: 300px !important; 
-        max-width: 320px !important;
+    .safaslideshow {
+        width: 300px !important;
+        height: 300px !important;
         border-radius: 14px !important;
     }
-}
-
-.safaslideshow img {
-    will-change: transform, opacity;
+    .safaslideshow .slide {
+        width: 300px !important;
+        height: 300px !important;
+    }
+    .safaslideshow .slide img {
+        width: 300px !important;
+        height: 300px !important;
+    }
 }
 </style>
 <!-- About Start -->
