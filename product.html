@@ -3018,7 +3018,7 @@ let message = `
 Order No: ${orderNumber}
 
 Items:
-${itemsText}
+${itemsText.replace(/<[^>]*>/g, '')}
 
 Delivery Charges: PKR ${delivery}
 Total Amount: PKR ${grandTotal}
