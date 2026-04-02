@@ -758,6 +758,47 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(updateVisitorCount, 4000);
         updateVisitorCount(); // Initial call
     });
+    document.addEventListener("DOMContentLoaded",function(){
+
+  function closeNotification(){
+    const notification=document.getElementById("liveNotification");
+    if(notification){
+      notification.classList.remove("notification-show");
+      notification.classList.add("notification-hide");
+    }
+  }
+
+  // ✅ Click anywhere except notification → close
+  document.addEventListener("click",function(e){
+    const notification=document.getElementById("liveNotification");
+
+    if(!notification) return;
+
+    // if click is NOT inside notification
+    if(!notification.contains(e.target)){
+      closeNotification();
+    }
+  });
+
+  // ✅ Swipe to close (mobile)
+  let startX=0;
+  const notification=document.getElementById("liveNotification");
+
+  if(notification){
+    notification.addEventListener("touchstart",e=>{
+      startX=e.touches[0].clientX;
+    });
+
+    notification.addEventListener("touchend",e=>{
+      let endX=e.changedTouches[0].clientX;
+
+      if(Math.abs(startX-endX)>50){
+        closeNotification();
+      }
+    });
+  }
+
+});
 </script>
 <!-- ================= PREMIUM SHOP SECTION ================= -->
 <div class="mainSection">
