@@ -2190,6 +2190,9 @@ function renderFoundationProducts() {
             onclick="handleFoundationCart(${i},this)">
             Add To Cart
             </button>
+            <button class="btn buyBtn" onclick="handleFoundationBuy(${i}, this)">
+    Buy Now
+</button>
                  
            
 
@@ -2198,6 +2201,54 @@ function renderFoundationProducts() {
         `;
 
     });
+}
+function handleFoundationBuy(index, btn) {
+
+    const selected = document.querySelectorAll(`#foundationShadeBox${index} .activeShade`);
+    const count = selected.length;
+
+    if (count === 0) {
+        alert("Select foundation shade");
+        return;
+    }
+
+    const product = products.foundation[index];
+
+    const shadesArray = Array.from(selected).map(el => el.innerText.trim());
+    const shadesString = shadesArray.join(", ");
+
+    let price = 0;
+
+    if (count == 1) {
+        price = 900;
+    } else if (count == 2) {
+        price = 1800;
+    } else if (count == 3) {
+        price = 3600;
+    } else if (count == 4) {
+        price = 5400;
+    }
+
+    // ✅ Push into cart (same as Eye style)
+    cart.push({
+        name: `${product.name} (${shadesString})`,
+        price: price,
+        qty: 1,
+        shades: shadesString
+    });
+
+    // ✅ Update cart UI
+    updateCart();
+    updateCartUI();
+
+    // ✅ Button feedback
+    btn.innerText = "Added!";
+    setTimeout(() => btn.innerText = "Buy Now", 1000);
+
+    // ✅ Open cart (same as eye)
+    setTimeout(() => {
+        openCart();
+    }, 300);
 }
 function toggleFoundationShade(el,index){
 
@@ -2265,14 +2316,14 @@ function handleFoundationCart(index,btn){
         price = 5400;
     }
 
-    cart.push({
+   const product = products.foundation[index];
 
-        name: "Foundation",
-        price: price,
-        qty: 1,
-        shades: shades
-
-    });
+cart.push({
+    name: `${product.name} (${shades})`,
+    price: price,
+    qty: 1,
+    shades: shades
+});
 
     updateCartUI();
 
