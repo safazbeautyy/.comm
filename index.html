@@ -730,6 +730,586 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     
 </style>
+
+
+<section class="lux-ai">
+  <div class="lux-box">
+    <h2>💎 Smart Beauty Diagnosis</h2>
+    <p>Answer 12 questions & get your perfect personalized product recommendation</p>
+
+    <div id="qBox"></div>
+    <div id="nameBox" style="display:none;"></div>
+    <div id="resBox" style="display:none;"></div>
+  </div>
+</section>
+
+<style>
+.lux-ai{
+  background: linear-gradient(135deg,#000,#111);
+  padding:80px 20px;
+  text-align:center;
+  color:#fff;
+  min-height:100vh;
+}
+
+.lux-box{
+  max-width:700px;
+  margin:auto;
+  background:#111;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 0 60px rgba(255,193,7,0.25);
+}
+
+.option{
+  background:#222;
+  margin:12px 0;
+  padding:16px;
+  border-radius:12px;
+  cursor:pointer;
+  border:2px solid transparent;
+  transition:0.3s;
+  font-size:16px;
+}
+.option:hover{
+  border-color:#ffc107;
+  background:#333;
+  transform:translateY(-2px);
+}
+
+.name-input{
+  background:#222;
+  border:2px solid #333;
+  color:#fff;
+  padding:16px;
+  border-radius:12px;
+  font-size:16px;
+  width:80%;
+  max-width:400px;
+  margin:10px 0;
+  text-align:center;
+}
+
+.name-input:focus{
+  outline:none;
+  border-color:#ffc107;
+  box-shadow:0 0 10px rgba(255,193,7,0.3);
+}
+
+.result{
+  text-align:left;
+  border:2px solid #ffc107;
+  padding:30px;
+  border-radius:20px;
+  background:linear-gradient(145deg,#1a1a1a,#111);
+}
+
+.product-card{
+  background:#222;
+  border:1px solid #333;
+  border-radius:12px;
+  padding:20px;
+  margin:15px 0;
+  text-align:center;
+}
+
+.whatsapp-btn{
+  background:#25D366;
+  color:#fff;
+  padding:18px 30px;
+  border-radius:15px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:18px;
+  display:inline-block;
+  margin:20px 0;
+  transition:0.3s;
+}
+.whatsapp-btn:hover{
+  background:#128C7E;
+  transform:scale(1.05);
+}
+
+.progress-bar{
+  background:#333;
+  height:8px;
+  border-radius:4px;
+  margin:20px 0;
+  overflow:hidden;
+}
+.progress-fill{
+  background:linear-gradient(90deg,#ffc107,#ffed4a);
+  height:100%;
+  transition:2s;
+  border-radius:4px;
+}
+
+@media (max-width:768px){
+  .lux-box{padding:30px 20px;}
+  .option{padding:14px;font-size:15px;}
+}
+</style>
+
+<script>
+let step=0;
+let ans={};
+let customerName="";
+
+const products = {
+    faceShiner: [
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z 24k Gold Oxidizing Skin Polish Large Pack (1000ml Peeling Solution + 500g Blonder Powder)</span>",
+            img: "s1.jpg",
+            price: 3500,
+            original: 4000,
+            viewDesc:"✨ <b>PROFESSIONAL 24K GOLD SKIN POLISH KIT</b><br><br>Achieve salon-like glowing skin with Safa'z 24k Gold Skin Polish Kit, designed for deep exfoliation and complete skin renewal.<br><br><b>What it does:</b><br>• Removes dead skin & impurities<br>• Deeply cleanses & unclogs pores<br>• Brightens dull, tired skin<br>• Improves skin texture & smoothness<br>• Reduces fine lines & signs of aging<br><br>This powerful duo of peeling solution and blonder powder works together to reveal fresh, radiant, and youthful-looking skin. Perfect for professional and home use.<br><br><b>Why you'll love it:</b><br>💎 Your ultimate solution for instant glow and skin rejuvenation."
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z Magical Whitening Beauty Cream</span>",
+            img: "cream.jpg",
+            price: 750,
+            original: 950,
+            viewDesc: `✨ <b>SAFA'Z WHITENING CREAM</b><br><br>Reveal your natural glow with Safa'z Whitening Cream, specially crafted to enhance your skin's radiance and clarity.<br><br><b>What it does:</b><br>• Brightens dull skin<br>• Reduces dark spots & pigmentation<br>• Promotes even skin tone<br>• Deeply hydrates without greasy feel<br>• Improves skin texture<br><br>Lightweight and fast-absorbing, enriched with skin-loving ingredients for a smooth, soft, and fresh look. Perfect for daily use.<br><br><b>Why you'll love it:</b><br>💎 Your daily step towards healthy, glowing, and confident skin.`
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z Gold 24k Skin Polish Peeling Solution (200ml) & Blonder Powder (200g)</span>",
+            img: "s2.jpg",
+            price: 750,
+            original: 850,
+            viewDesc:"✨ <b>MINI 24K GOLD SKIN POLISH KIT</b><br><br>Enjoy professional skincare in a compact form with Safa'z Mini 24k Gold Skin Polish Kit, perfect for quick glow treatments.<br><br><b>What it does:</b><br>• Gently exfoliates dead skin<br>• Brightens and evens skin tone<br>• Reduces pigmentation & dullness<br>• Smoothens rough areas<br>• Enhances natural glow<br><br>Lightweight yet effective, this mini kit delivers visible radiance and freshness anytime you need a quick skin boost.<br><br><b>Why you'll love it:</b><br>💎 Perfect for instant glow, anywhere, anytime."
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z Hand & Foot Instant Whitening Cream (150g)</span>",
+            img: "s3.jpg",
+            price: 1199,
+            original: 1399,
+            viewDesc: "🖐️✨ <b>HAND & FOOT WHITENING CREAM</b><br><br>Reveal soft, bright, and nourished skin with Safa'z Hand & Foot Whitening Cream, specially made for dry and dull areas.<br><br><b>What it does:</b><br>• Brightens dark hands & feet<br>• Reduces pigmentation & roughness<br>• Deeply moisturizes dry skin<br>• Smoothens cracked areas<br>• Restores softness & glow<br><br>Fast-absorbing and non-greasy, it delivers deep care and visible results with daily use.<br><br><b>Why you'll love it:</b><br>💎 Your go-to cream for soft, glowing hands and feet."
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z All-in-One Ready 2 White Saffron Urgent Facial (300g)</span>",
+            img: "s4.jpg",
+            price: 699,
+            original: 899,
+            viewDesc:"🌸✨ <b>SAFFRON URGENT FACIAL</b><br><br>Get instant brightness with Safa'z Saffron Urgent Facial, designed to deeply cleanse and revive dull skin.<br><br><b>What it does:</b><br>• Instantly brightens skin tone<br>• Reduces pigmentation & dullness<br>• Deeply cleanses impurities<br>• Enhances natural glow<br>• Revitalizes tired skin<br><br>Infused with saffron, this facial gives a fresh, radiant, and salon-like finish in minutes. Perfect for quick glow needs.<br><br><b>Why you'll love it:</b><br>💎 Your instant facial glow in one easy step."
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z Natural Skin Shiner Soothing Aloe Vera (500ml)</span>",
+            img: "s5.jpg",
+            price: 750,
+            original: 850,
+            viewDesc:"🌿✨ <b>ALOE VERA SKIN SHINER</b><br><br>Soothe and refresh your skin with Safa'z Aloe Vera Skin Shiner, made for gentle hydration and natural glow.<br><br><b>What it does:</b><br>• Calms irritated skin<br>• Provides deep hydration<br>• Enhances natural glow<br>• Improves skin elasticity<br>• Leaves skin soft & refreshed<br><br>Lightweight and soothing, it's perfect for daily use on face and body for healthy, glowing skin.<br><br><b>Why you'll love it:</b><br>💎 Natural care for calm, hydrated, and radiant skin."
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z Soothing Lotion</span>",
+            img: "soothing.jpg",
+            price: 750,
+            original: 850,
+            viewDesc: "🌿 <b>SOOTHING LOTION</b><br><br>Pamper your skin with Safa'z Soothing Lotion, designed to hydrate, calm, and restore natural softness.<br><br><b>What it does:</b><br>• Deeply hydrates dry skin<br>• Soothes irritation & redness<br>• Improves skin texture<br>• Enhances smoothness<br>• Leaves skin soft & nourished<br><br>Its lightweight formula absorbs quickly, making it perfect for everyday use on all skin types.<br><br><b>Why you'll love it:</b><br>💎 Everyday hydration for soft, smooth, and healthy skin."
+        }
+    ],
+    handFeet: [
+        {
+            name: "<span style='font-size: 0.6rem;'>Safa'z Hand & Foot Instant Whitening Cream (150g)</span>",
+            img: "s3.jpg",
+            price: 1199,
+            original: 1399,
+            viewDesc:"🖐️✨ <b>HAND & FOOT WHITENING CREAM</b><br><br>Transform dull and rough skin with Safa'z Hand & Foot Whitening Cream for visibly brighter and smoother results.<br><br><b>What it does:</b><br>• Brightens uneven skin tone<br>• Reduces dark spots<br>• Softens rough areas<br>• Deeply nourishes skin<br>• Restores smooth texture<br><br>Quick-absorbing and effective, it delivers visible glow and softness with regular use.<br><br><b>Why you'll love it:</b><br>💎 Perfect care for flawless, glowing hands and feet."
+        }
+    ],
+    serum: [
+        {
+            name: "<span style='font-size: 0.6rem;'>GLycolic Acid Serum</span>",
+            img: "serum1.jpg",
+            price: 799,
+            original: 999,
+            viewDesc:"✨ <b>GLYCOLIC ACID SERUM</b><br><br>Reveal smoother, brighter skin with Safa'z Glycolic Acid Serum, specially formulated to gently exfoliate and renew your skin.<br><br><b>What it does:</b><br>• Removes dead skin cells<br>• Reduces dullness & uneven tone<br>• Minimizes pores appearance<br>• Smoothens rough texture<br>• Boosts natural glow<br><br>Lightweight and fast-absorbing, this powerful formula promotes fresh, clear, and radiant skin with regular use. Perfect for glowing, refined skin.<br><br><b>Why you'll love it:</b><br>💎 Your secret to smooth, polished, and luminous skin."
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>No More Acne Serum</span>",
+            img: "serum2.jpg",
+            price: 799,
+            original: 999,
+            viewDesc: "✨ <b>NO MORE ACNE SERUM</b><br><br>Say goodbye to breakouts with Safa'z No More Acne Serum, designed to target acne and calm your skin.<br><br><b>What it does:</b><br>• Fights acne & breakouts<br>• Reduces redness & inflammation<br>• Controls excess oil<br>• Unclogs pores deeply<br>• Prevents future acne<br><br>Gentle yet effective, this fast-absorbing serum helps purify your skin, leaving it clear, fresh, and balanced. Ideal for daily acne care.<br><br><b>Why you'll love it:</b><br>💎 Your daily solution for clear, calm, and confident skin."
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Instant Whitening Serum</span>",
+            img: "serum3.jpg",
+            price: 799,
+            original: 999,
+            viewDesc:"✨ <b>INSTANT WHITENING SERUM</b><br><br>Get instantly brighter and glowing skin with Safa'z Instant Whitening Serum, crafted to enhance your natural radiance.<br><br><b>What it does:</b><br>• Instantly brightens skin tone<br>• Reduces dark spots & pigmentation<br>• Evens out complexion<br>• Adds natural glow<br>• Hydrates and refreshes skin<br><br>This lightweight serum absorbs quickly, giving your skin a smooth, radiant, and luminous finish. Perfect for everyday glow boost.<br><br><b>Why you'll love it:</b><br>💎 Your shortcut to glowing, radiant, and flawless-looking skin."
+        }
+    ],
+    eye: [
+        {
+            name: "<span style='font-size:0.6rem;'>Eyeshadow Shades</span>",
+            img: "eye1.jpg",
+            shades: ["Midnight Black","Pearl Ivory","Metallic Copper","Rose Pink","Emerald Green","Royal Blue","Silver","Ruby Red","Lime Green","Rich Gold","Champagne","Bronze"],
+            singlePrice: 100,
+            pack6: 600,
+            pack12: 800,
+            viewDesc: "🎨✨ <b>EYESHADOW COLLECTION</b> ✨<br><br>Express your creativity with Safa'z Eyeshadow Collection. Featuring 12 vibrant, long-lasting shades, this collection allows you to create endless looks from subtle daytime elegance to bold, glamorous evening makeup."
+        }
+    ],
+    foundation: [
+        {
+            name: "<span style='font-size: 0.6rem;'>Professional Tv Paint stick</span>",
+            img: "base1.jpg",
+            price: 799,
+            original: 999,
+            shades: [{name:"Ivory", color:"#f7e7ce"},{name:"Fs45", color:"#f6d7c3"},{name:"F1", color:"#fff8c9"},{name:"Fs38", color:"#c6926c"}],
+            viewDesc: "✨ <b>FOUNDATION & CONCEALER</b> ✨<br><br>Achieve flawless, professional-quality skin with Safa'z Foundation & Concealer."
+        },
+        {
+            name: "<span style='font-size: 0.6rem;'>Bridal Water Base</span>",
+            img: "base2.jpg",
+            price: 699,
+            original: 899,
+            shades: [{name:"Ivory", color:"#f7e7ce"},{name:"Fs45", color:"#f6d7c3"},{name:"F1", color:"#fff8c9"},{name:"Fs38", color:"#c6926c"}],
+            viewDesc: "✨ <b>FOUNDATION & CONCEALER</b> ✨<br><br>Achieve flawless, professional-quality skin with Safa'z Foundation & Concealer."
+        }
+    ],
+    offer: [
+        {
+            name: "<span style='font-size:0.9rem;font-weight:700;color:#fff;background:linear-gradient(90deg,#ff0000,#cc0000);padding:5px 10px;border-radius:20px;box-shadow:0 2px 6px rgba(0,0,0,0.25);'>11% OFF</span> <span style='font-size:0.65rem;color:#444;'>Get Pack of Three Magical Whitening Creams</span>",
+            img: "offer1.jpg",
+            price: 1400,
+            original: 1500,
+            viewDesc: "🖐️✨ <b>HAND & FOOT WHITENING CREAM</b> ✨<br><br>Transform your hands and feet with Safa'z Hand & Foot Instant Whitening Cream."
+        }
+    ]
+};
+
+function loadQ(){
+    let box=document.getElementById("qBox");
+    let progress = document.getElementById("progressFill");
+    if(progress) progress.style.width = Math.min((step/13)*100, 100) + "%";
+
+    const questions = [
+        // Step 0: Skin Type
+        {
+            q: "What is your skin type?",
+            options: [
+                {text: "Dry / Flaky", value: "dry"},
+                {text: "Oily / Shiny", value: "oily"},
+                {text: "Combination", value: "combo"},
+                {text: "Normal", value: "normal"}
+            ]
+        },
+        // Step 1: Main Concern
+        {
+            q: "What is your MAIN skin concern?",
+            options: [
+                {text: "Acne / Pimples", value: "acne"},
+                {text: "Dark Spots / Pigmentation", value: "pigment"},
+                {text: "Dullness / No Glow", value: "dull"},
+                {text: "Large Pores", value: "pores"}
+            ]
+        },
+        // Step 2: Age Group
+        {
+            q: "What is your age group?",
+            options: [
+                {text: "18-25 (Young)", value: "young"},
+                {text: "26-35 (Adult)", value: "adult"},
+                {text: "36-45 (Mature)", value: "mature"},
+                {text: "46+ (Senior)", value: "senior"}
+            ]
+        },
+        // Step 3: Goal
+        {
+            q: "What is your PRIMARY goal?",
+                        options: [
+                {text: "Instant Glow", value: "glow"},
+                {text: "Clear Skin", value: "clear"},
+                {text: "Even Tone", value: "even"},
+                {text: "Anti-Aging", value: "antiage"}
+            ]
+        },
+        // Step 4: Treatment Area
+        {
+            q: "Which area needs treatment?",
+            options: [
+                {text: "Face Only", value: "face"},
+                {text: "Hands & Feet", value: "hands"},
+                {text: "Full Body", value: "body"},
+                {text: "Face + Body", value: "full"}
+            ]
+        },
+        // Step 5: Result Speed
+        {
+            q: "How fast do you want results?",
+            options: [
+                {text: "Instant (1-3 days)", value: "fast"},
+                {text: "Quick (1-2 weeks)", value: "quick"},
+                {text: "Long Term (1+ month)", value: "slow"}
+            ]
+        },
+        // Step 6: Sensitivity
+        {
+            q: "Is your skin sensitive?",
+            options: [
+                {text: "Very Sensitive", value: "verysensitive"},
+                {text: "Somewhat Sensitive", value: "sensitive"},
+                {text: "Normal Tolerance", value: "normal"},
+                {text: "Can Handle Strong Products", value: "tough"}
+            ]
+        },
+        // Step 7: Current Routine
+        {
+            q: "Do you currently use skincare?",
+            options: [
+                {text: "No Routine", value: "none"},
+                {text: "Basic (Cleanser + Moisturizer)", value: "basic"},
+                {text: "Full Routine", value: "full"},
+                {text: "Professional Treatments", value: "pro"}
+            ]
+        },
+        // Step 8: Budget
+        {
+            q: "What is your budget per product?",
+            options: [
+                {text: "Under 1000 PKR", value: "low"},
+                {text: "1000-2000 PKR", value: "medium"},
+                {text: "2000+ PKR", value: "high"}
+            ]
+        },
+        // Step 9: Usage Frequency
+        {
+            q: "How often will you use products?",
+            options: [
+                {text: "Daily", value: "daily"},
+                {text: "3-4 times/week", value: "regular"},
+                {text: "Weekly", value: "weekly"},
+                {text: "Occasional", value: "occasional"}
+            ]
+        },
+        // Step 10: Makeup Usage
+        {
+            q: "Do you wear makeup regularly?",
+            options: [
+                {text: "Daily Makeup", value: "daily"},
+                {text: "Occasional Makeup", value: "occasional"},
+                {text: "Special Occasions Only", value: "special"},
+                {text: "Never", value: "never"}
+            ]
+        },
+        // Step 11: Lifestyle
+        {
+            q: "Your lifestyle?",
+            options: [
+                {text: "Indoor/Minimal Sun", value: "indoor"},
+                {text: "Outdoor/Active", value: "outdoor"},
+                {text: "Office Worker", value: "office"},
+                {text: "Student", value: "student"}
+            ]
+        },
+        // Step 12: Final confirmation (goes to name input)
+        {
+            q: "Ready for your personalized recommendations?",
+            options: [
+                {text: "Yes, show me my perfect products!", value: "ready"}
+            ]
+        }
+    ];
+
+    if(step < questions.length){
+        let q = questions[step];
+        let html = `
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill" style="width:${(step/questions.length)*100}%"></div>
+            </div>
+            <h3>Question ${step+1}/13</h3>
+            <h4>${q.q}</h4>
+        `;
+        
+        q.options.forEach(opt => {
+            html += `<div class="option" onclick="next('${opt.value}')">${opt.text}</div>`;
+        });
+        
+        box.innerHTML = html;
+    } else {
+        showNameInput();
+    }
+}
+
+function next(value){
+    // Auto-detect key based on step
+    const keys = ['type','concern','age','goal','area','speed','sensitivity','routine','budget','frequency','makeup','lifestyle'];
+    if(step < keys.length){
+        ans[keys[step]] = value;
+    }
+    step++;
+    loadQ();
+}
+
+function showNameInput(){
+    document.getElementById("qBox").style.display = "none";
+    document.getElementById("nameBox").style.display = "block";
+    document.getElementById("nameBox").innerHTML = `
+        <h3>🎉 Almost Done!</h3>
+        <p>Enter your name to get your personalized skin diagnosis:</p>
+        <input type="text" class="name-input" id="customerName" placeholder="Enter your full name..." autocomplete="name">
+        <div class="option" onclick="getResults()" style="margin-top:20px;">✅ Get My Personalized Recommendations</div>
+    `;
+    setTimeout(() => document.getElementById("customerName").focus(), 500);
+}
+
+function getResults(){
+    customerName = document.getElementById("customerName").value.trim();
+    if(customerName){
+        finalResult();
+    } else {
+        alert("Please enter your name!");
+    }
+}
+
+function finalResult(){
+    document.getElementById("nameBox").style.display = "none";
+    let res=document.getElementById("resBox");
+    res.style.display = "block";
+
+    let recommendedProducts = [];
+    let detailedReason = [];
+    let totalPrice = 0;
+
+    // 🔥 COMPREHENSIVE SKIN ANALYSIS LOGIC
+    console.log("Skin Analysis:", ans); // Debug
+
+    // 1. SKIN TYPE BASED
+    if(ans.type === 'dry'){
+        recommendedProducts.push(products.faceShiner[6]); // Soothing Lotion
+        recommendedProducts.push(products.faceShiner[5]); // Aloe Vera
+        detailedReason.push("💧 <b>DRY SKIN SOLUTION:</b> Your dry skin needs deep hydration. Soothing Lotion and Aloe Vera Skin Shiner will restore moisture, calm irritation, and give you soft, plump skin.");
+        totalPrice += 750 + 750;
+    } else if(ans.type === 'oily'){
+        recommendedProducts.push(products.serum[1]); // No More Acne Serum
+        detailedReason.push("🛢️ <b>OILY SKIN CONTROL:</b> No More Acne Serum controls excess oil, unclogs pores, and prevents breakouts perfect for your oily skin type.");
+        totalPrice += 799;
+    }
+
+    // 2. MAIN CONCERN BASED
+    if(ans.concern === 'acne'){
+        recommendedProducts.push(products.serum[1]);
+        detailedReason.push("🚫 <b>ACNE TARGET:</b> No More Acne Serum fights active breakouts, reduces inflammation, and prevents future pimples by controlling oil and unclogging pores.");
+        totalPrice += 799;
+    } else if(ans.concern === 'pigment'){
+        recommendedProducts.push(products.serum[2]); // Instant Whitening Serum
+        recommendedProducts.push(products.faceShiner[1]); // Whitening Cream
+        detailedReason.push("🎨 <b>PIGMENTATION FIX:</b> Instant Whitening Serum + Magical Whitening Cream combo reduces dark spots, evens skin tone, and brightens pigmentation effectively.");
+        totalPrice += 799 + 750;
+    } else if(ans.concern === 'dull'){
+        recommendedProducts.push(products.faceShiner[4]); // Saffron Facial
+        detailedReason.push("✨ <b>INSTANT GLOW BOOST:</b> Saffron Urgent Facial removes dullness, deeply cleanses, and gives salon-like brightness in minutes.");
+        totalPrice += 699;
+    }
+
+    // 3. GOAL BASED
+    if(ans.goal === 'glow' && ans.speed === 'fast'){
+        recommendedProducts.push(products.faceShiner[0]); // Large Skin Polish
+        detailedReason.push("💎 <b>PROFESSIONAL GLOW:</b> 24K Gold Skin Polish Large Pack gives dramatic, salon-quality exfoliation and instant radiance.");
+        totalPrice += 3500;
+    }
+
+    // 4. AREA BASED
+    if(ans.area === 'hands' || ans.area === 'full'){
+        recommendedProducts.push(products.handFeet[0]);
+        detailedReason.push("🖐️ <b>HANDS & FEET CARE:</b> Hand & Foot Whitening Cream brightens dark areas, smooths roughness, and restores softness specifically for these problem zones.");
+        totalPrice += 1199;
+    }
+
+    // 5. SENSITIVITY BASED
+    if(ans.sensitivity === 'verysensitive' || ans.sensitivity === 'sensitive'){
+        recommendedProducts.push(products.faceShiner[5]); // Aloe Vera
+        detailedReason.push("🌿 <b>SENSITIVE SKIN CARE:</b> Natural Aloe Vera Skin Shiner soothes irritation and provides gentle hydration safe for sensitive skin.");
+        totalPrice += 750;
+    }
+
+    // 6. MAKEUP USERS
+    if(ans.makeup === 'daily' || ans.makeup === 'occasional'){
+        recommendedProducts.push(products.foundation[0]); // TV Paint Stick
+        detailedReason.push("💄 <b>MAKEUP PERFECTORS:</b> Professional TV Paint Stick gives flawless coverage and smooth base for your daily makeup routine.");
+        totalPrice += 799;
+    }
+
+    // 7. BUDGET BASED OFFERS
+    if(ans.budget === 'low' && recommendedProducts.length < 3){
+        recommendedProducts.push(products.offer[0]);
+        detailedReason.push("🎉 <b>BUDGET SAVER:</b> 11% OFF Pack of Three Whitening Creams - perfect value for your budget!");
+        totalPrice += 1400;
+    }
+
+    // Remove duplicates and limit to top 4-5 products
+    recommendedProducts = [...new Set(recommendedProducts)].slice(0,5);
+
+    // If no specific matches, recommend bestsellers
+    if(recommendedProducts.length === 0){
+        recommendedProducts = [
+            products.faceShiner[1], // Whitening Cream (universal)
+            products.serum[2] // Instant Whitening Serum
+        ];
+        detailedReason.push("🌟 <b>UNIVERSAL STARTER KIT:</b> These are our best-selling products that work for most skin types and concerns.");
+        totalPrice += 750 + 799;
+    }
+
+    let productNames = recommendedProducts.map(p => p.name.replace(/<[^>]*>/g,'')).join('\n✦ ');
+    let fullReason = detailedReason.join('<br><br>');
+
+    let whatsappMsg = encodeURIComponent(
+`👋 Hi! I'm ${customerName} and I just completed the Smart Skin Diagnosis!
+
+📋 MY SKIN PROFILE:
+${Object.entries(ans).map(([k,v]) => `• ${k.replace(/([A-Z])/g, ' $1').toUpperCase()}: ${v}`).join('\n')}
+
+💎 MY PERSONALIZED RECOMMENDATIONS:
+✦ ${productNames}
+
+💰 TOTAL ESTIMATED: ${totalPrice} PKR
+
+📝 WHY THESE PRODUCTS:
+${fullReason.replace(/<br>/g, '\\n')}
+
+Please help me order! 🛒
+`
+    );
+
+    res.innerHTML = `
+        <div class="result">
+            <h3>🎉 Hello ${customerName}! Your Perfect Skin Routine</h3>
+            <p><strong>Based on your ${Object.keys(ans).length + 1} answers, here's your personalized plan:</strong></p>
+            
+            <div style="background:#ffc10725;padding:15px;border-radius:10px;margin:20px 0;">
+                <h4>💰 Total Investment: <span style="color:#ffc107;font-size:24px;">${totalPrice} PKR</span></h4>
+            </div>
+
+            ${recommendedProducts.map((product, i) => `
+                <div class="product-card">
+                    <h4>${i+1}. ${product.name}</h4>
+                    <div style="color:#ffc107;font-size:18px;font-weight:bold;">Rs.${product.price} <span style="text-decoration:line-through;color:#666;">Rs.${product.original}</span></div>
+                    <div style="color:#ccc;margin-top:10px;font-size:14px;">${product.viewDesc}</div>
+                </div>
+            `).join('')}
+
+            <div style="background:#25D36625;border:2px solid #25D366;padding:20px;border-radius:15px;margin:25px 0;">
+                <h4>✅ Why This is PERFECT for YOU:</h4>
+                <div style="color:#fff;line-height:1.6;">${fullReason}</div>
+            </div>
+
+            <a href="https://wa.me/923364454964?text=${whatsappMsg}" target="_blank" class="whatsapp-btn">
+                💬 Send to WhatsApp Expert (FREE Consultation)
+            </a>
+            
+            <p style="color:#ccc;font-size:14px;margin-top:20px;">
+                Your complete skin profile will be shared with our experts for personalized advice! ✨
+            </p>
+        </div>
+    `;
+}
+
+// Initialize
+loadQ();
+</script>
+
+
 <!-- Safa Images EXACT Image Size Slideshow - NO Cropping! -->
 <section style="background: linear-gradient(135deg, #f5f7fa 0%, #f8e9a1 100%); padding: 20px 10px; margin: 20px 0;">
     <div style="display: flex; justify-content: center;">
