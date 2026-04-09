@@ -734,7 +734,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <section class="lux-ai">
   <div class="lux-box">
-    <h2>💎 Smart Beauty Diagnosis</h2>
+   <h2 style="color:#ffc107;">💎 Smart Beauty Diagnosis</h2>
     <p>Answer 12 questions & get your perfect personalized product recommendation</p>
 
     <div id="qBox"></div>
@@ -1118,8 +1118,8 @@ function loadQ(){
             <div class="progress-bar">
                 <div id="progressFill" class="progress-fill" style="width:${(step/questions.length)*100}%"></div>
             </div>
-            <h3>Question ${step+1}/13</h3>
-            <h4>${q.q}</h4>
+            <h3 style="color:#ffc107;">Question ${step+1}/13</h3>
+            <h4 style="color:#ffc107;">>${q.q}</h4>
         `;
         
         q.options.forEach(opt => {
