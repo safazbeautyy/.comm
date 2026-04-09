@@ -3206,176 +3206,6 @@ function buyNow(category,index,btn){
 
 </script>
 
-
-<style>
-
-
-.policy-card {
-  background: linear-gradient(145deg, #222, #000);
-  border: 2px solid #ffd700;
-  border-radius: 20px;
-  width: 95vw;           /* Full viewport width */
-  max-width: 500px;
-  min-width: 320px;      /* Minimum mobile width */
-  padding: 25px;
-  margin: 0 auto;        /* Center horizontally */
-  color: #fff;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-  text-align: left;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box; /* Include padding in width */
-}
-
-/* Mobile Responsive */
-@media (max-width: 480px) {
-  .policy-card {
-    width: 98vw;         /* Almost full screen on small phones */
-    padding: 20px 15px;  /* Less padding on sides */
-    border-radius: 15px; /* Smaller radius */
-    margin: 10px auto;   /* Small top/bottom margin */
-  }
-}
-
-@media (max-width: 360px) {
-  .policy-card {
-    width: 100vw;        /* Full screen on tiny phones */
-    border-radius: 0;    /* No radius on edges */
-    margin: 0;           /* No margin */
-    padding: 20px 10px;
-  }
-}
-
-/* Landscape mobile */
-@media (max-height: 500px) and (orientation: landscape) {
-  .policy-card {
-    width: 90vw;
-    padding: 15px;
-  }
-}
-
-.policy-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
-}
-
-/* Glitter sparks animation */
-.sparkle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: #ffd700;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: sparkleMove 2s linear infinite;
-}
-
-@keyframes sparkleMove {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
-  50% { transform: translate(50px, -50px) scale(0.5); opacity: 0.3; }
-  100% { transform: translate(-50px, 50px) scale(1); opacity: 0.8; }
-}
-
-.policy-header {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffd700;
-  text-shadow: 0 0 10px #ffd700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.policy-header i {
-  font-size: 1.4rem;
-}
-
-.policy-preview {
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #eee;
-}
-
-.policy-details {
-  max-height: 0;
-  overflow: hidden;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #eee;
-  transition: max-height 0.6s ease, opacity 0.6s ease;
-  opacity: 0;
-  margin-top: 10px;
-}
-
-.policy-card.active .policy-details {
-  max-height: 500px;
-  opacity: 1;
-}
-
-.policy-icon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 1.5rem;
-  color: #ffd700;
-  transition: transform 0.3s ease;
-}
-
-.policy-card.active .policy-icon {
-  transform: rotate(180deg);
-}
-</style>
-<!-- FontAwesome for icons -->
-<script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
-</head>
-<body>
-
-<div class="policy-card" onclick="togglePolicy(this)">
-  <div class="policy-header">
-    <i class="fas fa-undo-alt"></i> 3-Day Return Policy
-  </div>
-<div class="policy-preview" style="
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 1rem;
-    color: #fff;
-    background: rgba(255, 215, 0, 0.05);
-    border-left: 4px solid #ffd700;
-    padding: 12px 16px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-    text-shadow: 0 0 2px #ffd700;
-">
-    <div style="display: flex; align-items: center; gap: 8px;">📝 <strong>Request Return</strong></div>
-    <div style="display: flex; align-items: center; gap: 8px;">✅📦 <strong>Easy & Hassle-Free Returns</strong></div>
-    <div style="display: flex; align-items: center; gap: 8px;">⏰ <strong>Within 3 Days of Delivery</strong></div>
-    <div style="display: flex; align-items: center; gap: 8px;">🛍 <strong>Keep Original Packaging</strong></div>
-    <div style="display: flex; align-items: center; gap: 8px;">💰 <strong>Full Refund Guaranteed</strong></div>
-</div>
-  <div class="policy-icon">▼</div>
-  <div class="policy-details">
-    <p>We offer a 3-day return policy. If you are not satisfied with your purchase, you can request a return within 3 days of receiving the product.</p>
-    <p>The item must be unused and in its original condition with all packaging. After 3 days, returns will not be accepted.</p>
-    <p>Shop with confidence and enjoy a hassle-free experience with our premium support. Your satisfaction is our top priority!</p>
-  </div>
-  <!-- Glitter sparks -->
-  <div class="sparkle" style="top:10%; left:20%; animation-delay:0s;"></div>
-  <div class="sparkle" style="top:30%; left:70%; animation-delay:0.5s;"></div>
-  <div class="sparkle" style="top:60%; left:40%; animation-delay:1s;"></div>
-  <div class="sparkle" style="top:80%; left:80%; animation-delay:1.5s;"></div>
-</div>
-
-<script>
-function togglePolicy(card) {
-  card.classList.toggle('active');
-}
-</script>
-
-
-
 <section class="lux-ai">
   <div class="lux-box">
    <h2 style="color:#ffc107;">💎 Smart Beauty Diagnosis</h2>
@@ -3952,6 +3782,175 @@ Please help me order! 🛒
 // Initialize
 loadQ();
 </script>
+<style>
+
+
+.policy-card {
+  background: linear-gradient(145deg, #222, #000);
+  border: 2px solid #ffd700;
+  border-radius: 20px;
+  width: 95vw;           /* Full viewport width */
+  max-width: 500px;
+  min-width: 320px;      /* Minimum mobile width */
+  padding: 25px;
+  margin: 0 auto;        /* Center horizontally */
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .policy-card {
+    width: 98vw;         /* Almost full screen on small phones */
+    padding: 20px 15px;  /* Less padding on sides */
+    border-radius: 15px; /* Smaller radius */
+    margin: 10px auto;   /* Small top/bottom margin */
+  }
+}
+
+@media (max-width: 360px) {
+  .policy-card {
+    width: 100vw;        /* Full screen on tiny phones */
+    border-radius: 0;    /* No radius on edges */
+    margin: 0;           /* No margin */
+    padding: 20px 10px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .policy-card {
+    width: 90vw;
+    padding: 15px;
+  }
+}
+
+.policy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+}
+
+/* Glitter sparks animation */
+.sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkleMove 2s linear infinite;
+}
+
+@keyframes sparkleMove {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  50% { transform: translate(50px, -50px) scale(0.5); opacity: 0.3; }
+  100% { transform: translate(-50px, 50px) scale(1); opacity: 0.8; }
+}
+
+.policy-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.policy-header i {
+  font-size: 1.4rem;
+}
+
+.policy-preview {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #eee;
+}
+
+.policy-details {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #eee;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+  margin-top: 10px;
+}
+
+.policy-card.active .policy-details {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.policy-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #ffd700;
+  transition: transform 0.3s ease;
+}
+
+.policy-card.active .policy-icon {
+  transform: rotate(180deg);
+}
+</style>
+<!-- FontAwesome for icons -->
+<script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="policy-card" onclick="togglePolicy(this)">
+  <div class="policy-header">
+    <i class="fas fa-undo-alt"></i> 3-Day Return Policy
+  </div>
+<div class="policy-preview" style="
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1rem;
+    color: #fff;
+    background: rgba(255, 215, 0, 0.05);
+    border-left: 4px solid #ffd700;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    text-shadow: 0 0 2px #ffd700;
+">
+    <div style="display: flex; align-items: center; gap: 8px;">📝 <strong>Request Return</strong></div>
+    <div style="display: flex; align-items: center; gap: 8px;">✅📦 <strong>Easy & Hassle-Free Returns</strong></div>
+    <div style="display: flex; align-items: center; gap: 8px;">⏰ <strong>Within 3 Days of Delivery</strong></div>
+    <div style="display: flex; align-items: center; gap: 8px;">🛍 <strong>Keep Original Packaging</strong></div>
+    <div style="display: flex; align-items: center; gap: 8px;">💰 <strong>Full Refund Guaranteed</strong></div>
+</div>
+  <div class="policy-icon">▼</div>
+  <div class="policy-details">
+    <p>We offer a 3-day return policy. If you are not satisfied with your purchase, you can request a return within 3 days of receiving the product.</p>
+    <p>The item must be unused and in its original condition with all packaging. After 3 days, returns will not be accepted.</p>
+    <p>Shop with confidence and enjoy a hassle-free experience with our premium support. Your satisfaction is our top priority!</p>
+  </div>
+  <!-- Glitter sparks -->
+  <div class="sparkle" style="top:10%; left:20%; animation-delay:0s;"></div>
+  <div class="sparkle" style="top:30%; left:70%; animation-delay:0.5s;"></div>
+  <div class="sparkle" style="top:60%; left:40%; animation-delay:1s;"></div>
+  <div class="sparkle" style="top:80%; left:80%; animation-delay:1.5s;"></div>
+</div>
+
+<script>
+function togglePolicy(card) {
+  card.classList.toggle('active');
+}
+</script>
+
+
+
 
 
 
