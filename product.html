@@ -3267,23 +3267,31 @@ function buyNow(category,index,btn){
     
   /* keep your existing CSS... */
 
-  .lux-premium{
-    background: #ffffff;           /* white button */
-    border: 1px solid #e5e5e5;   /* light border */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+ .lux-premium{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    color: #111;                 /* dark text */
+    padding: 14px 26px;          /* makes it bigger and nicer */
+    border-radius: 999px;        /* perfect pill shape */
+    text-decoration: none;
+
+    background: #ffffff;         /* white */
+    color: #111111;
+
+    border: 1px solid #e6e6e6;   /* light border */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
     font-weight: 800;
+    letter-spacing: 0.2px;
+
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
   }
 
   .lux-premium:hover{
-    background: #f7f7f7;        /* slightly off-white on hover */
+    background: #f6f6f6;
     transform: translateY(-2px);
-  }
-
-  .lux-premium__text{
-    color: #111;               /* make text black/dark */
-    text-shadow: none;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.12);
   }
 
   html{ scroll-behavior: smooth; }
