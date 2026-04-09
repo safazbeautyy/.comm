@@ -3210,7 +3210,7 @@ function buyNow(category,index,btn){
     <section class="lux-trust">
   <div class="lux-card">
 
-    <h2>⭐ Take Free Skin Test </h2>
+    <h2>Take Free Skin Test  </h2>
 
     <p class="desc">
       Our advanced skin diagnosis analyzes your skin type, concerns, lifestyle, and goals to recommend the most effective products for you.  
@@ -3268,37 +3268,22 @@ function buyNow(category,index,btn){
   /* keep your existing CSS... */
 
   .lux-premium{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:14px 22px;
-    border-radius:14px;
-    text-decoration:none;
+    background: #ffffff;           /* white button */
+    border: 1px solid #e5e5e5;   /* light border */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 
-    background: linear-gradient(135deg, #0b1220 0%, #131c33 50%, #0b1220 100%);
-    border: 1px solid rgba(255, 210, 0, 0.45);
-    box-shadow:
-      0 10px 30px rgba(0,0,0,0.35),
-      0 0 0 6px rgba(255, 210, 0, 0.08);
-
-    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    width: fit-content;
+    color: #111;                 /* dark text */
+    font-weight: 800;
   }
 
   .lux-premium:hover{
+    background: #f7f7f7;        /* slightly off-white on hover */
     transform: translateY(-2px);
-    border-color: rgba(255, 210, 0, 0.75);
-    box-shadow:
-      0 16px 40px rgba(0,0,0,0.45),
-      0 0 0 6px rgba(255, 210, 0, 0.12);
   }
 
   .lux-premium__text{
-    color: #FFD400; /* yellow text */
-    font-weight: 800;
-    letter-spacing: 0.2px;
-    font-size: 16px;
-    text-shadow: 0 0 18px rgba(255, 212, 0, 0.35);
+    color: #111;               /* make text black/dark */
+    text-shadow: none;
   }
 
   html{ scroll-behavior: smooth; }
