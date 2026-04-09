@@ -3253,7 +3253,10 @@ function buyNow(category,index,btn){
 
   <!-- REPLACE your existing button with this -->
 <!-- 🔥 PERFECT BUTTON - Opens diagnosis in index.html -->
-<a href="index.html#skin-test-section" class="lux-box">✨ Click Here To Start Your Skin Test</a>
+<a href="index.html#skin-test-section" class="lux-premium lux-box lux-premium__link">
+  <span class="lux-premium__text">✨ Click Here To Start Your Skin Test</span>
+</a>
+      
 
   </div>
 
@@ -3261,6 +3264,45 @@ function buyNow(category,index,btn){
 </section>
 
 <style>
+    
+  /* keep your existing CSS... */
+
+  .lux-premium{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px 22px;
+    border-radius:14px;
+    text-decoration:none;
+
+    background: linear-gradient(135deg, #0b1220 0%, #131c33 50%, #0b1220 100%);
+    border: 1px solid rgba(255, 210, 0, 0.45);
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.35),
+      0 0 0 6px rgba(255, 210, 0, 0.08);
+
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    width: fit-content;
+  }
+
+  .lux-premium:hover{
+    transform: translateY(-2px);
+    border-color: rgba(255, 210, 0, 0.75);
+    box-shadow:
+      0 16px 40px rgba(0,0,0,0.45),
+      0 0 0 6px rgba(255, 210, 0, 0.12);
+  }
+
+  .lux-premium__text{
+    color: #FFD400; /* yellow text */
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    font-size: 16px;
+    text-shadow: 0 0 18px rgba(255, 212, 0, 0.35);
+  }
+
+  html{ scroll-behavior: smooth; }
+
 .lux-trust{
   background: radial-gradient(circle at top,#111,#000);
   padding:60px 15px;
