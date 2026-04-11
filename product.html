@@ -683,6 +683,25 @@ document.addEventListener("DOMContentLoaded", () => {
 "offer1.jpg", "offer2.jpg", "offer3.jpg", "offer4.jpg"
     ];
 
+    let shuffledNames = [];
+
+// 🔥 Fisher-Yates Shuffle (true random order)
+function shuffleArray(array) {
+    let arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+// 🔥 Get random name WITHOUT repetition until list ends
+function getRandomName() {
+    if (shuffledNames.length === 0) {
+        shuffledNames = shuffleArray(customerNames);
+    }
+    return shuffledNames.pop();
+}
     // --- LIVE NOTIFICATION FUNCTION ---
     function showNotification() {
         const notification = document.getElementById("liveNotification");
@@ -693,7 +712,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const notificationSound = document.getElementById("notificationSound");
   notifName.textContent = ""; 
         // Random Data
-        const randomName = customerNames[Math.floor(Math.random() * customerNames.length)];
+   const randomName = getRandomName();
         const randomProduct = productNames[Math.floor(Math.random() * productNames.length)];
         const randomQty = Math.floor(Math.random() * 3) + 1; // 1 to 3 items
         const randomImg = productImages[Math.floor(Math.random() * productImages.length)];
