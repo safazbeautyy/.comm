@@ -3224,16 +3224,15 @@ function buyNow(category,index,btn){
     });
 
 </script>
-<section class="feedback-section" style="width:100%; padding:30px 10px;
-  /* FULL MOBILE BLACK EFFECT + FAST GRADIENT */
-  background: linear-gradient(135deg, #FFD700 0%, #FFFFFF 20%, #000000 40%, #111111 60%, #FFD700 80%, #000000 100%);
-  background-size: 800% 800%;
-  animation: gradientShift 6s ease infinite;
+<section class="feedback-section" style="width:100%; padding:25px 8px;
+  /* DYNAMIC MOBILE BLACK EFFECT */
+  background: linear-gradient(135deg, #FFD700 0%, #FFFFFF 15%, #000000 35%, #111111 55%, #FFD700 75%, #000000 100%);
+  background-size: 1000% 1000%;
+  animation: gradientShift 7s ease infinite;
   position: relative;
   overflow: hidden;
-  min-height: 250px;
 ">
-  <!-- FULLSCREEN BLACK OVERLAY -->
+  <!-- BLACK OVERLAY -->
   <div style="
     position: absolute;
     top: 0;
@@ -3241,62 +3240,61 @@ function buyNow(category,index,btn){
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(circle at 30% 70%, rgba(255,255,0,0.4) 0%, transparent 40%),
-      radial-gradient(circle at 70% 30%, rgba(255,255,255,0.3) 0%, transparent 40%),
-      linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%);
-    animation: overlayShift 10s ease-in-out infinite reverse;
+      radial-gradient(circle at 25% 75%, rgba(255,255,0,0.35) 0%, transparent 35%),
+      radial-gradient(circle at 75% 25%, rgba(255,255,255,0.25) 0%, transparent 35%),
+      linear-gradient(135deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.88) 100%);
+    animation: overlayShift 11s ease-in-out infinite reverse;
     z-index: 1;
   "></div>
 
   <h2 style="
     text-align:center;
-    font-size:22px;
+    font-size:20px;
     font-weight:900;
-    margin-bottom:20px;
+    margin-bottom:18px;
     color:#ffffff;
-    letter-spacing:1.2px;
+    letter-spacing:1px;
     font-family:'Arial Black',sans-serif;
     text-transform:uppercase;
     text-shadow:
-      0 4px 15px rgba(0,0,0,1),
-      0 0 25px rgba(255,255,255,0.9),
-      0 0 50px rgba(255,215,0,0.7);
+      0 5px 18px rgba(0,0,0,1),
+      0 0 30px rgba(255,255,255,1),
+      0 0 60px rgba(255,215,0,0.8);
     position: relative;
     z-index: 5;
-    padding: 0 15px;
+    padding: 0 12px;
   ">
     Client Testimonials
     <p style="
       text-align:center;
-      font-size:13px;
+      font-size:12px;
       font-weight:600;
-      color:rgba(255,255,255,0.95);
-      margin:15px 0 25px 0;
-      letter-spacing:0.3px;
+      color:rgba(255,255,255,0.98);
+      margin:12px 0 30px 0;
+      letter-spacing:0.2px;
       font-family:Arial, sans-serif;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+      text-shadow: 0 3px 12px rgba(0,0,0,1);
       position: relative;
       z-index: 5;
-      padding: 0 15px;
-      line-height: 1.4;
+      padding: 0 12px;
+      line-height: 1.5;
     ">
       We're proud of the results our customers get—and we're even prouder of the feedback we receive.
     </p>
   </h2>
 
-  <!-- NO CONTAINER - DIRECT FULLSCREEN MOVING -->
-  <div class="testimonial-viewport" id="testimonialViewport" style="
+  <!-- DYNAMIC CONTAINER - TAP ON IMAGE ONLY -->
+  <div class="dynamic-container" id="dynamicContainer" style="
     position: relative;
     z-index: 5;
     width: 100%;
-    height: 220px;
     overflow: hidden;
     touch-action: pan-y;
-    cursor: grab;
-    user-select: none;
   ">
     <div class="testimonial-track" id="testimonialTrack">
-      <!-- FULL SET - FREELY MOVING -->
+            <img src="r3.jpg" alt="testimonial 3" loading="lazy">
+      <img src="r2.jpg" alt="testimonial 2" loading="lazy">
+      <img src="r1.jpg" alt="testimonial 1" loading="lazy">
       <img src="r20.jpg" alt="testimonial 20" loading="lazy">
       <img src="r19.jpg" alt="testimonial 19" loading="lazy">
       <img src="r18.jpg" alt="testimonial 18" loading="lazy">
@@ -3318,7 +3316,6 @@ function buyNow(category,index,btn){
       <img src="r2.jpg" alt="testimonial 2" loading="lazy">
       <img src="r1.jpg" alt="testimonial 1" loading="lazy">
 
-      <!-- DUPLICATE FOR SEAMLESS LOOP -->
       <img src="r20.jpg" alt="testimonial 20 duplicate" loading="lazy">
       <img src="r19.jpg" alt="testimonial 19 duplicate" loading="lazy">
       <img src="r18.jpg" alt="testimonial 18 duplicate" loading="lazy">
@@ -3344,123 +3341,130 @@ function buyNow(category,index,btn){
 </section>
 
 <style>
-  /* ULTRA FAST MOBILE GRADIENT */
+  /* SMOOTH ANIMATIONS */
   @keyframes gradientShift {
     0%, 100% { background-position: 0% 50%; }
-    20% { background-position: 100% 100%; }
-    40% { background-position: 0% 0%; }
-    60% { background-position: 100% 50%; }
-    80% { background-position: 0% 100%; }
+    16% { background-position: 100% 100%; }
+    33% { background-position: 0% 0%; }
+    50% { background-position: 100% 50%; }
+    66% { background-position: 0% 100%; }
+    83% { background-position: 100% 0%; }
   }
 
   @keyframes overlayShift {
-    0% { transform: scale(1) rotate(0deg); opacity: 0.9; }
-    50% { transform: scale(1.05) rotate(1deg); opacity: 0.7; }
-    100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+    0% { transform: scale(1) translateX(0); opacity: 0.92; }
+    50% { transform: scale(1.03) translateX(5px); opacity: 0.75; }
+    100% { transform: scale(1) translateX(0); opacity: 0.92; }
   }
 
-  .testimonial-viewport:active {
-    cursor: grabbing !important;
+  .dynamic-container {
+    width: 100%;
+    overflow: hidden;
   }
 
-  /* MOBILE PERFECT - NO CONTAINER */
   .testimonial-track {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
     white-space: nowrap;
-    height: 100%;
     will-change: transform;
-    padding: 0 20px;
+    padding: 40px 20px;
+    transition: transform 0.1s ease-out;
   }
 
-  /* IDEAL MOBILE WHATSAPP CHAT SS SIZE */
+  /* IMAGE TAP PAUSE ONLY */
   .testimonial-track img {
-    width: 95vw;
-    max-width: 360px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 4px solid rgba(255,255,255,0.5);
-    background: linear-gradient(145deg, rgba(255,255,0,0.2), rgba(0,0,0,0.3));
     flex: 0 0 auto;
-    box-shadow: 
-      0 20px 40px rgba(0,0,0,0.95),
-      0 0 30px rgba(255,215,0,0.5),
-      inset 0 2px 10px rgba(255,255,255,0.2);
-    transition: all 0.4s ease;
-  }
-
-  /* HOVER EFFECT */
-  .testimonial-track img:hover {
-    transform: translateY(-8px) scale(1.03);
-    border-color: #FFD700;
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: 260px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 5px solid rgba(255,255,255,0.7);
+    background: linear-gradient(145deg, rgba(255,255,0,0.3), rgba(0,0,0,0.5));
     box-shadow: 
       0 30px 60px rgba(0,0,0,1),
-      0 0 50px rgba(255,215,0,0.9),
-      inset 0 2px 15px rgba(255,255,255,0.3);
+      0 0 50px rgba(255,215,0,0.7),
+      inset 0 4px 20px rgba(255,255,255,0.3);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
   }
 
-  /* MOBILE OPTIMIZATION */
+  .testimonial-track img:hover,
+  .testimonial-track img.paused {
+    transform: translateY(-15px) scale(1.05);
+    border-color: #FFD700;
+    box-shadow: 
+      0 50px 100px rgba(0,0,0,1),
+      0 0 80px rgba(255,215,0,1),
+      inset 0 5px 25px rgba(255,255,255,0.5);
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .feedback-section { padding: 20px 5px; }
+    .testimonial-track { gap: 30px; padding: 30px 15px; }
+    .testimonial-track img { max-width: 85vw; max-height: 230px; }
+  }
+
   @media (max-width: 480px) {
-    .feedback-section {
-      padding: 20px 5px;
-    }
-    
-    .testimonial-viewport {
-      height: 180px !important;
-    }
-    
-    .testimonial-track img {
-      width: 92vw;
-      height: 170px;
-      max-width: 320px;
-    }
-  }
-
-  /* EXTRA SMALL MOBILE */
-  @media (max-width: 360px) {
-    .testimonial-track img {
-      width: 90vw;
-      height: 160px;
-      max-width: 280px;
-    }
-  }
-
-  /* DESKTOP RESPONSIVE */
-  @media (min-width: 769px) {
-    .testimonial-track img {
-      width: 400px;
-      height: 220px;
-    }
+    .testimonial-track img { max-width: 80vw; max-height: 210px; }
   }
 </style>
 
 <script>
-  // FULL MOBILE CONTROL - FREELY MOVING
+  // TAP IMAGE ONLY TO PAUSE/RESUME
   (function () {
-    const viewport = document.getElementById('testimonialViewport');
+    const container = document.getElementById('dynamicContainer');
     const track = document.getElementById('testimonialTrack');
+    const images = track.querySelectorAll('img');
     
-    let speed = 120; // FAST FOR FULLSCREEN
-    let dragging = false;
+    let speed = 50;
+    let isPaused = false;
     let rafId = null;
     let lastTs = null;
     let x = 0;
     let wrapWidth = 0;
 
-    function measureWrapWidth() {
+    // DYNAMIC HEIGHT
+    function adjustHeight() {
+      let maxHeight = 0;
+      images.forEach(img => {
+        if (img.naturalHeight > maxHeight) maxHeight = img.naturalHeight;
+      });
+      container.style.paddingTop = '50px';
+      container.style.paddingBottom = '50px';
+      container.style.minHeight = `${Math.max(maxHeight + 100, 300)}px`;
+    }
+
+    function loadImages() {
+      let loaded = 0;
+      images.forEach(img => {
+        if (img.complete) {
+          loaded++;
+          if (loaded === images.length) adjustHeight();
+        } else {
+          img.onload = img.onerror = () => {
+            loaded++;
+            if (loaded === images.length) adjustHeight();
+          };
+        }
+      });
+    }
+
+    function measureWrap() {
       wrapWidth = track.scrollWidth / 2;
     }
 
     function animate(ts) {
       if (!lastTs) lastTs = ts;
-      const dt = (ts - lastTs) / 1000;
+      const dt = Math.min((ts - lastTs) / 1000, 0.016);
       lastTs = ts;
 
-      if (!dragging) {
-        x -= speed * dt * 1.5;
+      if (!isPaused) {
+        x -= speed * dt;
         if (Math.abs(x) >= wrapWidth) x = 0;
         track.style.transform = `translate3d(${x}px, 0, 0)`;
       }
@@ -3468,55 +3472,51 @@ function buyNow(category,index,btn){
       rafId = requestAnimationFrame(animate);
     }
 
-    // FULL DRAG CONTROL - MOBILE FRIENDLY
-    let startX = 0;
-    let startScrollX = 0;
-
-    function onPointerDown(e) {
-      dragging = true;
-      viewport.style.cursor = 'grabbing';
-      startX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
-      startScrollX = x;
-      e.preventDefault();
+    // TAP IMAGE ONLY - NO DRAG
+    function togglePause(img) {
+      isPaused = !isPaused;
+      
+      images.forEach(i => {
+        i.classList.toggle('paused', isPaused);
+      });
+      
+      // Visual feedback
+      img.style.transform = isPaused ? 'translateY(-20px) scale(1.08)' : 'translateY(-15px) scale(1.05)';
+      
+      setTimeout(() => {
+        img.style.transform = '';
+      }, 300);
     }
 
-    function onPointerMove(e) {
-      if (!dragging) return;
-      const clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
-      const dx = clientX - startX;
-      x = startScrollX + dx;
+    // IMAGE TAP EVENTS ONLY
+    images.forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        togglePause(img);
+      });
+      
+      img.addEventListener('touchend', (e) => {
+        e.stopPropagation();
+        togglePause(img);
+      });
+    });
 
-      // SEAMLESS LOOP
-      if (wrapWidth > 0) {
-        while (x <= -wrapWidth) x += wrapWidth;
-        while (x > 0) x -= wrapWidth;
+    // NO CONTAINER EVENTS - ONLY IMAGES
+    container.addEventListener('click', (e) => {
+      if (!e.target.closest('img')) {
+        isPaused = false;
+        images.forEach(i => i.classList.remove('paused'));
       }
+    });
 
-      track.style.transform = `translate3d(${x}px, 0, 0)`;
-      e.preventDefault();
-    }
+    window.addEventListener('resize', () => {
+      measureWrap();
+      adjustHeight();
+    });
 
-    function onPointerUp() {
-      dragging = false;
-      viewport.style.cursor = 'grab';
-    }
-
-    // ALL MOBILE + DESKTOP EVENTS
-    viewport.addEventListener('mousedown', onPointerDown);
-    document.addEventListener('mousemove', onPointerMove);
-    document.addEventListener('mouseup', onPointerUp);
-
-    viewport.addEventListener('touchstart', onPointerDown, { passive: false });
-    viewport.addEventListener('touchmove', onPointerMove, { passive: false });
-    viewport.addEventListener('touchend', onPointerUp);
-
-    // PAUSE ON HOVER
-    viewport.addEventListener('mouseenter', () => dragging = true);
-    viewport.addEventListener('mouseleave', () => dragging = false);
-
-    window.addEventListener('resize', measureWrapWidth);
-    
-    measureWrapWidth();
+    // START
+    loadImages();
+    measureWrap();
     rafId = requestAnimationFrame(animate);
   })();
 </script>
