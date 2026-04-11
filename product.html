@@ -3205,7 +3205,7 @@ function buyNow(category,index,btn){
     });
 
 </script>
-   <section class="feedback-section">
+<section class="feedback-section">
     <div class="image-track">
         <!-- 20 Images with SAFA'z stamp -->
         <div class="image-slide">
@@ -3568,18 +3568,50 @@ function buyNow(category,index,btn){
 .image-track:has(.image-slide:hover) {
     animation-play-state: paused;
 }
+/* GPU acceleration for smooth animation */
+.image-track {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Optimize background animation rendering */
+.feedback-section::before {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+/* Reduce lag on mobile ONLY (no visual change) */
+@media (max-width: 480px) {
+
+    .feedback-section::before {
+        animation-duration: 40s !important; /* slower = less lag */
+    }
+
+    .image-track {
+        animation-duration: 30s !important; /* smoother */
+    }
+
+    .image-slide {
+        will-change: transform;
+    }
+}
+
+/* Fix Safari / mobile repaint lag */
+.image-slide,
+.image-slide img {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
 </style>
 <script>
 const track = document.querySelector('.image-track');
 
 document.querySelectorAll('.image-slide').forEach(img => {
 
-    // when touch / press → stop
     img.addEventListener('touchstart', () => {
         track.style.animationPlayState = 'paused';
     });
 
-    // when release → continue
     img.addEventListener('touchend', () => {
         track.style.animationPlayState = 'running';
     });
