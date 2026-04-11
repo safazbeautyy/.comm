@@ -3224,174 +3224,243 @@ function buyNow(category,index,btn){
     });
 
 </script>
-<section class="feedback-section" style="width:100%; padding:40px 0;">
+<section class="feedback-section" style="width:100%; padding:30px 10px;
+  /* FULL MOBILE BLACK EFFECT + FAST GRADIENT */
+  background: linear-gradient(135deg, #FFD700 0%, #FFFFFF 20%, #000000 40%, #111111 60%, #FFD700 80%, #000000 100%);
+  background-size: 800% 800%;
+  animation: gradientShift 6s ease infinite;
+  position: relative;
+  overflow: hidden;
+  min-height: 250px;
+">
+  <!-- FULLSCREEN BLACK OVERLAY -->
+  <div style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 70%, rgba(255,255,0,0.4) 0%, transparent 40%),
+      radial-gradient(circle at 70% 30%, rgba(255,255,255,0.3) 0%, transparent 40%),
+      linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%);
+    animation: overlayShift 10s ease-in-out infinite reverse;
+    z-index: 1;
+  "></div>
+
   <h2 style="
     text-align:center;
-    font-size:24px;
+    font-size:22px;
     font-weight:900;
-    margin-bottom:25px;
+    margin-bottom:20px;
     color:#ffffff;
-    letter-spacing:1.5px;
+    letter-spacing:1.2px;
     font-family:'Arial Black',sans-serif;
     text-transform:uppercase;
     text-shadow:
-      0 2px 6px rgba(0,0,0,0.9),
-      0 0 12px rgba(255,255,255,0.6);
+      0 4px 15px rgba(0,0,0,1),
+      0 0 25px rgba(255,255,255,0.9),
+      0 0 50px rgba(255,215,0,0.7);
     position: relative;
     z-index: 5;
+    padding: 0 15px;
   ">
     Client Testimonials
     <p style="
       text-align:center;
-      font-size:14px;
-      font-weight:500;
-      color:rgba(255,255,255,0.75);
-      margin-bottom:25px;
-      letter-spacing:0.5px;
+      font-size:13px;
+      font-weight:600;
+      color:rgba(255,255,255,0.95);
+      margin:15px 0 25px 0;
+      letter-spacing:0.3px;
       font-family:Arial, sans-serif;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+      position: relative;
+      z-index: 5;
+      padding: 0 15px;
+      line-height: 1.4;
     ">
-      We’re proud of the results our customers get—and we’re even prouder of the feedback we receive.
+      We're proud of the results our customers get—and we're even prouder of the feedback we receive.
     </p>
   </h2>
 
-  <div class="testimonial-bar" aria-label="client testimonials images (auto moving)">
-    <div class="testimonial-viewport" id="testimonialViewport">
-      <div class="testimonial-track" id="testimonialTrack">
-        <!-- Right-to-left initial set (r20.jpg ... r1.jpg) -->
-        <img src="r20.jpg" alt="testimonial 20" loading="lazy">
-        <img src="r19.jpg" alt="testimonial 19" loading="lazy">
-        <img src="r18.jpg" alt="testimonial 18" loading="lazy">
-        <img src="r17.jpg" alt="testimonial 17" loading="lazy">
-        <img src="r16.jpg" alt="testimonial 16" loading="lazy">
-        <img src="r15.jpg" alt="testimonial 15" loading="lazy">
-        <img src="r14.jpg" alt="testimonial 14" loading="lazy">
-        <img src="r13.jpg" alt="testimonial 13" loading="lazy">
-        <img src="r12.jpg" alt="testimonial 12" loading="lazy">
-        <img src="r11.jpg" alt="testimonial 11" loading="lazy">
-        <img src="r10.jpg" alt="testimonial 10" loading="lazy">
-        <img src="r9.jpg" alt="testimonial 9" loading="lazy">
-        <img src="r8.jpg" alt="testimonial 8" loading="lazy">
-        <img src="r7.jpg" alt="testimonial 7" loading="lazy">
-        <img src="r6.jpg" alt="testimonial 6" loading="lazy">
-        <img src="r5.jpg" alt="testimonial 5" loading="lazy">
-        <img src="r4.jpg" alt="testimonial 4" loading="lazy">
-        <img src="r3.jpg" alt="testimonial 3" loading="lazy">
-        <img src="r2.jpg" alt="testimonial 2" loading="lazy">
-        <img src="r1.jpg" alt="testimonial 1" loading="lazy">
+  <!-- NO CONTAINER - DIRECT FULLSCREEN MOVING -->
+  <div class="testimonial-viewport" id="testimonialViewport" style="
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+  ">
+    <div class="testimonial-track" id="testimonialTrack">
+      <!-- FULL SET - FREELY MOVING -->
+      <img src="r20.jpg" alt="testimonial 20" loading="lazy">
+      <img src="r19.jpg" alt="testimonial 19" loading="lazy">
+      <img src="r18.jpg" alt="testimonial 18" loading="lazy">
+      <img src="r17.jpg" alt="testimonial 17" loading="lazy">
+      <img src="r16.jpg" alt="testimonial 16" loading="lazy">
+      <img src="r15.jpg" alt="testimonial 15" loading="lazy">
+      <img src="r14.jpg" alt="testimonial 14" loading="lazy">
+      <img src="r13.jpg" alt="testimonial 13" loading="lazy">
+      <img src="r12.jpg" alt="testimonial 12" loading="lazy">
+      <img src="r11.jpg" alt="testimonial 11" loading="lazy">
+      <img src="r10.jpg" alt="testimonial 10" loading="lazy">
+      <img src="r9.jpg" alt="testimonial 9" loading="lazy">
+      <img src="r8.jpg" alt="testimonial 8" loading="lazy">
+      <img src="r7.jpg" alt="testimonial 7" loading="lazy">
+      <img src="r6.jpg" alt="testimonial 6" loading="lazy">
+      <img src="r5.jpg" alt="testimonial 5" loading="lazy">
+      <img src="r4.jpg" alt="testimonial 4" loading="lazy">
+      <img src="r3.jpg" alt="testimonial 3" loading="lazy">
+      <img src="r2.jpg" alt="testimonial 2" loading="lazy">
+      <img src="r1.jpg" alt="testimonial 1" loading="lazy">
 
-        <!-- Duplicate set for seamless loop -->
-        <img src="r20.jpg" alt="testimonial 20 duplicate" loading="lazy">
-        <img src="r19.jpg" alt="testimonial 19 duplicate" loading="lazy">
-        <img src="r18.jpg" alt="testimonial 18 duplicate" loading="lazy">
-        <img src="r17.jpg" alt="testimonial 17 duplicate" loading="lazy">
-        <img src="r16.jpg" alt="testimonial 16 duplicate" loading="lazy">
-        <img src="r15.jpg" alt="testimonial 15 duplicate" loading="lazy">
-        <img src="r14.jpg" alt="testimonial 14 duplicate" loading="lazy">
-        <img src="r13.jpg" alt="testimonial 13 duplicate" loading="lazy">
-        <img src="r12.jpg" alt="testimonial 12 duplicate" loading="lazy">
-        <img src="r11.jpg" alt="testimonial 11 duplicate" loading="lazy">
-        <img src="r10.jpg" alt="testimonial 10 duplicate" loading="lazy">
-        <img src="r9.jpg" alt="testimonial 9 duplicate" loading="lazy">
-        <img src="r8.jpg" alt="testimonial 8 duplicate" loading="lazy">
-        <img src="r7.jpg" alt="testimonial 7 duplicate" loading="lazy">
-        <img src="r6.jpg" alt="testimonial 6 duplicate" loading="lazy">
-        <img src="r5.jpg" alt="testimonial 5 duplicate" loading="lazy">
-        <img src="r4.jpg" alt="testimonial 4 duplicate" loading="lazy">
-        <img src="r3.jpg" alt="testimonial 3 duplicate" loading="lazy">
-        <img src="r2.jpg" alt="testimonial 2 duplicate" loading="lazy">
-        <img src="r1.jpg" alt="testimonial 1 duplicate" loading="lazy">
-      </div>
+      <!-- DUPLICATE FOR SEAMLESS LOOP -->
+      <img src="r20.jpg" alt="testimonial 20 duplicate" loading="lazy">
+      <img src="r19.jpg" alt="testimonial 19 duplicate" loading="lazy">
+      <img src="r18.jpg" alt="testimonial 18 duplicate" loading="lazy">
+      <img src="r17.jpg" alt="testimonial 17 duplicate" loading="lazy">
+      <img src="r16.jpg" alt="testimonial 16 duplicate" loading="lazy">
+      <img src="r15.jpg" alt="testimonial 15 duplicate" loading="lazy">
+      <img src="r14.jpg" alt="testimonial 14 duplicate" loading="lazy">
+      <img src="r13.jpg" alt="testimonial 13 duplicate" loading="lazy">
+      <img src="r12.jpg" alt="testimonial 12 duplicate" loading="lazy">
+      <img src="r11.jpg" alt="testimonial 11 duplicate" loading="lazy">
+      <img src="r10.jpg" alt="testimonial 10 duplicate" loading="lazy">
+      <img src="r9.jpg" alt="testimonial 9 duplicate" loading="lazy">
+      <img src="r8.jpg" alt="testimonial 8 duplicate" loading="lazy">
+      <img src="r7.jpg" alt="testimonial 7 duplicate" loading="lazy">
+      <img src="r6.jpg" alt="testimonial 6 duplicate" loading="lazy">
+      <img src="r5.jpg" alt="testimonial 5 duplicate" loading="lazy">
+      <img src="r4.jpg" alt="testimonial 4 duplicate" loading="lazy">
+      <img src="r3.jpg" alt="testimonial 3 duplicate" loading="lazy">
+      <img src="r2.jpg" alt="testimonial 2 duplicate" loading="lazy">
+      <img src="r1.jpg" alt="testimonial 1 duplicate" loading="lazy">
     </div>
   </div>
 </section>
 
 <style>
-  .testimonial-bar{
-    width: 100%;
-    padding: 18px 0;
-    background: rgba(255,255,255,0.08); /* transparent bar */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255,255,255,0.18);
-    border-bottom: 1px solid rgba(255,255,255,0.18);
-    border-radius: 12px;
-    overflow: hidden;
+  /* ULTRA FAST MOBILE GRADIENT */
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    20% { background-position: 100% 100%; }
+    40% { background-position: 0% 0%; }
+    60% { background-position: 100% 50%; }
+    80% { background-position: 0% 100%; }
   }
 
-  .testimonial-viewport{
-    width: 100%;
-    overflow: hidden; /* hide the continuous loop edges */
-    touch-action: pan-y; /* allow vertical scroll while handling horizontal drag */
-    cursor: grab;
-    user-select: none;
+  @keyframes overlayShift {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+    50% { transform: scale(1.05) rotate(1deg); opacity: 0.7; }
+    100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
   }
 
-  .testimonial-viewport:active{
-    cursor: grabbing;
+  .testimonial-viewport:active {
+    cursor: grabbing !important;
   }
 
-  .testimonial-track{
+  /* MOBILE PERFECT - NO CONTAINER */
+  .testimonial-track {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    gap: 14px;
+    gap: 15px;
     white-space: nowrap;
-
-    /* Important for smooth animation */
+    height: 100%;
     will-change: transform;
+    padding: 0 20px;
   }
 
-  .testimonial-track img{
-    width: 120px;
-    height: 70px;
+  /* IDEAL MOBILE WHATSAPP CHAT SS SIZE */
+  .testimonial-track img {
+    width: 95vw;
+    max-width: 360px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.25);
-    background: rgba(255,255,255,0.06);
+    border-radius: 20px;
+    border: 4px solid rgba(255,255,255,0.5);
+    background: linear-gradient(145deg, rgba(255,255,0,0.2), rgba(0,0,0,0.3));
     flex: 0 0 auto;
+    box-shadow: 
+      0 20px 40px rgba(0,0,0,0.95),
+      0 0 30px rgba(255,215,0,0.5),
+      inset 0 2px 10px rgba(255,255,255,0.2);
+    transition: all 0.4s ease;
   }
 
-  @media (max-width: 768px){
-    .testimonial-track img{
-      width: 85px;
-      height: 52px;
-      border-radius: 9px;
+  /* HOVER EFFECT */
+  .testimonial-track img:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: #FFD700;
+    box-shadow: 
+      0 30px 60px rgba(0,0,0,1),
+      0 0 50px rgba(255,215,0,0.9),
+      inset 0 2px 15px rgba(255,255,255,0.3);
+  }
+
+  /* MOBILE OPTIMIZATION */
+  @media (max-width: 480px) {
+    .feedback-section {
+      padding: 20px 5px;
+    }
+    
+    .testimonial-viewport {
+      height: 180px !important;
+    }
+    
+    .testimonial-track img {
+      width: 92vw;
+      height: 170px;
+      max-width: 320px;
+    }
+  }
+
+  /* EXTRA SMALL MOBILE */
+  @media (max-width: 360px) {
+    .testimonial-track img {
+      width: 90vw;
+      height: 160px;
+      max-width: 280px;
+    }
+  }
+
+  /* DESKTOP RESPONSIVE */
+  @media (min-width: 769px) {
+    .testimonial-track img {
+      width: 400px;
+      height: 220px;
     }
   }
 </style>
 
 <script>
+  // FULL MOBILE CONTROL - FREELY MOVING
   (function () {
     const viewport = document.getElementById('testimonialViewport');
     const track = document.getElementById('testimonialTrack');
-
-    // Speed control (px per second). Increase for faster, decrease for slower.
-    let speed = 45;
+    
+    let speed = 120; // FAST FOR FULLSCREEN
     let dragging = false;
-
     let rafId = null;
     let lastTs = null;
-
-    // We'll animate by translating the track left/right.
-    // We'll also seamlessly wrap when we've moved one "set" width.
     let x = 0;
     let wrapWidth = 0;
 
     function measureWrapWidth() {
-      // Track contains 2 identical sets => wrapWidth is width of the first set.
-      // We can compute by half of track scrollWidth when the content is duplicated.
-      const full = track.scrollWidth;
-      wrapWidth = full / 2;
+      wrapWidth = track.scrollWidth / 2;
     }
 
     function animate(ts) {
       if (!lastTs) lastTs = ts;
-      const dt = (ts - lastTs) / 1000; // seconds
+      const dt = (ts - lastTs) / 1000;
       lastTs = ts;
 
       if (!dragging) {
-        x -= speed * dt; // moving left to right (content moves left => images appear moving right)
-        // seamless loop
+        x -= speed * dt * 1.5;
         if (Math.abs(x) >= wrapWidth) x = 0;
         track.style.transform = `translate3d(${x}px, 0, 0)`;
       }
@@ -3399,44 +3468,32 @@ function buyNow(category,index,btn){
       rafId = requestAnimationFrame(animate);
     }
 
-    // Touch / mouse drag:
-    // - On touchstart/mousedown: pause animation and let user drag horizontally.
-    // - On touchend/mouseup: resume from where it stopped.
+    // FULL DRAG CONTROL - MOBILE FRIENDLY
+    let startX = 0;
+    let startScrollX = 0;
+
     function onPointerDown(e) {
       dragging = true;
       viewport.style.cursor = 'grabbing';
-
-      // Pause wrap by keeping x; we only update transform on move
-      const clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
-
-      viewport.dataset.startX = clientX;
-      viewport.dataset.startScrollX = x;
-
-      // Stop any text selection / unwanted behaviors
-      e.preventDefault?.();
+      startX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      startScrollX = x;
+      e.preventDefault();
     }
 
     function onPointerMove(e) {
       if (!dragging) return;
-
       const clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
-      const startX = parseFloat(viewport.dataset.startX || '0');
-      const startXOffset = parseFloat(viewport.dataset.startScrollX || '0');
-
       const dx = clientX - startX;
+      x = startScrollX + dx;
 
-      // Update transform directly with drag delta
-      x = startXOffset + dx;
-
-      // keep within a reasonable range to prevent overflow
+      // SEAMLESS LOOP
       if (wrapWidth > 0) {
-        // bring x back into [-wrapWidth, 0] style range for stability
-        if (x <= -wrapWidth) x += wrapWidth;
-        if (x > 0) x -= wrapWidth;
+        while (x <= -wrapWidth) x += wrapWidth;
+        while (x > 0) x -= wrapWidth;
       }
 
       track.style.transform = `translate3d(${x}px, 0, 0)`;
-      e.preventDefault?.();
+      e.preventDefault();
     }
 
     function onPointerUp() {
@@ -3444,27 +3501,21 @@ function buyNow(category,index,btn){
       viewport.style.cursor = 'grab';
     }
 
-    // Optional: pause on hover for desktop (you can remove if you want it always moving)
-    // viewport.addEventListener('mouseenter', () => { dragging = true; });
-    // viewport.addEventListener('mouseleave', () => { dragging = false; });
+    // ALL MOBILE + DESKTOP EVENTS
+    viewport.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('mousemove', onPointerMove);
+    document.addEventListener('mouseup', onPointerUp);
 
-    // Mouse + touch events
-    viewport.addEventListener('mousedown', (e) => onPointerDown(e));
-    window.addEventListener('mousemove', (e) => onPointerMove(e));
-    window.addEventListener('mouseup', () => onPointerUp());
+    viewport.addEventListener('touchstart', onPointerDown, { passive: false });
+    viewport.addEventListener('touchmove', onPointerMove, { passive: false });
+    viewport.addEventListener('touchend', onPointerUp);
 
-    viewport.addEventListener('touchstart', (e) => onPointerDown(e), { passive: false });
-    viewport.addEventListener('touchmove', (e) => onPointerMove(e), { passive: false });
-    viewport.addEventListener('touchend', () => onPointerUp());
+    // PAUSE ON HOVER
+    viewport.addEventListener('mouseenter', () => dragging = true);
+    viewport.addEventListener('mouseleave', () => dragging = false);
 
-    // Also recompute on resize
-    window.addEventListener('resize', () => {
-      measureWrapWidth();
-      // keep current transform consistent
-      track.style.transform = `translate3d(${x}px, 0, 0)`;
-    });
-
-    // Start
+    window.addEventListener('resize', measureWrapWidth);
+    
     measureWrapWidth();
     rafId = requestAnimationFrame(animate);
   })();
