@@ -3289,6 +3289,7 @@ We’re proud of the results our customers get—and we’re even prouder of the
     padding: 0;
     box-sizing: border-box;
 }
+
 .popup {
     position: fixed;
     inset: 0;
@@ -3303,6 +3304,7 @@ We’re proud of the results our customers get—and we’re even prouder of the
     max-width: 40%;
     max-height: 40%;
     border-radius: 12px;
+    will-change: transform;
 }
 
 .close {
@@ -3313,13 +3315,15 @@ We’re proud of the results our customers get—and we’re even prouder of the
     color: #fff;
     cursor: pointer;
 }
+
 .feedback-section {
     padding: 50px 10px;
     overflow: hidden;
     position: relative;
+    will-change: transform;
 }
 
-/* 🔥 LIGHT VERSION OF YOUR BACKGROUND (same colors, less lag) */
+/* BACKGROUND (optimized for mobile performance) */
 .feedback-section::before {
     content: '';
     position: absolute;
@@ -3328,13 +3332,12 @@ We’re proud of the results our customers get—and we’re even prouder of the
         linear-gradient(115deg, rgba(255,215,0,0.25), rgba(0,0,0,0.7)),
         radial-gradient(circle at 20% 80%, rgba(255,215,0,0.25), transparent 60%),
         radial-gradient(circle at 80% 20%, rgba(255,193,7,0.2), transparent 60%);
-    animation: bgMove 20s linear infinite;
+    
+    /* 🔥 removed heavy animation for smoother mobile performance */
+    background-size: 100% 100%;
     z-index: 1;
-}
 
-@keyframes bgMove {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    transform: translateZ(0);
 }
 
 /* TRACK */
@@ -3344,19 +3347,22 @@ We’re proud of the results our customers get—and we’re even prouder of the
     animation: slide 6s linear infinite;
     position: relative;
     z-index: 2;
+
+    /* 🔥 performance boost */
+    will-change: transform;
+    transform: translate3d(0,0,0);
 }
 
 /* SCROLL */
 @keyframes slide {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from { transform: translate3d(0,0,0); }
+    to { transform: translate3d(-50%,0,0); }
 }
 
 /* CARD */
 .image-slide {
     flex: 0 0 auto;
 
-    /* 🔥 BIG SIZE FOR MOBILE */
     width: 80vw;
     max-width: 260px;
 
@@ -3364,22 +3370,26 @@ We’re proud of the results our customers get—and we’re even prouder of the
     overflow: hidden;
     position: relative;
 
-    /* KEEP PREMIUM LOOK BUT LIGHTER */
+    /* 🔥 GPU optimized shadows */
     box-shadow: 
         0 15px 40px rgba(255,215,0,0.5),
         0 0 20px rgba(255,255,255,0.3);
 
     border: 3px solid rgba(255,255,255,0.9);
+
+    will-change: transform;
+    transform: translateZ(0);
 }
 
-/* IMAGE FULLY VISIBLE */
+/* IMAGE */
 .image-slide img {
     width: 100%;
-    height: auto; /* 🔥 NO CROPPING */
+    height: auto;
     display: block;
+    transform: translateZ(0);
 }
 
-/* STAMP (same style) */
+/* STAMP */
 .image-stamp {
     position: absolute;
     top: 6px;
@@ -3400,14 +3410,14 @@ We’re proud of the results our customers get—and we’re even prouder of the
     }
 }
 
-/* MOBILE PERFECT */
+/* MOBILE */
 @media (max-width: 480px) {
     .image-track {
         animation-duration: 35s;
     }
 
     .image-slide {
-        width: 85vw; /* 🔥 FULL MOBILE LOOK */
+        width: 85vw;
     }
 }
 </style>
