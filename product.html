@@ -3224,244 +3224,251 @@ function buyNow(category,index,btn){
     });
 
 </script>
+<section class="feedback-section" style="width:100%; padding:40px 0;">
+  <h2 style="
+    text-align:center;
+    font-size:24px;
+    font-weight:900;
+    margin-bottom:25px;
+    color:#ffffff;
+    letter-spacing:1.5px;
+    font-family:'Arial Black',sans-serif;
+    text-transform:uppercase;
+    text-shadow:
+      0 2px 6px rgba(0,0,0,0.9),
+      0 0 12px rgba(255,255,255,0.6);
+    position: relative;
+    z-index: 5;
+  ">
+    Client Testimonials
+    <p style="
+      text-align:center;
+      font-size:14px;
+      font-weight:500;
+      color:rgba(255,255,255,0.75);
+      margin-bottom:25px;
+      letter-spacing:0.5px;
+      font-family:Arial, sans-serif;
+    ">
+      We’re proud of the results our customers get—and we’re even prouder of the feedback we receive.
+    </p>
+  </h2>
 
-<section class="testimonial-section">
+  <div class="testimonial-bar" aria-label="client testimonials images (auto moving)">
+    <div class="testimonial-viewport" id="testimonialViewport">
+      <div class="testimonial-track" id="testimonialTrack">
+        <!-- Right-to-left initial set (r20.jpg ... r1.jpg) -->
+        <img src="r20.jpg" alt="testimonial 20" loading="lazy">
+        <img src="r19.jpg" alt="testimonial 19" loading="lazy">
+        <img src="r18.jpg" alt="testimonial 18" loading="lazy">
+        <img src="r17.jpg" alt="testimonial 17" loading="lazy">
+        <img src="r16.jpg" alt="testimonial 16" loading="lazy">
+        <img src="r15.jpg" alt="testimonial 15" loading="lazy">
+        <img src="r14.jpg" alt="testimonial 14" loading="lazy">
+        <img src="r13.jpg" alt="testimonial 13" loading="lazy">
+        <img src="r12.jpg" alt="testimonial 12" loading="lazy">
+        <img src="r11.jpg" alt="testimonial 11" loading="lazy">
+        <img src="r10.jpg" alt="testimonial 10" loading="lazy">
+        <img src="r9.jpg" alt="testimonial 9" loading="lazy">
+        <img src="r8.jpg" alt="testimonial 8" loading="lazy">
+        <img src="r7.jpg" alt="testimonial 7" loading="lazy">
+        <img src="r6.jpg" alt="testimonial 6" loading="lazy">
+        <img src="r5.jpg" alt="testimonial 5" loading="lazy">
+        <img src="r4.jpg" alt="testimonial 4" loading="lazy">
+        <img src="r3.jpg" alt="testimonial 3" loading="lazy">
+        <img src="r2.jpg" alt="testimonial 2" loading="lazy">
+        <img src="r1.jpg" alt="testimonial 1" loading="lazy">
 
-  <h2 class="title">Client Testimonials</h2>
-  <p class="subtitle">
-    We’re proud of the results our customers get—and we’re even prouder of the feedback we receive.
-  </p>
-
-  <!-- SLIDER -->
-  <div class="slider-wrapper">
-    <div class="slider-track" id="slider">
-
-      <!-- 20 images -->
-      <img src="r1.jpg" onclick="openImg(this.src)">
-      <img src="r2.jpg" onclick="openImg(this.src)">
-      <img src="r3.jpg" onclick="openImg(this.src)">
-      <img src="r4.jpg" onclick="openImg(this.src)">
-      <img src="r5.jpg" onclick="openImg(this.src)">
-      <img src="r6.jpg" onclick="openImg(this.src)">
-      <img src="r7.jpg" onclick="openImg(this.src)">
-      <img src="r8.jpg" onclick="openImg(this.src)">
-      <img src="r9.jpg" onclick="openImg(this.src)">
-      <img src="r10.jpg" onclick="openImg(this.src)">
-      <img src="r11.jpg" onclick="openImg(this.src)">
-      <img src="r12.jpg" onclick="openImg(this.src)">
-      <img src="r13.jpg" onclick="openImg(this.src)">
-      <img src="r14.jpg" onclick="openImg(this.src)">
-      <img src="r15.jpg" onclick="openImg(this.src)">
-      <img src="r16.jpg" onclick="openImg(this.src)">
-      <img src="r17.jpg" onclick="openImg(this.src)">
-      <img src="r18.jpg" onclick="openImg(this.src)">
-      <img src="r19.jpg" onclick="openImg(this.src)">
-      <img src="r20.jpg" onclick="openImg(this.src)">
-
-      <!-- duplicate for smooth loop -->
-      <img src="r1.jpg" onclick="openImg(this.src)">
-      <img src="r2.jpg" onclick="openImg(this.src)">
-      <img src="r3.jpg" onclick="openImg(this.src)">
-      <img src="r4.jpg" onclick="openImg(this.src)">
-      <img src="r5.jpg" onclick="openImg(this.src)">
-      <img src="r6.jpg" onclick="openImg(this.src)">
-      <img src="r7.jpg" onclick="openImg(this.src)">
-      <img src="r8.jpg" onclick="openImg(this.src)">
-      <img src="r9.jpg" onclick="openImg(this.src)">
-      <img src="r10.jpg" onclick="openImg(this.src)">
-      <img src="r11.jpg" onclick="openImg(this.src)">
-      <img src="r12.jpg" onclick="openImg(this.src)">
-      <img src="r13.jpg" onclick="openImg(this.src)">
-      <img src="r14.jpg" onclick="openImg(this.src)">
-      <img src="r15.jpg" onclick="openImg(this.src)">
-      <img src="r16.jpg" onclick="openImg(this.src)">
-      <img src="r17.jpg" onclick="openImg(this.src)">
-      <img src="r18.jpg" onclick="openImg(this.src)">
-      <img src="r19.jpg" onclick="openImg(this.src)">
-      <img src="r20.jpg" onclick="openImg(this.src)">
-
+        <!-- Duplicate set for seamless loop -->
+        <img src="r20.jpg" alt="testimonial 20 duplicate" loading="lazy">
+        <img src="r19.jpg" alt="testimonial 19 duplicate" loading="lazy">
+        <img src="r18.jpg" alt="testimonial 18 duplicate" loading="lazy">
+        <img src="r17.jpg" alt="testimonial 17 duplicate" loading="lazy">
+        <img src="r16.jpg" alt="testimonial 16 duplicate" loading="lazy">
+        <img src="r15.jpg" alt="testimonial 15 duplicate" loading="lazy">
+        <img src="r14.jpg" alt="testimonial 14 duplicate" loading="lazy">
+        <img src="r13.jpg" alt="testimonial 13 duplicate" loading="lazy">
+        <img src="r12.jpg" alt="testimonial 12 duplicate" loading="lazy">
+        <img src="r11.jpg" alt="testimonial 11 duplicate" loading="lazy">
+        <img src="r10.jpg" alt="testimonial 10 duplicate" loading="lazy">
+        <img src="r9.jpg" alt="testimonial 9 duplicate" loading="lazy">
+        <img src="r8.jpg" alt="testimonial 8 duplicate" loading="lazy">
+        <img src="r7.jpg" alt="testimonial 7 duplicate" loading="lazy">
+        <img src="r6.jpg" alt="testimonial 6 duplicate" loading="lazy">
+        <img src="r5.jpg" alt="testimonial 5 duplicate" loading="lazy">
+        <img src="r4.jpg" alt="testimonial 4 duplicate" loading="lazy">
+        <img src="r3.jpg" alt="testimonial 3 duplicate" loading="lazy">
+        <img src="r2.jpg" alt="testimonial 2 duplicate" loading="lazy">
+        <img src="r1.jpg" alt="testimonial 1 duplicate" loading="lazy">
+      </div>
     </div>
   </div>
-
-  <!-- POPUP -->
-  <div class="popup" id="popup" onclick="closeImg()">
-    <img id="popupImg">
-  </div>
-
 </section>
 
 <style>
-/* MAIN SECTION */
-.testimonial-section{
-  position:relative;
-  padding:30px 10px;
-  background: linear-gradient(135deg,#000,#111,#fff1 60%,#000);
-  overflow:hidden;
-}
-
-/* REAL GOLD SPARKLE STARS */
-/* FULL GOLD LIGHT ATMOSPHERE */
-.testimonial-section::before{
-  content:"";
-  position:absolute;
-  inset:-30%;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255,215,0,0.35), transparent 40%),
-    radial-gradient(circle at 80% 20%, rgba(255,200,0,0.25), transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(255,220,0,0.20), transparent 50%),
-    radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 2px);
-
-  background-size: 100% 100%, 100% 100%, 100% 100%, 60px 60px;
-
-  animation: goldFlow 18s linear infinite;
-  opacity:0.9;
-  z-index:1;
-}
-
-/* SECOND LAYER (REAL STAR FIELD) */
-.testimonial-section::after{
-  content:"";
-  position:absolute;
-  inset:-40%;
-  background:
-    radial-gradient(circle, rgba(255,215,0,0.8) 1px, transparent 2px),
-    radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 2px);
-
-  background-size: 80px 80px, 120px 120px;
-  animation: starMove 25s linear infinite;
-  opacity:0.25;
-  z-index:1;
-}
-
-/* GOLD LIGHT MOVEMENT */
-@keyframes goldFlow{
-  0%{
-    transform:translate(0,0) scale(1);
-    filter:blur(0px);
+  .testimonial-bar{
+    width: 100%;
+    padding: 18px 0;
+    background: rgba(255,255,255,0.08); /* transparent bar */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.18);
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px;
+    overflow: hidden;
   }
-  50%{
-    transform:translate(-40px,-30px) scale(1.05);
-    filter:blur(1px);
+
+  .testimonial-viewport{
+    width: 100%;
+    overflow: hidden; /* hide the continuous loop edges */
+    touch-action: pan-y; /* allow vertical scroll while handling horizontal drag */
+    cursor: grab;
+    user-select: none;
   }
-  100%{
-    transform:translate(-80px,-60px) scale(1);
-    filter:blur(0px);
+
+  .testimonial-viewport:active{
+    cursor: grabbing;
   }
-}
 
-/* STAR MOVEMENT */
-@keyframes starMove{
-  0%{transform:translate(0,0);}
-  100%{transform:translate(-120px,-160px);}
-}
+  .testimonial-track{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
 
-@keyframes starMove{
-  0%{transform:translate(0,0) rotate(0deg);}
-  100%{transform:translate(-120px,-150px) rotate(10deg);}
-}
-
-/* TEXT */
-.title{
-  text-align:center;
-  font-size:24px;
-  font-weight:900;
-  color:#fff;
-  text-transform:uppercase;
-  text-shadow:0 2px 8px #000,0 0 12px rgba(255,255,255,0.4);
-  position:relative;
-  z-index:3;
-}
-
-.subtitle{
-  text-align:center;
-  font-size:14px;
-  color:rgba(255,255,255,0.75);
-  margin-bottom:20px;
-  position:relative;
-  z-index:3;
-}
-
-/* SLIDER */
-.slider-wrapper{
-  width:50%;
-  margin:auto;
-  overflow:hidden;
-  position:relative;
-  z-index:3;
-}
-
-.slider-track{
-  display:flex;
-  width:max-content;
-  animation: scroll 25s linear infinite;
-  will-change:transform;
-}
-
-@keyframes scroll{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-
-/* IMAGES */
-.slider-track img{
-  width:95px;
-  height:95px;
-  object-fit:cover;
-  margin:0 10px;
-  border-radius:12px;
-  border:2px solid rgba(220,220,220,0.9);
-  box-shadow:0 0 10px rgba(255,255,255,0.6);
-  flex-shrink:0;
-}
-
-/* POPUP */
-.popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.9);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-
-.popup img{
-  max-width:90%;
-  max-height:80%;
-  border-radius:12px;
-  border:2px solid gold;
-  box-shadow:0 0 25px rgba(255,215,0,0.7);
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .slider-wrapper{
-    width:50%;
+    /* Important for smooth animation */
+    will-change: transform;
   }
-}
+
+  .testimonial-track img{
+    width: 120px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.06);
+    flex: 0 0 auto;
+  }
+
+  @media (max-width: 768px){
+    .testimonial-track img{
+      width: 85px;
+      height: 52px;
+      border-radius: 9px;
+    }
+  }
 </style>
 
 <script>
-let slider = document.getElementById("slider");
-let popup = document.getElementById("popup");
-let popupImg = document.getElementById("popupImg");
+  (function () {
+    const viewport = document.getElementById('testimonialViewport');
+    const track = document.getElementById('testimonialTrack');
 
-function openImg(src){
-  popup.style.display = "flex";
-  popupImg.src = src;
+    // Speed control (px per second). Increase for faster, decrease for slower.
+    let speed = 45;
+    let dragging = false;
 
-  // pause slider on open
-  slider.style.animationPlayState = "paused";
-}
+    let rafId = null;
+    let lastTs = null;
 
-function closeImg(){
-  popup.style.display = "none";
+    // We'll animate by translating the track left/right.
+    // We'll also seamlessly wrap when we've moved one "set" width.
+    let x = 0;
+    let wrapWidth = 0;
 
-  // resume slider
-  slider.style.animationPlayState = "running";
-}
+    function measureWrapWidth() {
+      // Track contains 2 identical sets => wrapWidth is width of the first set.
+      // We can compute by half of track scrollWidth when the content is duplicated.
+      const full = track.scrollWidth;
+      wrapWidth = full / 2;
+    }
+
+    function animate(ts) {
+      if (!lastTs) lastTs = ts;
+      const dt = (ts - lastTs) / 1000; // seconds
+      lastTs = ts;
+
+      if (!dragging) {
+        x -= speed * dt; // moving left to right (content moves left => images appear moving right)
+        // seamless loop
+        if (Math.abs(x) >= wrapWidth) x = 0;
+        track.style.transform = `translate3d(${x}px, 0, 0)`;
+      }
+
+      rafId = requestAnimationFrame(animate);
+    }
+
+    // Touch / mouse drag:
+    // - On touchstart/mousedown: pause animation and let user drag horizontally.
+    // - On touchend/mouseup: resume from where it stopped.
+    function onPointerDown(e) {
+      dragging = true;
+      viewport.style.cursor = 'grabbing';
+
+      // Pause wrap by keeping x; we only update transform on move
+      const clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+
+      viewport.dataset.startX = clientX;
+      viewport.dataset.startScrollX = x;
+
+      // Stop any text selection / unwanted behaviors
+      e.preventDefault?.();
+    }
+
+    function onPointerMove(e) {
+      if (!dragging) return;
+
+      const clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      const startX = parseFloat(viewport.dataset.startX || '0');
+      const startXOffset = parseFloat(viewport.dataset.startScrollX || '0');
+
+      const dx = clientX - startX;
+
+      // Update transform directly with drag delta
+      x = startXOffset + dx;
+
+      // keep within a reasonable range to prevent overflow
+      if (wrapWidth > 0) {
+        // bring x back into [-wrapWidth, 0] style range for stability
+        if (x <= -wrapWidth) x += wrapWidth;
+        if (x > 0) x -= wrapWidth;
+      }
+
+      track.style.transform = `translate3d(${x}px, 0, 0)`;
+      e.preventDefault?.();
+    }
+
+    function onPointerUp() {
+      dragging = false;
+      viewport.style.cursor = 'grab';
+    }
+
+    // Optional: pause on hover for desktop (you can remove if you want it always moving)
+    // viewport.addEventListener('mouseenter', () => { dragging = true; });
+    // viewport.addEventListener('mouseleave', () => { dragging = false; });
+
+    // Mouse + touch events
+    viewport.addEventListener('mousedown', (e) => onPointerDown(e));
+    window.addEventListener('mousemove', (e) => onPointerMove(e));
+    window.addEventListener('mouseup', () => onPointerUp());
+
+    viewport.addEventListener('touchstart', (e) => onPointerDown(e), { passive: false });
+    viewport.addEventListener('touchmove', (e) => onPointerMove(e), { passive: false });
+    viewport.addEventListener('touchend', () => onPointerUp());
+
+    // Also recompute on resize
+    window.addEventListener('resize', () => {
+      measureWrapWidth();
+      // keep current transform consistent
+      track.style.transform = `translate3d(${x}px, 0, 0)`;
+    });
+
+    // Start
+    measureWrapWidth();
+    rafId = requestAnimationFrame(animate);
+  })();
 </script>
-
     <section class="lux-trust">
   <div class="lux-card">
 
