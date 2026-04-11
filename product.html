@@ -3304,7 +3304,6 @@ We’re proud of the results our customers get—and we’re even prouder of the
     max-width: 40%;
     max-height: 40%;
     border-radius: 12px;
-    will-change: transform;
 }
 
 .close {
@@ -3320,49 +3319,33 @@ We’re proud of the results our customers get—and we’re even prouder of the
     padding: 50px 10px;
     overflow: hidden;
     position: relative;
-    will-change: transform;
+
+    /* 🔥 REMOVE heavy rendering */
+    background: linear-gradient(115deg, rgba(255,215,0,0.15), rgba(0,0,0,0.85));
 }
 
-/* BACKGROUND (optimized for mobile performance) */
-.feedback-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(115deg, rgba(255,215,0,0.25), rgba(0,0,0,0.7)),
-        radial-gradient(circle at 20% 80%, rgba(255,215,0,0.25), transparent 60%),
-        radial-gradient(circle at 80% 20%, rgba(255,193,7,0.2), transparent 60%);
-    
-    /* 🔥 removed heavy animation for smoother mobile performance */
-    background-size: 100% 100%;
-    z-index: 1;
+/* ❌ REMOVED ::before entirely (this was a major lag source) */
 
-    transform: translateZ(0);
-}
-
-/* TRACK */
+/* TRACK (OPTIMIZED MARQUEE) */
 .image-track {
     display: flex;
     gap: 16px;
-    animation: slide 6s linear infinite;
-    position: relative;
-    z-index: 2;
 
-    /* 🔥 performance boost */
+    animation: slide 25s linear infinite; /* smoother + less GPU spikes */
+
     will-change: transform;
     transform: translate3d(0,0,0);
 }
 
-/* SCROLL */
+/* SMOOTH LOOP */
 @keyframes slide {
-    from { transform: translate3d(0,0,0); }
-    to { transform: translate3d(-50%,0,0); }
+    0%   { transform: translate3d(0,0,0); }
+    100% { transform: translate3d(-50%,0,0); }
 }
 
-/* CARD */
+/* CARD (LIGHTER SHADOW = BIG SPEED BOOST) */
 .image-slide {
     flex: 0 0 auto;
-
     width: 80vw;
     max-width: 260px;
 
@@ -3370,10 +3353,8 @@ We’re proud of the results our customers get—and we’re even prouder of the
     overflow: hidden;
     position: relative;
 
-    /* 🔥 GPU optimized shadows */
-    box-shadow: 
-        0 15px 40px rgba(255,215,0,0.5),
-        0 0 20px rgba(255,255,255,0.3);
+    /* 🔥 HEAVY SHADOW REMOVED (this causes mobile lag) */
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
 
     border: 3px solid rgba(255,255,255,0.9);
 
@@ -3386,10 +3367,9 @@ We’re proud of the results our customers get—and we’re even prouder of the
     width: 100%;
     height: auto;
     display: block;
-    transform: translateZ(0);
 }
 
-/* STAMP */
+/* STAMP (UNCHANGED BUT LIGHTER RENDER) */
 .image-stamp {
     position: absolute;
     top: 6px;
@@ -3413,7 +3393,7 @@ We’re proud of the results our customers get—and we’re even prouder of the
 /* MOBILE */
 @media (max-width: 480px) {
     .image-track {
-        animation-duration: 35s;
+        animation-duration: 30s; /* smoother on low-end phones */
     }
 
     .image-slide {
