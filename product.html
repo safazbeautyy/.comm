@@ -1911,7 +1911,7 @@ function showProducts(category, el) {
 
                 <button class="btn addBtn" onclick="addToCart('${category}', ${i}, this)">Add To Cart</button>
                 <button class="btn buyBtn" onclick="buyNow('${category}', ${i}, this)">Buy Now</button>
-                
+                <br>
              <!-- Clean ChatGPT-Style Share Button -->
 <button class="btn share-btn" 
         onclick="shareProduct('${category}', ${i}, '${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.img}')" 
@@ -1920,15 +1920,15 @@ function showProducts(category, el) {
             align-items: center;
             justify-content: center;
             gap: 1px;
-            width: 30%;
+            width: 80%;
             max-width: 220px;
             margin:auto;
-            padding: 14px 18px;
+           padding: 6px 10px;
             background: linear-gradient(135deg, #FFD700, #FFC107, #FFE066);
             color: #fff;
             font-family: 'Times New Roman', serif;
             font-weight: bold;
-            font-size: 0.8rem;
+           font-size: 0.65rem;
             border: none;
             border-radius: 7px;
             cursor: pointer;
