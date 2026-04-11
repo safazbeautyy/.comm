@@ -3205,244 +3205,7 @@ function buyNow(category,index,btn){
     });
 
 </script>
-
-
-    <section class="lux-trust">
-  <div class="lux-card">
-
-    <h2>Take Free Skin Test  </h2>
-
-    <p class="desc">
-      Our advanced skin diagnosis analyzes your skin type, concerns, lifestyle, and goals to recommend the most effective products for you.  
-      Instead of guessing, you get a <b>personalized skincare routine</b> designed to deliver real, visible results.
-    </p>
-
-    <div class="lux-stats">
-      <div class="stat">
-        <h3>38K+</h3>
-        <p>People Diagnosed</p>
-      </div>
-
-      <div class="stat">
-        <h3>4.9 ⭐</h3>
-        <p>User Satisfaction</p>
-      </div>
-
-      <div class="stat">
-        <h3>15K+</h3>
-        <p>Successful Results</p>
-      </div>
-    </div>
-
-    <p class="benefit">
-      ✔ Personalized product recommendations  
-      ✔ Targets your exact skin concerns  
-      ✔ Saves time & money by avoiding wrong products  
-      ✔ Trusted by thousands of satisfied users  
-    </p>
-
-    <div class="lux-feedback">
-      <button id="likeBtn" onclick="giveFeedback('like')" class="fb-btn like">
-        👍 <span> 12.4K Satisfied</span>
-      </button>
-
-      <button id="dislikeBtn" onclick="giveFeedback('dislike')" class="fb-btn dislike">
-        👎 <span> 0.8K Dissatisfied </span>
-      </button>
-    </div>
-
-  <!-- REPLACE your existing button with this -->
-<!-- 🔥 PERFECT BUTTON - Opens diagnosis in index.html -->
-<a href="index.html#skin-test-section" class="lux-premium lux-box lux-premium__link">
-  <span class="lux-premium__text">✨ Click Here To Start Your Skin Test</span>
-</a>
-      
-
-  </div>
-
-  <div id="luxToast">✔ Response noted</div>
-</section>
-
-<style>
-    
-  /* keep your existing CSS... */
-
- .lux-premium{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 14px 26px;          /* makes it bigger and nicer */
-    border-radius: 999px;        /* perfect pill shape */
-    text-decoration: none;
-
-    background: #ffffff;         /* white */
-    color: #111111;
-
-    border: 1px solid #e6e6e6;   /* light border */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-
-    font-weight: 800;
-    letter-spacing: 0.2px;
-
-    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-  }
-
-  .lux-premium:hover{
-    background: #f6f6f6;
-    transform: translateY(-2px);
-    box-shadow: 0 14px 35px rgba(0,0,0,0.12);
-  }
-
-  html{ scroll-behavior: smooth; }
-
-.lux-trust{
-  background: radial-gradient(circle at top,#111,#000);
-  padding:60px 15px;
-  display:flex;
-  justify-content:center;
-}
-
-.lux-card{
-  width:100%;
-  max-width:520px;
-  background:linear-gradient(145deg,#111,#1a1a1a);
-  border-radius:20px;
-  padding:30px 20px;
-  text-align:center;
-  color:#fff;
-  box-shadow:0 0 40px rgba(255,193,7,0.15);
-  border:1px solid rgba(255,193,7,0.1);
-}
-
-.lux-card h2{
-  color:#ffc107;
-  font-size:22px;
-}
-
-.desc{
-  font-size:13px;
-  color:#ccc;
-  line-height:1.6;
-  margin:15px 0 25px;
-}
-
-.lux-stats{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:20px;
-}
-
-.stat{
-  flex:1;
-  background:rgba(255,255,255,0.03);
-  padding:15px 10px;
-  border-radius:12px;
-}
-
-.stat h3{
-  color:#ffc107;
-  font-size:18px;
-}
-
-.stat p{
-  font-size:11px;
-  color:#aaa;
-}
-
-.benefit{
-  font-size:13px;
-  color:#ddd;
-  margin:20px 0;
-  line-height:1.6;
-}
-
-.lux-feedback{
-  display:flex;
-  gap:10px;
-  margin-bottom:20px;
-}
-
-.fb-btn{
-  flex:1;
-  padding:12px;
-  border-radius:12px;
-  border:none;
-  font-size:14px;
-  cursor:pointer;
-  background:#222;
-  color:#fff;
-  transition:0.3s;
-}
-
-.fb-btn.like:hover{
-  box-shadow:0 0 15px #25D366;
-}
-
-.fb-btn.dislike:hover{
-  box-shadow:0 0 15px #ff4d4d;
-}
-
-.fb-btn.active{
-  background:#ffc107;
-  color:#000;
-  font-weight:bold;
-}
-
-.lux-btn{
-  display:block;
-  width:100%;
-  padding:14px;
-  background:#ffc107;
-  color:#000;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-#luxToast{
-  position:fixed;
-  top:50%;           /* ← Center vertically */
-  left:50%;        /* ← CHANGE bottom to top */
-  bottom:auto;
-
-  transform:translateX(-50%) translateY(20px);
-  background:#25D366;
-  color:#fff;
-  padding:10px 18px;
-  border-radius:20px;
-  font-size:13px;
-  opacity:0;
-  transition:0.4s;
-}
-
-#luxToast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
-}
-</style>
-
-<script>
-let clicked=false;
-
-function giveFeedback(type){
-  if(clicked) return;
-  clicked=true;
-
-  if(type==="like"){
-    document.getElementById("likeBtn").classList.add("active");
-  } else {
-    document.getElementById("dislikeBtn").classList.add("active");
-  }
-
-  let t=document.getElementById("luxToast");
-  t.classList.add("show");
-
-  setTimeout(()=>t.classList.remove("show"),2000);
-}
-</script>
-    <section class="feedback-section">
+   <section class="feedback-section">
     <div class="image-track">
         <!-- 20 Images with SAFA'z stamp -->
         <div class="image-slide">
@@ -3823,6 +3586,243 @@ document.querySelectorAll('.image-slide').forEach(img => {
 
 });
 </script>
+
+    <section class="lux-trust">
+  <div class="lux-card">
+
+    <h2>Take Free Skin Test  </h2>
+
+    <p class="desc">
+      Our advanced skin diagnosis analyzes your skin type, concerns, lifestyle, and goals to recommend the most effective products for you.  
+      Instead of guessing, you get a <b>personalized skincare routine</b> designed to deliver real, visible results.
+    </p>
+
+    <div class="lux-stats">
+      <div class="stat">
+        <h3>38K+</h3>
+        <p>People Diagnosed</p>
+      </div>
+
+      <div class="stat">
+        <h3>4.9 ⭐</h3>
+        <p>User Satisfaction</p>
+      </div>
+
+      <div class="stat">
+        <h3>15K+</h3>
+        <p>Successful Results</p>
+      </div>
+    </div>
+
+    <p class="benefit">
+      ✔ Personalized product recommendations  
+      ✔ Targets your exact skin concerns  
+      ✔ Saves time & money by avoiding wrong products  
+      ✔ Trusted by thousands of satisfied users  
+    </p>
+
+    <div class="lux-feedback">
+      <button id="likeBtn" onclick="giveFeedback('like')" class="fb-btn like">
+        👍 <span> 12.4K Satisfied</span>
+      </button>
+
+      <button id="dislikeBtn" onclick="giveFeedback('dislike')" class="fb-btn dislike">
+        👎 <span> 0.8K Dissatisfied </span>
+      </button>
+    </div>
+
+  <!-- REPLACE your existing button with this -->
+<!-- 🔥 PERFECT BUTTON - Opens diagnosis in index.html -->
+<a href="index.html#skin-test-section" class="lux-premium lux-box lux-premium__link">
+  <span class="lux-premium__text">✨ Click Here To Start Your Skin Test</span>
+</a>
+      
+
+  </div>
+
+  <div id="luxToast">✔ Response noted</div>
+</section>
+
+<style>
+    
+  /* keep your existing CSS... */
+
+ .lux-premium{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 26px;          /* makes it bigger and nicer */
+    border-radius: 999px;        /* perfect pill shape */
+    text-decoration: none;
+
+    background: #ffffff;         /* white */
+    color: #111111;
+
+    border: 1px solid #e6e6e6;   /* light border */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+    font-weight: 800;
+    letter-spacing: 0.2px;
+
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+
+  .lux-premium:hover{
+    background: #f6f6f6;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+  }
+
+  html{ scroll-behavior: smooth; }
+
+.lux-trust{
+  background: radial-gradient(circle at top,#111,#000);
+  padding:60px 15px;
+  display:flex;
+  justify-content:center;
+}
+
+.lux-card{
+  width:100%;
+  max-width:520px;
+  background:linear-gradient(145deg,#111,#1a1a1a);
+  border-radius:20px;
+  padding:30px 20px;
+  text-align:center;
+  color:#fff;
+  box-shadow:0 0 40px rgba(255,193,7,0.15);
+  border:1px solid rgba(255,193,7,0.1);
+}
+
+.lux-card h2{
+  color:#ffc107;
+  font-size:22px;
+}
+
+.desc{
+  font-size:13px;
+  color:#ccc;
+  line-height:1.6;
+  margin:15px 0 25px;
+}
+
+.lux-stats{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.stat{
+  flex:1;
+  background:rgba(255,255,255,0.03);
+  padding:15px 10px;
+  border-radius:12px;
+}
+
+.stat h3{
+  color:#ffc107;
+  font-size:18px;
+}
+
+.stat p{
+  font-size:11px;
+  color:#aaa;
+}
+
+.benefit{
+  font-size:13px;
+  color:#ddd;
+  margin:20px 0;
+  line-height:1.6;
+}
+
+.lux-feedback{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.fb-btn{
+  flex:1;
+  padding:12px;
+  border-radius:12px;
+  border:none;
+  font-size:14px;
+  cursor:pointer;
+  background:#222;
+  color:#fff;
+  transition:0.3s;
+}
+
+.fb-btn.like:hover{
+  box-shadow:0 0 15px #25D366;
+}
+
+.fb-btn.dislike:hover{
+  box-shadow:0 0 15px #ff4d4d;
+}
+
+.fb-btn.active{
+  background:#ffc107;
+  color:#000;
+  font-weight:bold;
+}
+
+.lux-btn{
+  display:block;
+  width:100%;
+  padding:14px;
+  background:#ffc107;
+  color:#000;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+#luxToast{
+  position:fixed;
+  top:50%;           /* ← Center vertically */
+  left:50%;        /* ← CHANGE bottom to top */
+  bottom:auto;
+
+  transform:translateX(-50%) translateY(20px);
+  background:#25D366;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:20px;
+  font-size:13px;
+  opacity:0;
+  transition:0.4s;
+}
+
+#luxToast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+</style>
+
+<script>
+let clicked=false;
+
+function giveFeedback(type){
+  if(clicked) return;
+  clicked=true;
+
+  if(type==="like"){
+    document.getElementById("likeBtn").classList.add("active");
+  } else {
+    document.getElementById("dislikeBtn").classList.add("active");
+  }
+
+  let t=document.getElementById("luxToast");
+  t.classList.add("show");
+
+  setTimeout(()=>t.classList.remove("show"),2000);
+}
+</script>
+ 
 
 <style>
 
